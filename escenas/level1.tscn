@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://escenas/pelota.tscn" id="1_4qq41"]
-[ext_resource type="Script" path="res://escenas/level1.gd" id="1_gxv04"]
+[ext_resource type="Script" path="res://scripts/level1.gd" id="1_gxv04"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ydjqb"]
 size = Vector3(20, 1, 20)

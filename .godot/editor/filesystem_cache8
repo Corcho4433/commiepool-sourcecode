@@ -1,0 +1,13 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1712784998
+icon.svg::CompressedTexture2D::8208639071365591023::1712763876::1712763904::1::::<><>::
+::res://escenas/::1712769460
+level1.gd::GDScript::-1::1712769460::0::1::::<>Node3D<>::
+level1.tscn::PackedScene::657469277710268642::1712769460::0::1::::<><>::uid://sp1w1csj6psn::::res://escenas/pelota.tscn<>res://escenas/level1.gd
+pelota.tscn::PackedScene::1295984150601128949::1712769460::0::1::::<><>::
+::res://recursos/::1712784694
+::res://recursos/materiales/::1712767298
+azul_claro.tres::StandardMaterial3D::4217752557888193388::1712767298::0::1::::<><>::
+::res://recursos/meshes/::1712767268
+::res://recursos/texturas/::1712784694
+::res://scripts/::1712764004
