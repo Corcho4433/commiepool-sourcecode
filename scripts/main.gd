@@ -20,7 +20,7 @@ func generate_balls():
 	for col in range(5):
 		rows -= 1
 		for row in range(rows):
-			var ball_material = load("res://recursos/materiales/" + ball_array.CurrentArray[index] + ".tres")
+			var ball_material = load("res://resources/materiales/" + ball_array.CurrentArray[index] + ".tres")
 			var b = ball_scene.instantiate()
 			var new_position = Vector3(ofsetX + (col*dia) , 0 , ofsetZ + (row*dia) + (col * dia / 2) ) 
 			add_child(b)
