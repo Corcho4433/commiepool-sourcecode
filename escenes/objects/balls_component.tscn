@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr4o1c1w4kdbw"]
+
+[ext_resource type="Script" path="res://scripts/Components/BallsComponent.gd" id="1_1mjmp"]
+
+[node name="BallsComponent" type="Node"]
+script = ExtResource("1_1mjmp")
