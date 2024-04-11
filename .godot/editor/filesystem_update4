@@ -1,3 +1,6 @@
-res://escenes/level1.tscn
-res://scripts/level1.gd
 res://escenes/GameEscene.tscn
+res://escenes/objects/ball.tscn
+res://components/ballClass.gd
+res://components/ballsArray.gd
+res://scripts/main.gd
+res://escenes/ball_class.tscn

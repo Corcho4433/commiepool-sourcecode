@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var ball_scene : PackedScene
-@export var ball_array : BallsComponent
+@export var ball_array : BallsArray
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,11 +20,12 @@ func generate_balls():
 	for col in range(5):
 		rows -= 1
 		for row in range(rows):
-			var ball_material = load("res://resources/materiales/" + ball_array.CurrentArray[index] + ".tres")
 			var b = ball_scene.instantiate()
-			var new_position = Vector3(ofsetX + (col*dia) , 0 , ofsetZ + (row*dia) + (col * dia / 2) ) 
+			var new_position = Vector3(ofsetX + (col*dia) , 0 , ofsetZ + (row*dia) + (col * dia / 2) )
+			var newBallObject = BallObject.new() 
 			add_child(b)
-			b.get_node("MeshInstance3D").set_surface_override_material(0,ball_material)
+			b.add_child(newBallObject)
+			newBallObject.create_ball(1, ball_array.CurrentArray[index], "nashe", "nashe")
 			b.position = new_position
 			index += 1
 		

@@ -1,5 +1,5 @@
-BallsComponent
 Node
+BallsComponent
 CollisionShape3D
 MeshInstance3D
 DirectionalLight3D
