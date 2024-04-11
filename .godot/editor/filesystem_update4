@@ -1,14 +1,3 @@
 res://escenas/level1.tscn
 res://recursos/materiales/azul_claro.tres
-res://scripts/Components/BallsComponent.gd
-res://scripts/level1.gd
-res://escenes/level1.tscn
-res://escenes/objects/balls_component.tscn
-res://recursos/materiales/Ball1.tres
-res://recursos/materiales/Ball3.tres
-res://recursos/materiales/Ball2.tres
-res://recursos/materiales/Ball5.tres
-res://recursos/materiales/Ball8.tres
-res://recursos/materiales/Ball7.tres
-res://recursos/materiales/Ball4.tres
-res://recursos/materiales/Ball6.tres
+res://escenas/pelota.tscn
