@@ -1,4 +1,6 @@
 extends Node3D
+class_name PoolTable
+
 
 @export var ball_scene : PackedScene
 @export var ball_array : BallsArray
@@ -14,24 +16,26 @@ func new_game():
 func generate_balls():
 	var rows : int = 6
 	var dia = 0.5
-	var ofsetX = -3
-	var ofsetZ = -3
-	var index = 0
+	var ofsetX = -1
+	var ofsetZ = -5
+	var index = 0 
 	for col in range(5):
-		rows -= 1
-		for row in range(rows):
+		rows -= 1 
+		for row in range(rows): 
 			var b = ball_scene.instantiate()
-			var new_position = Vector3(ofsetX + (col*dia) , 0 , ofsetZ + (row*dia) + (col * dia / 2) )
+			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), 0 , ofsetZ + (col*dia))
 			var newBallObject = BallObject.new() 
 			add_child(b)
 			b.add_child(newBallObject)
 			newBallObject.create_ball(1, ball_array.GetStartingArray()[index], "nashe", index)
 			b.position = new_position
 			index += 1
+
+func delete_balls():
+	pass
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("click"):
-		print(ball_array.CurrentArray.pick_random())
-	
+		ball_array.ChangeArray(randi_range(1,15),ball_array.CurrentArray.pick_random())
 	pass
