@@ -2,10 +2,11 @@ extends Node
 class_name  BallsArray
 
 
-var CurrentArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
+var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
+var CurrentArray : Array
 
-func ChangeArray(index: int, NewBall: String):
-	CurrentArray[index] = NewBall
+func ChangeArray(index: int, NewBall: BallObject):
+	CurrentArray.append(NewBall) 
 
-func GetArray():
-	return CurrentArray
+func GetStartingArray():
+	return StartingArray

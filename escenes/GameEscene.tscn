@@ -12,6 +12,7 @@ ball_array = NodePath("BallsComponent")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.96391, 0)
+current = true
 
 [node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
 

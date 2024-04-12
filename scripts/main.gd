@@ -25,7 +25,7 @@ func generate_balls():
 			var newBallObject = BallObject.new() 
 			add_child(b)
 			b.add_child(newBallObject)
-			newBallObject.create_ball(1, ball_array.CurrentArray[index], "nashe", "nashe")
+			newBallObject.create_ball(1, ball_array.GetStartingArray()[index], "nashe", index)
 			b.position = new_position
 			index += 1
 		
