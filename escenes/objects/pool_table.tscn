@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://tkhkinj6x1va"]
 
-[ext_resource type="ArrayMesh" uid="uid://cd3wg8rkhpoff" path="res://resources/meshes/mesa_pool.obj" id="1_tgx60"]
+[ext_resource type="ArrayMesh" uid="uid://i1iwdm20pq6b" path="res://resources/meshes/habitacion_pool.obj" id="1_nxdwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u7icf"]
 margin = 0.0
@@ -12,8 +12,8 @@ metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.80428, 0)
-mesh = ExtResource("1_tgx60")
+mesh = ExtResource("1_nxdwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.0071404, -0.23973, 0.00187305)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.00824988, -0.184685, -0.0217004)
 shape = SubResource("BoxShape3D_u7icf")

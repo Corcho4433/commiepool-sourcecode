@@ -1,9 +1,8 @@
-res://escenes/GameEscene.tscn
+res://escenes/mainmenu.tscn
 res://scripts/mainmenu.gd
+res://escenes/GameEscene.tscn
 res://escenes/ball_class.tscn
 res://escenes/objects/ball.tscn
 res://escenes/objects/pool_table.tscn
 res://scripts/main.gd
-res://resources/materiales/Ball1.tres
-res://components/ballClass.gd
-res://escenes/objects/pool_table.gd
+res://escenes/ruleta.tscn
