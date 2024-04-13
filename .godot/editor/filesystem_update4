@@ -1,9 +1,4 @@
 res://escenes/ball_class.tscn
 res://scripts/mainmenu.gd
-res://components/ballsArray.gd
-res://scripts/main.gd
-res://escenes/GameEscene.tscn
 res://escenes/objects/ball.tscn
-res://components/ballClass.gd
-res://components/ballObject.gd
-res://components/ballArray.gd
+res://escenes/GameEscene.tscn
