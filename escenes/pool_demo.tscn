@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm5k65lja87s2"]
-
-[ext_resource type="PackedScene" uid="uid://crxue8srpvk1m" path="res://resources/meshes/pool_demo.blend" id="1_60pyn"]
-
-[node name="pool_demo" instance=ExtResource("1_60pyn")]

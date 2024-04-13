@@ -1,6 +1,7 @@
-BallObject
+SpotLight3D
 Node3D
 MeshInstance3D
+Node
 CollisionShape3D
 DirectionalLight3D
 StaticBody3D
