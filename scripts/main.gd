@@ -15,6 +15,9 @@ func new_game():
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("click"):
-		ball_array.ChangeArray(randi_range(1,15),ball_array.CurrentArray.pick_random())
+	if Input.is_action_just_pressed("LeftClick"):
+		ball_array.GenerateBalls()
+		ball_array.SpawnBalls()
+	if Input.is_action_just_pressed("RightClick"):
+		ball_array.DeleteBalls()
 	pass

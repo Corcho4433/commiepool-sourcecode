@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
 [ext_resource type="Script" path="res://components/ballArray.gd" id="4_7f1v5"]
 
-[node name="GameEscene" type="Node3D" node_paths=PackedStringArray("PoolTableGame")]
+[node name="GameEscene" type="Node3D" node_paths=PackedStringArray("ball_array")]
 script = ExtResource("1_1s41a")
 ball_array = NodePath("BallsComponent")
 
