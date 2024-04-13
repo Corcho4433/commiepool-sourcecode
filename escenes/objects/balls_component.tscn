@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dr4o1c1w4kdbw"]
 
-[ext_resource type="Script" path="res://components/ballsArray.gd" id="1_1mjmp"]
+[ext_resource type="Script" path="res://components/ballObject.gd" id="1_1mjmp"]
 
 [node name="BallsComponent" type="Node"]
 script = ExtResource("1_1mjmp")

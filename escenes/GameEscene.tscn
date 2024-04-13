@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=4 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1s41a"]
-[ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://escenes/objects/ball.tscn" id="2_tia2l"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
-[ext_resource type="Script" path="res://escenes/objects/pool_table.gd" id="3_yqa1x"]
-[ext_resource type="Script" path="res://components/ballsArray.gd" id="4_143r1"]
+[ext_resource type="Script" path="res://components/ballArray.gd" id="4_7f1v5"]
 
 [node name="GameEscene" type="Node3D" node_paths=PackedStringArray("ball_array")]
 script = ExtResource("1_1s41a")
-ball_scene = ExtResource("2_tia2l")
 ball_array = NodePath("BallsComponent")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -17,11 +14,10 @@ current = true
 
 [node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.0508201, 0)
-script = ExtResource("3_yqa1x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 9.67869, 0)
 shadow_enabled = true
 
 [node name="BallsComponent" type="Node" parent="."]
-script = ExtResource("4_143r1")
+script = ExtResource("4_7f1v5")
