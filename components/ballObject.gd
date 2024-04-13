@@ -4,9 +4,11 @@ class_name BallObject
 var ballScene : PackedScene = load("res://escenes/objects/ball.tscn")
 var ballName : String
 var ballMass : float
-var ballTexture
+var ballTexture : Material
 var ballPosition : Vector3
 var spawned : bool
+var ballCollisionShape : CollisionShape3D 
+var ballMesh : MeshInstance3D 
 
 func setBallName(newBallName : String):
 	ballName = newBallName
@@ -14,8 +16,9 @@ func setBallName(newBallName : String):
 func setBallMass(newBallMass : float):
 	ballMass = newBallMass
 	
-func setBallTexture(newBallTexture):
+func setBallTexture(newBallTexture : Material):
 	ballTexture = newBallTexture
+	ballMesh.set_surface_override_material(0,ballTexture)
 	
 
 func setBallPosition(newBallPosition : Vector3):
@@ -31,8 +34,8 @@ func get_ballName():
 	
 func spawnBall():
 	var ball = ballScene.instantiate()
-	var ballCollision : CollisionShape3D = ball.get_node("CollisionShape3D")
-	var ballMesh : MeshInstance3D = ball.get_node("MeshInstance3D")
+	ballCollisionShape = ball.get_node("CollisionShape3D")
+	ballMesh =  ball.get_node("MeshInstance3D") 
 	spawned = true
 	ballMesh.set_surface_override_material(0,self.get_texture(ballName))
 	add_child(ball)

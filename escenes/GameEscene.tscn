@@ -9,15 +9,13 @@ script = ExtResource("1_1s41a")
 ball_array = NodePath("BallsComponent")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 7.96391, 0)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.713383, 0)
 current = true
 
 [node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.0508201, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 9.67869, 0)
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 4.98076, 0)
 
 [node name="BallsComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")

@@ -11,9 +11,9 @@ func GetStartingArray():
 	
 func GenerateBalls():
 	var rows : int = 6
-	var dia = 0.5
-	var ofsetX = -1
-	var ofsetZ = -5
+	var dia = 0.05
+	var ofsetX = 0
+	var ofsetZ = 0
 	var index = 0
 	for col in range(5):
 		rows -= 1 
@@ -24,7 +24,6 @@ func GenerateBalls():
 			newBallObject.setBallName(StartingArray[index])
 			newBallObject.setBallMass(1)
 			newBallObject.setBallPosition(new_position)
-			newBallObject.setBallTexture("dea")
 			CurrentArray.append(newBallObject)
 			index += 1
 
@@ -44,7 +43,6 @@ func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float 
 	var ball : BallObject = CurrentArray[index]
 	ball.setBallName(newBallName)
 	ball.setBallMass(1)
-	ball.setBallTexture(newBallTexture)
 	pass
 	
 	

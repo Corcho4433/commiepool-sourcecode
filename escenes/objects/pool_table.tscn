@@ -1,19 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://tkhkinj6x1va"]
+[gd_scene load_steps=5 format=3 uid="uid://tkhkinj6x1va"]
 
 [ext_resource type="ArrayMesh" uid="uid://i1iwdm20pq6b" path="res://resources/meshes/habitacion_pool.obj" id="1_nxdwl"]
+[ext_resource type="Shape3D" uid="uid://bdc3d3u57i7ub" path="res://resources/shapes/pool_table.tres" id="2_423cj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u7icf"]
-margin = 0.0
-size = Vector3(1, 0.222305, 2.17635)
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt8lb"]
+size = Vector3(0.98291, 0.363434, 1.72433)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7rud7"]
+size = Vector3(0.829, 0.363, 4.24002)
 
 [node name="PoolTable" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0508201, 0)
-metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.80428, 0)
 mesh = ExtResource("1_nxdwl")
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.00824988, -0.184685, -0.0217004)
-shape = SubResource("BoxShape3D_u7icf")
+[node name="TableCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00854492, -0.318283, 0.0139618)
+shape = SubResource("BoxShape3D_rt8lb")
+
+[node name="WallCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171642, -0.246811, -1.00986)
+shape = ExtResource("2_423cj")
+
+[node name="WallCollision2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00108194, -0.246811, 1.01848)
+shape = ExtResource("2_423cj")
+
+[node name="WallCollision3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.551652, -0.242759, 0.471764)
+shape = ExtResource("2_423cj")
+
+[node name="WallCollision4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.547773, -0.246811, 0.476963)
+shape = ExtResource("2_423cj")
+
+[node name="WallCollision5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.555414, -0.239221, -0.478493)
+shape = ExtResource("2_423cj")
+
+[node name="WallCollision6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.551719, -0.246811, -0.480004)
+shape = ExtResource("2_423cj")
+
+[node name="TableCollision2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, -0.318, -0.786146)
+shape = SubResource("BoxShape3D_7rud7")
+
+[node name="TableCollision3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, -0.318, -1.04666)
+shape = SubResource("BoxShape3D_7rud7")

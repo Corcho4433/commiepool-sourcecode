@@ -1,9 +1,12 @@
+RayCast3D
+CollisionShape3D
+CollisionPolygon3D
+DirectionalLight3D
+CSGCylinder3D
 SpotLight3D
 Node3D
 MeshInstance3D
 Node
-CollisionShape3D
-DirectionalLight3D
 StaticBody3D
 Camera3D
 RigidBody3D
