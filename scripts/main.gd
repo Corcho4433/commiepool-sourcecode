@@ -14,9 +14,9 @@ func new_game():
 
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
-	if Input.is_action_just_pressed("LeftClick"):
+	if Input.is_action_just_pressed("SpawnBalls"):
 		ball_array.GenerateBalls()
 		ball_array.SpawnBalls()
 	if Input.is_action_just_pressed("RightClick"):

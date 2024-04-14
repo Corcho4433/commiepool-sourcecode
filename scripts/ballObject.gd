@@ -9,6 +9,7 @@ var ballPosition : Vector3
 var spawned : bool
 var ballCollisionShape : CollisionShape3D 
 var ballMesh : MeshInstance3D 
+var ballRigidBody : RigidBody3D
 
 func setBallName(newBallName : String):
 	ballName = newBallName
@@ -36,6 +37,7 @@ func spawnBall():
 	var ball = ballScene.instantiate()
 	ballCollisionShape = ball.get_node("CollisionShape3D")
 	ballMesh =  ball.get_node("MeshInstance3D") 
+	ballRigidBody = ball
 	spawned = true
 	ballMesh.set_surface_override_material(0,self.get_ballTexture(ballName))
 	add_child(ball)

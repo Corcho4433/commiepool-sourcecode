@@ -4,12 +4,13 @@
 [ext_resource type="Shape3D" uid="uid://bdc3d3u57i7ub" path="res://resources/shapes/pool_table.tres" id="2_423cj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xip2e"]
-friction = 0.2
+friction = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt8lb"]
 size = Vector3(1.03053, 0.363434, 1.86058)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pokv6"]
+friction = 0.0
 bounce = 0.6
 
 [node name="PoolTable" type="StaticBody3D"]
@@ -22,11 +23,9 @@ metadata/_edit_lock_ = true
 
 [node name="TableCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00540406, -0.323083, 0.0136079)
-visible = false
 shape = SubResource("BoxShape3D_rt8lb")
 
 [node name="Walls" type="StaticBody3D" parent="."]
-visible = false
 physics_material_override = SubResource("PhysicsMaterial_pokv6")
 
 [node name="WallCollision6" type="CollisionShape3D" parent="Walls"]

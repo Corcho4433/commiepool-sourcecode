@@ -3,14 +3,13 @@
 [ext_resource type="ArrayMesh" uid="uid://u5tyjo2jyfcr" path="res://resources/meshes/bolas_pool.obj" id="1_ktakn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avylx"]
-friction = 0.03
+friction = 0.14
+bounce = 0.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ndp0"]
 radius = 0.0290583
 
 [node name="pelota" type="RigidBody3D"]
-collision_layer = 3
-collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_avylx")
 metadata/_edit_group_ = true
 

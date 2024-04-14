@@ -1,9 +1,11 @@
 res://escenes/GameEscene.tscn
 res://scripts/mainmenu.gd
-res://components/ballArray.gd
 res://escenes/objects/ball.tscn
 res://escenes/objects/pool_table.tscn
-res://components/ballObject.gd
-res://scripts/main.gd
-res://scripts/HoleDetector.gd
 res://escenes/objects/balls_component.tscn
+res://scripts/CueComponent.gd
+res://scripts/main.gd
+res://scripts/ballArray.gd
+res://scripts/Camera3D.gd
+res://resources/shapes/pool_table.tres
+res://scripts/ballObject.gd

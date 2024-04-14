@@ -6,6 +6,9 @@ var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14"
 var CurrentArray : Array
 
 
+
+
+
 func GetStartingArray():
 	return StartingArray
 	
@@ -57,9 +60,12 @@ func DeleteBall(ball : BallObject):
 	ball.deleteBall()
 	CurrentArray.pop_at(pos)
 
-
-
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(body : RigidBody3D):
 	#se activa cuando una pelota sale de la pantalla
+	if body.name == "CueBall": 
+		body.position = Vector3(0,-0.038,0.576)
+		body.linear_velocity = Vector3(0,0,0)
+		body.angular_velocity = Vector3(0,0,0)
+		return
 	var ball = body.get_parent()
-	self.DeleteBall(ball)
+	DeleteBall(ball)
