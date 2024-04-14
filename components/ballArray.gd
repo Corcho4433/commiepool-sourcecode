@@ -12,13 +12,13 @@ func GetStartingArray():
 func GenerateBalls():
 	var rows : int = 6
 	var dia = 0.05
-	var ofsetX = 0
-	var ofsetZ = 0
+	var ofsetX = -0.1
+	var ofsetZ = -0.65
 	var index = 0
 	for col in range(5):
 		rows -= 1 
 		for row in range(rows): 
-			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), 0 , ofsetZ + (col*dia))
+			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
 			var newBallObject = BallObject.new()
 			add_child(newBallObject)
 			newBallObject.setBallName(StartingArray[index])
@@ -43,6 +43,23 @@ func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float 
 	var ball : BallObject = CurrentArray[index]
 	ball.setBallName(newBallName)
 	ball.setBallMass(1)
+	ball.setBallTexture(load("res://resources/materiales/Ball14.tres"))
 	pass
 	
+func VisibilityTogle(visibility : bool):
+	for ball : BallObject in CurrentArray:
+		if ball.spawned == true:
+			ball.get_node("pelota").visible = visibility
 	
+
+func DeleteBall(ball : BallObject):
+	var pos = CurrentArray.find(ball)
+	ball.deleteBall()
+	CurrentArray.pop_at(pos)
+
+
+
+func _on_area_3d_body_entered(body):
+	#se activa cuando una pelota sale de la pantalla
+	var ball = body.get_parent()
+	self.DeleteBall(ball)

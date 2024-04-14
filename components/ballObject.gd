@@ -18,14 +18,14 @@ func setBallMass(newBallMass : float):
 	
 func setBallTexture(newBallTexture : Material):
 	ballTexture = newBallTexture
-	ballMesh.set_surface_override_material(0,ballTexture)
+	ballMesh.set_surface_override_material(0,self.get_ballTexture(self.ballName))
 	
 
 func setBallPosition(newBallPosition : Vector3):
 	ballPosition = newBallPosition
 	
 
-func get_texture(ballTexture : String):
+func get_ballTexture(ballTexture : String):
 	var newBallTexture = load("res://resources/materiales/" + ballTexture + ".tres")
 	return newBallTexture
 	
@@ -37,7 +37,7 @@ func spawnBall():
 	ballCollisionShape = ball.get_node("CollisionShape3D")
 	ballMesh =  ball.get_node("MeshInstance3D") 
 	spawned = true
-	ballMesh.set_surface_override_material(0,self.get_texture(ballName))
+	ballMesh.set_surface_override_material(0,self.get_ballTexture(ballName))
 	add_child(ball)
 	ball.position = ballPosition
 
