@@ -7,7 +7,7 @@
 friction = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt8lb"]
-size = Vector3(1.03053, 0.363434, 1.86058)
+size = Vector3(1.03053, 0.363434, 2.11554)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pokv6"]
 friction = 0.0
@@ -22,7 +22,7 @@ mesh = ExtResource("1_nxdwl")
 metadata/_edit_lock_ = true
 
 [node name="TableCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00540406, -0.323083, 0.0136079)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00540406, -0.323083, -0.0409289)
 shape = SubResource("BoxShape3D_rt8lb")
 
 [node name="Walls" type="StaticBody3D" parent="."]
@@ -33,7 +33,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5517
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision5" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.555414, -0.239221, -0.478493)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.55379, -0.219648, -0.470002)
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision4" type="CollisionShape3D" parent="Walls"]

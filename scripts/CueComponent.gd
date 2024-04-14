@@ -23,9 +23,16 @@ func _process(_delta):
 
 func getStrokePower(ballPos: Vector3,mousePos: Vector3):
 	var posDifference = ballPos - mousePos
-	var forceMultiplier = 1000
+	var forceMultiplier = 300
+	var maxForce = 200
+	var xForce = forceMultiplier * posDifference[0]
+	var zForce = forceMultiplier * posDifference[2]
+	if xForce >= maxForce: xForce = maxForce 
+	if zForce >= maxForce: zForce = maxForce
+	if zForce < 0 and zForce <= maxForce * -1: zForce = maxForce * -1
+	if xForce < 0 and xForce <= maxForce * -1: xForce = maxForce * -1
 	posDifference[1] = 0
-	cueBall.apply_force(Vector3(posDifference[0]* forceMultiplier,0,posDifference[2]*forceMultiplier),posDifference)
+	cueBall.apply_force(Vector3(xForce,0,zForce),posDifference)
 	pass
 
 
