@@ -9,7 +9,7 @@ bounce = 0.6
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ndp0"]
 radius = 0.0290583
 
-[node name="pelota" type="RigidBody3D"]
+[node name="pelota" type="RigidBody3D" groups=["allBalls"]]
 physics_material_override = SubResource("PhysicsMaterial_avylx")
 metadata/_edit_group_ = true
 

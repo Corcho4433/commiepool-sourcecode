@@ -1,7 +1,11 @@
 extends Node3D
 class_name PoolTable
-@export var ball_array : BallsArray
-var active = true
+@onready
+var ball_array : BallsArray = get_node("BallArrayComponent")
+@onready
+var cue_component : CueObject = get_node("CueComponent")
+var active : bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ball_array.GenerateBalls()
@@ -16,6 +20,8 @@ func new_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
+	cue_component.active =  ball_array.checkMovement()
+	
 	if Input.is_action_just_pressed("SpawnBalls"):
 		ball_array.GenerateBalls()
 		ball_array.SpawnBalls()
@@ -28,8 +34,8 @@ func _process(_delta):
 			ball_array.ChangeBall(randi_range(1,longitud), "Ball" + str(randi_range(1,15)))
 		
 	if Input.is_action_just_pressed("VisibiltyToggle"):
-		ball_array.VisibilityTogle(active)
 		active = !active
-	
+		ball_array.VisibilityTogle(active)
+		
 
 	pass

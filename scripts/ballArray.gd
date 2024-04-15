@@ -4,9 +4,7 @@ class_name  BallsArray
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
 var CurrentArray : Array
-
-
-
+var MovementThreshold : float = 0.05
 
 
 func GetStartingArray():
@@ -59,6 +57,13 @@ func DeleteBall(ball : BallObject):
 	var pos = CurrentArray.find(ball)
 	ball.deleteBall()
 	CurrentArray.pop_at(pos)
+	
+func checkMovement():
+	var allBalls = get_tree().get_nodes_in_group("allBalls")
+	for ballRigidBody : RigidBody3D in allBalls:
+		if ballRigidBody.linear_velocity.length() > MovementThreshold:
+			return false
+	return true
 
 func _on_area_3d_body_entered(body : RigidBody3D):
 	#se activa cuando una pelota sale de la pantalla
