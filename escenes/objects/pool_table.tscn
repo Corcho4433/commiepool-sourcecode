@@ -468,7 +468,7 @@ shape = SubResource("BoxShape3D_rt8lb")
 physics_material_override = SubResource("PhysicsMaterial_pokv6")
 
 [node name="WallCollision6" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.551719, -0.246811, -0.480004)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.524105, -0.246811, -0.480004)
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision5" type="CollisionShape3D" parent="Walls"]
@@ -476,11 +476,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.553
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision4" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.547773, -0.246811, 0.476963)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.577716, -0.246811, 0.476963)
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.551652, -0.242759, 0.471764)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.513457, -0.242759, 0.471764)
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision2" type="CollisionShape3D" parent="Walls"]

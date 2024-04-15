@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_i3wm0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/temas/botonesmenu.tres" id="2_3lknt"]
-[ext_resource type="ArrayMesh" uid="uid://i1iwdm20pq6b" path="res://resources/meshes/habitacion_pool.obj" id="2_6gjye"]
+[ext_resource type="ArrayMesh" uid="uid://cxlie34go4vn4" path="res://resources/meshes/habitacion_pool.obj" id="2_6gjye"]
 
 [node name="mainmenu" type="CanvasLayer"]
 script = ExtResource("1_i3wm0")

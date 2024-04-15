@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=8 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1s41a"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
@@ -10,6 +10,13 @@
 map_width = 16
 map_depth = 16
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eot5k"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="GameEscene" type="Node3D" node_paths=PackedStringArray("ball_array")]
 script = ExtResource("1_1s41a")
@@ -43,9 +50,16 @@ script = ExtResource("4_7f1v5")
 [node name="CueComponent" type="Node" parent="."]
 script = ExtResource("5_e2yek")
 
-[node name="ProgressBar" type="ProgressBar" parent="CueComponent"]
-offset_right = 193.0
-offset_bottom = 134.0
+[node name="RichTextLabel" type="RichTextLabel" parent="CueComponent"]
+offset_left = 139.0
+offset_top = 131.0
+offset_right = 207.0
+offset_bottom = 157.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eot5k")
+bbcode_enabled = true
+text = "[center] 0%"
+fit_content = true
+scroll_active = false
 
 [connection signal="body_entered" from="PoolTable/HoleCollision" to="BallArrayComponent" method="_on_area_3d_body_entered"]
 [connection signal="input_event" from="PoolTable/CueBall" to="CueComponent" method="_on_cue_ball_input_event"]
