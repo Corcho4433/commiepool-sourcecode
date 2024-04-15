@@ -1,4 +1,4 @@
-# Blender 4.1.0 MTL File: 'habitacion_pool.blend'
+# Blender 4.1.0 MTL File: 'Habitacion_pool.blend'
 # www.blender.org
 
 newmtl Material.001
@@ -9,7 +9,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/Usuario/Desktop/Downloads/Russian rug.jpg
+map_Kd D:/Downloads/Russian rug.jpg
 
 newmtl Material.002
 Ns 250.000000
@@ -19,4 +19,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/Usuario/Desktop/commiepool-sourcecode/resources/Blender ref/poster.jpg
+map_Kd D:/Blender ref/poster.jpg
