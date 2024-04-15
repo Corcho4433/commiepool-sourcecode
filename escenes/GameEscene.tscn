@@ -43,5 +43,9 @@ script = ExtResource("4_7f1v5")
 [node name="CueComponent" type="Node" parent="."]
 script = ExtResource("5_e2yek")
 
+[node name="ProgressBar" type="ProgressBar" parent="CueComponent"]
+offset_right = 193.0
+offset_bottom = 134.0
+
 [connection signal="body_entered" from="PoolTable/HoleCollision" to="BallArrayComponent" method="_on_area_3d_body_entered"]
 [connection signal="input_event" from="PoolTable/CueBall" to="CueComponent" method="_on_cue_ball_input_event"]
