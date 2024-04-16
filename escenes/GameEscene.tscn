@@ -56,6 +56,7 @@ script = ExtResource("4_7f1v5")
 script = ExtResource("5_e2yek")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CueComponent"]
+visible = false
 offset_left = 139.0
 offset_top = 131.0
 offset_right = 207.0

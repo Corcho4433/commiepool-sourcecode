@@ -51,7 +51,7 @@ func _process(_delta):
 		oldpercentage = percentage
 	if Input.is_action_just_released("LeftClick") and action == true:
 		action = false
-		chargeBar.position = Vector2(139,131)
+		chargeBar.visible = false
 		applyStrokePower()
 	pass
 
@@ -71,6 +71,7 @@ func displayCueStick():
 func displayChargeText():
 	var tags : String
 	percentage = int((distance / maxDistance) * 100)
+	chargeBar.visible = true
 	chargeBar.position = abs(Vector2(get_viewport().get_mouse_position())) * 1.03
 	if oldpercentage == percentage: return
 	if percentage >= 0 and percentage < 20:
