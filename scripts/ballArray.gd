@@ -4,7 +4,7 @@ class_name  BallsArray
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
 var CurrentArray : Array
-var MovementThreshold : float = 0.05
+var MovementThreshold : float = 0.01
 
 
 func GetStartingArray():
@@ -71,6 +71,17 @@ func _on_area_3d_body_entered(body : RigidBody3D):
 		body.position = Vector3(0,-0.038,0.576)
 		body.linear_velocity = Vector3(0,0,0)
 		body.angular_velocity = Vector3(0,0,0)
+		body.set_collision_mask_value(1,true)
 		return
 	var ball = body.get_parent()
 	DeleteBall(ball)
+
+
+
+
+func _on_hole_collision_2_body_entered(body):
+	print(body.name)
+	print(body.name == "pelota")
+	if body.name == "pelota" or body.name == "CueBall":
+		body.set_collision_mask_value(1,false)
+	pass # Replace with function body.

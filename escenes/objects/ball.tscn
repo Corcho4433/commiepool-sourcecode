@@ -10,6 +10,7 @@ bounce = 0.6
 radius = 0.0290583
 
 [node name="pelota" type="RigidBody3D" groups=["allBalls"]]
+collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_avylx")
 metadata/_edit_group_ = true
 
