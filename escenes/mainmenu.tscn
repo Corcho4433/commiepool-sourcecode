@@ -2,16 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_i3wm0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/temas/botonesmenu.tres" id="2_3lknt"]
-[ext_resource type="ArrayMesh" uid="uid://cxlie34go4vn4" path="res://resources/meshes/habitacion_pool.obj" id="2_6gjye"]
+[ext_resource type="PackedScene" uid="uid://da5ypfexu2h6g" path="res://resources/meshes/habitacion_pool.glb" id="2_svpwa"]
 
 [node name="mainmenu" type="CanvasLayer"]
 script = ExtResource("1_i3wm0")
 
 [node name="fondo" type="Node3D" parent="."]
 
-[node name="HabitacionPool" type="MeshInstance3D" parent="fondo"]
-mesh = ExtResource("2_6gjye")
-skeleton = NodePath("../..")
+[node name="habitacion_pool" parent="fondo" instance=ExtResource("2_svpwa")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="fondo"]
 transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, -0.000842579, 3.65618, -0.0237166)
