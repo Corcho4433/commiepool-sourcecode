@@ -20,7 +20,7 @@ func new_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	cue_component.active =  ball_array.checkMovement()
+	cue_component.isCueStickActive =  ball_array.checkMovement()
 	
 	if Input.is_action_just_pressed("SpawnBalls"):
 		ball_array.GenerateBalls()
@@ -36,6 +36,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("VisibiltyToggle"):
 		active = !active
 		ball_array.VisibilityTogle(active)
-		
-
 	pass
+
+
+

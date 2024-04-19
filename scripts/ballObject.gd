@@ -14,21 +14,22 @@ var ballRigidBody : RigidBody3D
 func setBallName(newBallName : String):
 	ballName = newBallName
 	
-func setBallMass(newBallMass : float):
+func setBallMass(newBallMass : float = 1):
 	ballMass = newBallMass
 	
 func setBallTexture(newBallTexture : Material):
 	ballTexture = newBallTexture
-	ballMesh.set_surface_override_material(0,self.get_ballTexture(self.ballName))
+
+func applyBallTexture(mesh):	
+	mesh.set_surface_override_material(0,ballTexture)
 	
 
 func setBallPosition(newBallPosition : Vector3):
 	ballPosition = newBallPosition
 	
 
-func get_ballTexture(ballTexture : String):
-	var newBallTexture = load("res://resources/materiales/" + ballTexture + ".tres")
-	return newBallTexture
+func get_ballTexture():
+	return ballTexture
 	
 func get_ballName():
 	return ballName
@@ -39,7 +40,7 @@ func spawnBall():
 	ballMesh =  ball.get_node("MeshInstance3D") 
 	ballRigidBody = ball
 	spawned = true
-	ballMesh.set_surface_override_material(0,self.get_ballTexture(ballName))
+	applyBallTexture(ballMesh)
 	add_child(ball)
 	ball.position = ballPosition
 

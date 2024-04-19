@@ -21,10 +21,13 @@ func GenerateBalls():
 		for row in range(rows): 
 			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
 			var newBallObject = BallObject.new()
+			var ballName = StartingArray[index]
+			var ballTexture = "res://resources/materiales/" + ballName + ".tres"
 			add_child(newBallObject)
-			newBallObject.setBallName(StartingArray[index])
-			newBallObject.setBallMass(1)
+			newBallObject.setBallName(ballName)
+			newBallObject.setBallMass()
 			newBallObject.setBallPosition(new_position)
+			newBallObject.setBallTexture(load(ballTexture))
 			CurrentArray.append(newBallObject)
 			index += 1
 
@@ -40,11 +43,11 @@ func DeleteBalls():
 			ball.deleteBall()
 	CurrentArray = []
 
-func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1, newBallTexture : String = "dea"):
+func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1, _newBallTexture : String = "dea"):
 	var ball : BallObject = CurrentArray[index]
 	ball.setBallName(newBallName)
-	ball.setBallMass(1)
-	ball.setBallTexture(load("res://resources/materiales/Ball14.tres"))
+	ball.setBallMass(newBallMass)
+	ball.setBallTexture(load("res://resources/materiales/"+newBallName+".tres"))
 	pass
 	
 func VisibilityTogle(visibility : bool):
@@ -65,9 +68,10 @@ func checkMovement():
 			return false
 	return true
 
-func _on_area_3d_body_entered(body : RigidBody3D):
-	#se activa cuando una pelota sale de la pantalla
-	if body.name == "CueBall": 
+
+
+func ball_exited_playable_area(body, isCueBall):
+	if isCueBall: 
 		body.position = Vector3(0,-0.038,0.576)
 		body.linear_velocity = Vector3(0,0,0)
 		body.angular_velocity = Vector3(0,0,0)
@@ -75,13 +79,9 @@ func _on_area_3d_body_entered(body : RigidBody3D):
 		return
 	var ball = body.get_parent()
 	DeleteBall(ball)
+	pass # Replace with function body.
 
 
-
-
-func _on_hole_collision_2_body_entered(body):
-	print(body.name)
-	print(body.name == "pelota")
-	if body.name == "pelota" or body.name == "CueBall":
-		body.set_collision_mask_value(1,false)
+func ball_entered_hole(body):
+	body.set_collision_mask_value(1,false)
 	pass # Replace with function body.

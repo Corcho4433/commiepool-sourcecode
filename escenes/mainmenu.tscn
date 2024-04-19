@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cuj7yrefy826n"]
 
-[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_i3wm0"]
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_i3wm0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/temas/botonesmenu.tres" id="2_3lknt"]
 [ext_resource type="ArrayMesh" uid="uid://cxlie34go4vn4" path="res://resources/meshes/habitacion_pool.obj" id="2_6gjye"]
 

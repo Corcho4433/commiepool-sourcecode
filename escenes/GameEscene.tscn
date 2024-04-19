@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=12 format=3 uid="uid://jmqom6qsejyo"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_1s41a"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_1s41a"]
+[ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
-[ext_resource type="Script" path="res://scripts/ballArray.gd" id="4_7f1v5"]
+[ext_resource type="Script" path="res://scripts/BallArray.gd" id="4_7f1v5"]
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://escenes/objects/ball.tscn" id="4_lnexn"]
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
+[ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -34,40 +36,42 @@ script = ExtResource("1_1s41a")
 [node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
 input_ray_pickable = false
 
-[node name="HoleCollision" type="Area3D" parent="PoolTable"]
+[node name="PlayableAreaCollision" type="Area3D" parent="PoolTable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0951779, 0)
 collision_priority = 5.0
+script = ExtResource("3_7pkmi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/PlayableAreaCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
 shape = SubResource("HeightMapShape3D_gydyj")
 
 [node name="CueBall" parent="PoolTable" instance=ExtResource("4_lnexn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378553, 0.575699)
 
-[node name="HoleCollision2" type="Area3D" parent="PoolTable"]
+[node name="HoleCollisionDisabler" type="Area3D" parent="PoolTable"]
+script = ExtResource("5_rf0n2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollision2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.605865, -0.126104, 0.00652567)
 shape = SubResource("SphereShape3D_63gom")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PoolTable/HoleCollision2"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552791, -0.126104, 0.00652567)
 shape = SubResource("SphereShape3D_63gom")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="PoolTable/HoleCollision2"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.539336, -0.126104, -0.963586)
 shape = SubResource("SphereShape3D_63gom")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="PoolTable/HoleCollision2"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, -0.963586)
 shape = SubResource("SphereShape3D_63gom")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="PoolTable/HoleCollision2"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, 0.975743)
 shape = SubResource("SphereShape3D_63gom")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="PoolTable/HoleCollision2"]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521354, -0.126104, 0.975743)
 shape = SubResource("SphereShape3D_63gom")
 
@@ -100,6 +104,6 @@ scroll_active = false
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_eik7x")
 
-[connection signal="body_entered" from="PoolTable/HoleCollision" to="BallArrayComponent" method="_on_area_3d_body_entered"]
+[connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
 [connection signal="input_event" from="PoolTable/CueBall" to="CueComponent" method="_on_cue_ball_input_event"]
-[connection signal="body_entered" from="PoolTable/HoleCollision2" to="BallArrayComponent" method="_on_hole_collision_2_body_entered"]
+[connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]

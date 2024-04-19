@@ -454,7 +454,7 @@ friction = 0.0
 bounce = 0.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_45u6u"]
-size = Vector3(0.0973206, 0.378052, 0.812256)
+size = Vector3(0.0973206, 0.677796, 0.812256)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0dqq"]
 size = Vector3(0.0805664, 0.422363, 0.201721)
@@ -494,11 +494,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558877, -0.0954924, 0.4713
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.0954924, -0.458255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.23396, -0.458255)
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.0954924, 0.474333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.245364, 0.474333)
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
