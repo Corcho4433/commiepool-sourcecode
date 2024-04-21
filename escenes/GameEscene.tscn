@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=13 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://escenes/objects/ball.tscn" id="4_lnexn"]
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
+[ext_resource type="Script" path="res://scripts/camarajuego.gd" id="6_63qka"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -76,11 +77,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521354, -0.126104, 0.97574
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.846551, 0)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.84, 0)
 current = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 4.98076, 0)
+script = ExtResource("6_63qka")
 
 [node name="BallArrayComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")
@@ -104,6 +103,27 @@ scroll_active = false
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_eik7x")
 
+[node name="Tienda" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 24
+text = "Tienda"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35292, 0.0158571)
+light_energy = 0.8
+shadow_enabled = true
+shadow_bias = 0.0
+omni_attenuation = 0.732043
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54008, -5.17547)
+light_energy = 0.8
+shadow_enabled = true
+shadow_bias = 0.0
+omni_attenuation = 0.732043
+
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
 [connection signal="input_event" from="PoolTable/CueBall" to="CueComponent" method="_on_cue_ball_input_event"]
 [connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
+[connection signal="pressed" from="Tienda" to="Camera3D" method="_on_tienda_pressed"]

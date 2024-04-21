@@ -4,20 +4,25 @@ class_name PoolTable
 var ball_array : BallsArray = get_node("BallArrayComponent")
 @onready
 var cue_component : CueObject = get_node("CueComponent")
+@onready
+var camera : Camera3D = get_node("Camera3D")
+
+
 var active : bool = true
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	ball_array.GenerateBalls()
 	new_game()
 	pass 
 
 func new_game():
+	ball_array.GenerateBalls()
 	ball_array.SpawnBalls()
 	
 
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
+
 func _process(_delta):
 	
 	cue_component.isCueStickActive =  ball_array.checkMovement()

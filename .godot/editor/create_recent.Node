@@ -1,3 +1,4 @@
+OmniLight3D
 Button
 Label
 CanvasLayer
@@ -12,4 +13,3 @@ RayCast3D
 Node
 CollisionPolygon3D
 DirectionalLight3D
-CSGCylinder3D

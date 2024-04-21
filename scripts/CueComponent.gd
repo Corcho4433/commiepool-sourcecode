@@ -27,9 +27,10 @@ var posDifference : Vector3
 var appliedForce : Vector3
 var direction : Vector3
 var distance : float
-var forceMultiplier : float = 400
-var forceVariation : float = 1.2
-var maxDistance : float = 0.4
+const FORCE_MULTIPLIER : float = 400
+const MAX_FORCE_VARIATION : float = 1.5
+const MIN_FORCE_VARIATION : float = 1
+const  MAX_DISTANCE : float = 0.4
 
 
 
@@ -65,7 +66,7 @@ func displayCueStick(ballDirection : Vector3):
 
 func displayChargeText():
 	var tags : String
-	chargeBarPercentage = int((distance / maxDistance) * 100)
+	chargeBarPercentage = int((distance / MAX_DISTANCE) * 100)
 	chargeBar.visible = true
 	chargeBar.position = abs(Vector2(get_viewport().get_mouse_position())) * 1.03
 	if oldChargeBarPercentage != chargeBarPercentage: 
@@ -88,12 +89,13 @@ func displayChargeText():
 	
 	
 func getStrokePower(ballPos: Vector3, mousePos: Vector3):
+	var forceVariation = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
 	posDifference = ballPos - mousePos
 	posDifference[1] = 0
 	distance = posDifference.length()
 	direction = posDifference.normalized()
-	if distance >= maxDistance: distance = maxDistance
-	appliedForce = direction * (forceMultiplier * distance) * randf_range(1,forceVariation)
+	if distance >= MAX_DISTANCE: distance = MAX_DISTANCE
+	appliedForce = direction * (FORCE_MULTIPLIER * distance) * forceVariation
 	return appliedForce
 
 
