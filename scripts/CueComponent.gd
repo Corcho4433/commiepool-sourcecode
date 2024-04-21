@@ -2,14 +2,16 @@ extends Node
 class_name CueObject
 
 
-var chargeBarPercentage : int
-var oldchargeBarPercentage : int
+
+
 @onready
 var cameraNode : Camera3D = get_node("../Camera3D")
 @onready
 var cueBall : RigidBody3D =  get_node("../PoolTable/CueBall")
 @onready
 var chargeBar : RichTextLabel = get_node("RichTextLabel")
+var chargeBarPercentage : int
+var oldChargeBarPercentage : int
 @onready
 var cueMesh : MeshInstance3D = get_node("CueMesh")
 
@@ -29,11 +31,6 @@ var forceMultiplier : float = 400
 var forceVariation : float = 1.2
 var maxDistance : float = 0.4
 
-
-func _ready():
-	
-
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,8 +68,8 @@ func displayChargeText():
 	chargeBarPercentage = int((distance / maxDistance) * 100)
 	chargeBar.visible = true
 	chargeBar.position = abs(Vector2(get_viewport().get_mouse_position())) * 1.03
-	if oldchargeBarPercentage != chargeBarPercentage: 
-		oldchargeBarPercentage = chargeBarPercentage
+	if oldChargeBarPercentage != chargeBarPercentage: 
+		oldChargeBarPercentage = chargeBarPercentage
 	else:
 		return
 	if chargeBarPercentage >= 0 and chargeBarPercentage < 20:
