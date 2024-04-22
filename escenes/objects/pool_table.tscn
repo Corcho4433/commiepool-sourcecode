@@ -37,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118417, -0.213578, 0.01717
 shape = SubResource("BoxShape3D_rt8lb")
 
 [node name="Walls" type="StaticBody3D" parent="."]
+collision_layer = 0
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_pokv6")
 
@@ -65,6 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.245364, 0.474333
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

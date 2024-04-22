@@ -1,3 +1,4 @@
+RayCast3D
 OmniLight3D
 Button
 Label
@@ -9,7 +10,5 @@ MeshInstance3D
 RichTextLabel
 ProgressBar
 Node3D
-RayCast3D
 Node
 CollisionPolygon3D
-DirectionalLight3D

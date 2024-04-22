@@ -31,7 +31,7 @@ bottom_radius = 0.02
 height = 0.8
 radial_segments = 63
 
-[node name="GameEscene" type="Node3D"]
+[node name="GameScene" type="Node3D"]
 script = ExtResource("1_1s41a")
 
 [node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
@@ -53,7 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378553, 0.575699)
 script = ExtResource("5_rf0n2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.605865, -0.126104, 0.00652567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.571981, -0.126104, 0.00652567)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
@@ -109,14 +109,15 @@ offset_bottom = 8.0
 theme_override_font_sizes/font_size = 24
 text = "Tienda"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="MainRoomLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35292, 0.0158571)
 light_energy = 0.8
 shadow_enabled = true
 shadow_bias = 0.0
+omni_range = 10.353
 omni_attenuation = 0.732043
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="RouleteLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54008, -5.17547)
 light_energy = 0.8
 shadow_enabled = true

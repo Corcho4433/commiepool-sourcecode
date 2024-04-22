@@ -25,7 +25,6 @@ func GenerateBalls():
 			var ballTexture = "res://resources/materiales/" + ballName + ".tres"
 			add_child(newBallObject)
 			newBallObject.setBallName(ballName)
-			newBallObject.setBallMass()
 			newBallObject.setBallPosition(new_position)
 			newBallObject.setBallTexture(load(ballTexture))
 			CurrentArray.append(newBallObject)
