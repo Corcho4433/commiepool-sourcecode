@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
-[ext_resource type="Script" path="res://scripts/BallArray.gd" id="4_7f1v5"]
+[ext_resource type="Script" path="res://scripts/ballArrays.gd" id="4_7f1v5"]
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://escenes/objects/ball.tscn" id="4_lnexn"]
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
