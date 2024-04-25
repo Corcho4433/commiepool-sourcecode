@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://jmqom6qsejyo"]
 
-[ext_resource type="Script" path="res://scripts/Main.gd" id="1_1s41a"]
+[ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
 [ext_resource type="Script" path="res://scripts/ballArrays.gd" id="4_7f1v5"]
