@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8q5mqp8nar3h"]
 
-[ext_resource type="PackedScene" uid="uid://b16hawl4drvp7" path="res://resources/meshes/ruleta.glb" id="1_b0vr6"]
+[ext_resource type="PackedScene" uid="uid://b16hawl4drvp7" path="res://resources/meshes/ruleta.glb" id="1_6asbt"]
 
 [node name="Ruleta" type="Node3D"]
 
-[node name="ruleta" parent="." instance=ExtResource("1_b0vr6")]
+[node name="ruleta" parent="." instance=ExtResource("1_6asbt")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.000980854, 1.80331, -0.0698206)
