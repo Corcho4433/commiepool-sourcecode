@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://tkhkinj6x1va"]
 
 [ext_resource type="PackedScene" uid="uid://da5ypfexu2h6g" path="res://resources/meshes/habitacion_pool.glb" id="1_danym"]
-[ext_resource type="PackedScene" uid="uid://b8q5mqp8nar3h" path="res://escenes/Ruleta.tscn" id="1_e51j8"]
+[ext_resource type="PackedScene" uid="uid://b8q5mqp8nar3h" path="res://escenes/ruleta.tscn" id="1_e51j8"]
 [ext_resource type="Shape3D" uid="uid://bdc3d3u57i7ub" path="res://resources/shapes/pool_table.tres" id="2_423cj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xip2e"]

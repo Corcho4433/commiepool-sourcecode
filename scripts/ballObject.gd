@@ -1,5 +1,5 @@
 extends Node
-class_name BallObject
+class_name BallsObject
 
 var ballScene : PackedScene = load("res://escenes/objects/ball.tscn")
 var ballName : String
