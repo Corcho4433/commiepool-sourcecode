@@ -61,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552791, -0.126104, 0.006525
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.539336, -0.126104, -0.963586)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502871, -0.126104, -0.96957)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]

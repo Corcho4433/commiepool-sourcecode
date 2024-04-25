@@ -39,12 +39,11 @@ func _process(_delta):
 	
 	cueMesh.visible = isCueStickUsed
 	
-	
 	if isCueStickActive == false or isCueStickUsed == false: return	
 	mousePosition = cameraNode.project_position(get_viewport().get_mouse_position(),1)
 	ballPosition = cueBall.position
 	getStrokePower(ballPosition,mousePosition)
-	displayCueStick(direction)
+	displayCueStick()
 	displayChargeText()
 	
 	if Input.is_action_just_released("LeftClick"):
@@ -57,12 +56,12 @@ func applyStrokePower():
 	cueBall.apply_force(appliedForce, Vector3.ZERO)
 
 
-func displayCueStick(ballDirection : Vector3):
-	var cueRotation = Vector3(1.5708,atan2(ballDirection.x,ballDirection.z),0)
-	var cuePosition = mousePosition + ballDirection * -0.45
-	cuePosition.y += 0.05
-	cueMesh.position = cuePosition
+func displayCueStick():
+	var cueRotation = Vector3(1.5708,atan2(direction.x,direction.z),0)
+	var minDistance = direction * -0.41
+	var cuePosition = ballPosition - (direction * distance) + minDistance
 	cueMesh.rotation = cueRotation
+	cueMesh.position = cuePosition
 
 func displayChargeText():
 	var tags : String
