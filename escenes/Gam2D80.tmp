@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://jmqom6qsejyo"]
+
+[ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
+[ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
+[ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://escenes/objects/pool_table.tscn" id="3_8ne0i"]
+[ext_resource type="Script" path="res://scripts/ballArrays.gd" id="4_7f1v5"]
+[ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://escenes/objects/ball.tscn" id="4_lnexn"]
+[ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
+[ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
+[ext_resource type="Script" path="res://scripts/camarajuego.gd" id="6_63qka"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
+map_width = 16
+map_depth = 16
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_63gom"]
+custom_solver_bias = 0.025
+radius = 0.05
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eot5k"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eik7x"]
+top_radius = 0.008
+bottom_radius = 0.02
+height = 0.8
+radial_segments = 63
+
+[node name="GameScene" type="Node3D"]
+script = ExtResource("1_1s41a")
+
+[node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
+input_ray_pickable = false
+
+[node name="PlayableAreaCollision" type="Area3D" parent="PoolTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0951779, 0)
+collision_priority = 5.0
+script = ExtResource("3_7pkmi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/PlayableAreaCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
+shape = SubResource("HeightMapShape3D_gydyj")
+
+[node name="CueBall" parent="PoolTable" instance=ExtResource("4_lnexn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378553, 0.575699)
+
+[node name="HoleCollisionDisabler" type="Area3D" parent="PoolTable"]
+script = ExtResource("5_rf0n2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.571981, -0.126104, 0.00652567)
+shape = SubResource("SphereShape3D_63gom")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552791, -0.126104, 0.00652567)
+shape = SubResource("SphereShape3D_63gom")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502871, -0.126104, -0.96957)
+shape = SubResource("SphereShape3D_63gom")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, -0.963586)
+shape = SubResource("SphereShape3D_63gom")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, 0.975743)
+shape = SubResource("SphereShape3D_63gom")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521354, -0.126104, 0.975743)
+shape = SubResource("SphereShape3D_63gom")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.84, 0)
+current = true
+script = ExtResource("6_63qka")
+
+[node name="BallArrayComponent" type="Node" parent="."]
+script = ExtResource("4_7f1v5")
+
+[node name="CueComponent" type="Node" parent="."]
+script = ExtResource("5_e2yek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CueComponent"]
+visible = false
+offset_left = 139.0
+offset_top = 131.0
+offset_right = 207.0
+offset_bottom = 157.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eot5k")
+bbcode_enabled = true
+text = "[center] 0%"
+fit_content = true
+scroll_active = false
+
+[node name="CueMesh" type="MeshInstance3D" parent="CueComponent"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_eik7x")
+
+[node name="Tienda" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 24
+text = "Tienda"
+
+[node name="MainRoomLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35292, 0.0158571)
+light_energy = 0.8
+shadow_enabled = true
+shadow_bias = 0.0
+omni_range = 10.353
+omni_attenuation = 0.732043
+
+[node name="RouleteLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54008, -5.17547)
+light_energy = 0.8
+shadow_enabled = true
+shadow_bias = 0.0
+omni_attenuation = 0.732043
+
+[connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
+[connection signal="input_event" from="PoolTable/CueBall" to="CueComponent" method="_on_cue_ball_input_event"]
+[connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
+[connection signal="pressed" from="Tienda" to="Camera3D" method="_on_tienda_pressed"]

@@ -18,16 +18,16 @@ var CameraDictionary = {
 var CameraState : String = "PoolTable"
 var CameraTransition: String
 
-
 func _on_tienda_pressed():
-	if CameraState == "PoolTable": 
+	var boton = get_node("../Tienda")
+	if CameraState == "PoolTable":
 		CameraState = "Shop"
 	else:
 		CameraState = "PoolTable"
-	
-	
+	boton.disabled = true
 	cameraTransition(CameraState)
-	pass 
+	await get_tree().create_timer(1.5).timeout
+	boton.disabled = false
 	
 func cameraTransition(state: String):
 	var tween = create_tween()
@@ -39,3 +39,4 @@ func cameraTransition(state: String):
 		var duration = CameraDictionary[state][step][2]
 		tween.tween_property(self,property, vector , duration)
 	pass
+
