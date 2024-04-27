@@ -1,5 +1,3 @@
-res://escenes/GameEscene.tscn
-res://escenes/objects/ball.tscn
 res://escenes/objects/pool_table.tscn
-res://escenes/mainmenu.tscn
-res://scripts/camarajuego.gd
+res://escenes/Mainmenu.tscn
+res://escenes/GameEscene.tscn
