@@ -1,5 +1,5 @@
 extends Node
-class_name BallsObject
+class_name BallObject
 
 var ballScene : PackedScene = load("res://escenes/objects/ball.tscn")
 var ballName : String
@@ -20,8 +20,8 @@ func setBallMass(newBallMass : float = 1):
 func setBallTexture(newBallTexture : Material):
 	ballTexture = newBallTexture
 
-func applyBallTexture(mesh):	
-	mesh.set_surface_override_material(0,ballTexture)
+func applyBallTexture():	
+	ballMesh.set_surface_override_material(0,ballTexture)
 	
 
 func setBallPosition(newBallPosition : Vector3):
@@ -40,16 +40,15 @@ func spawnBall():
 	ballMesh =  ball.get_node("MeshInstance3D") 
 	ballRigidBody = ball
 	spawned = true
-	applyBallTexture(ballMesh)
 	add_child(ball)
+	applyBallTexture()
 	ball.position = ballPosition
 
 
 func deleteBall():
-	spawned = false
-	get_node("pelota").free()
-	pass
+	queue_free()
 	
 func setVisibilityBall(newVisibility : bool):
 	if !spawned: return
 	get_node("pelota").visible = newVisibility
+

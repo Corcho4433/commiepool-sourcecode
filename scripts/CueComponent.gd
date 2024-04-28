@@ -21,7 +21,6 @@ var isCueStickActive : bool
 
 var ballPosition : Vector3
 var mousePosition : Vector3
-var posDifference : Vector3
 
 
 var appliedForce : Vector3
@@ -40,20 +39,21 @@ func _process(_delta):
 	cueMesh.visible = isCueStickUsed
 	
 	if isCueStickActive == false or isCueStickUsed == false: return	
+	
 	mousePosition = cameraNode.project_position(get_viewport().get_mouse_position(),1)
 	ballPosition = cueBall.position
-	getStrokePower(ballPosition,mousePosition)
+	appliedForce = getStrokePower(ballPosition,mousePosition)
 	displayCueStick()
-	displayChargeText()
+	displayChargeBar()
 	
 	if Input.is_action_just_released("LeftClick"):
 		isCueStickUsed = false
 		chargeBar.visible = false
-		applyStrokePower()
-	pass
-
-func applyStrokePower():
-	cueBall.apply_force(appliedForce, Vector3.ZERO)
+		applyStrokePower(appliedForce, Vector3.ZERO)
+		
+		
+func applyStrokePower(force : Vector3, spin : Vector3):
+	cueBall.apply_force(force, spin)
 
 
 func displayCueStick():
@@ -63,39 +63,30 @@ func displayCueStick():
 	cueMesh.rotation = cueRotation
 	cueMesh.position = cuePosition
 
-func displayChargeText():
-	var tags : String
+func displayChargeBar():
+	var chargeBarPosition = ballPosition - (direction * distance)
+	var minDistance = direction * -0.15
 	chargeBarPercentage = int((distance / MAX_DISTANCE) * 100)
 	chargeBar.visible = true
-	chargeBar.position = abs(Vector2(get_viewport().get_mouse_position())) * 1.03
-	if oldChargeBarPercentage != chargeBarPercentage: 
+	chargeBar.position = cameraNode.unproject_position(chargeBarPosition + minDistance) 
+	
+	if oldChargeBarPercentage != chargeBarPercentage:
+		 #si en el frame no cambio la potencia no actualizar
 		oldChargeBarPercentage = chargeBarPercentage
-	else:
-		return
-	if chargeBarPercentage >= 0 and chargeBarPercentage < 20:
-		tags = "[color=aqua][wave]"
-	elif chargeBarPercentage >= 20 and chargeBarPercentage < 40: 
-		tags = "[color=green][wave]"
-	elif chargeBarPercentage >= 40 and chargeBarPercentage < 60:
-		tags = "[color=yellow][wave]"
-	elif chargeBarPercentage >= 60 and chargeBarPercentage < 90:
-		tags = "[color=red][shake]"
-	elif chargeBarPercentage >= 90:
-		tags = "[shake][rainbow]"
-	chargeBar.parse_bbcode("[center]" + tags)
-	chargeBar.add_text(str(chargeBarPercentage) + "%")
-	chargeBar.pop_all()
+		setChargeBarText(chargeBarPercentage)
+
 	
 	
-func getStrokePower(ballPos: Vector3, mousePos: Vector3):
-	var forceVariation = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
-	posDifference = ballPos - mousePos
+	
+func getStrokePower(ballPos: Vector3, shotPos: Vector3):
+	var forceVariation : float = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
+	var posDifference : Vector3  = ballPos - shotPos
 	posDifference[1] = 0
 	distance = posDifference.length()
 	direction = posDifference.normalized()
 	if distance >= MAX_DISTANCE: distance = MAX_DISTANCE
-	appliedForce = direction * (FORCE_MULTIPLIER * distance) * forceVariation
-	return appliedForce
+	return direction * (FORCE_MULTIPLIER * distance) * forceVariation
+
 
 
 
@@ -108,6 +99,22 @@ func _on_cue_ball_input_event(_camera, _event, _position, _normal, _shape_idx):
 
 
 
-
+func setChargeBarText(percentage: int):
+	var tags : String
+	if percentage >= 0 and percentage < 20:
+		tags = "[color=aqua][wave]"
+	elif percentage >= 20 and percentage < 40: 
+		tags = "[color=green][wave]"
+	elif percentage >= 40 and percentage < 60:
+		tags = "[color=yellow][wave]"
+	elif percentage >= 60 and percentage < 90:
+		tags = "[color=red][shake]"
+	elif percentage >= 90:
+		tags = "[shake][rainbow]"
+	chargeBar.parse_bbcode("[center]" + tags)
+	chargeBar.add_text(str(percentage) + "%")
+	chargeBar.pop_all()
+	
+	
 
 

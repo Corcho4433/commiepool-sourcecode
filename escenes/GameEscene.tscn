@@ -101,6 +101,7 @@ scroll_active = false
 
 [node name="CueMesh" type="MeshInstance3D" parent="CueComponent"]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_eik7x")
 
 [node name="Tienda" type="Button" parent="."]

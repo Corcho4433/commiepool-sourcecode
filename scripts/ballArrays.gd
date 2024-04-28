@@ -12,15 +12,15 @@ func GetStartingArray():
 	
 func GenerateBalls():
 	var rows : int = 6
-	var dia = 0.05
-	var ofsetX = -0.1
-	var ofsetZ = -0.65
+	var dia = 0.03
+	var ofsetX = -0.06 #dos veces el diamentro
+	var ofsetZ = -0.65 #nashe
 	var index = 0
 	for col in range(5):
 		rows -= 1 
 		for row in range(rows): 
 			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
-			var newBallObject = BallsObject.new()
+			var newBallObject = BallObject.new()
 			var ballName = StartingArray[index]
 			var ballTexture = "res://resources/materiales/" + ballName + ".tres"
 			add_child(newBallObject)
@@ -31,31 +31,34 @@ func GenerateBalls():
 			index += 1
 
 func SpawnBalls():
-	for ball : BallsObject in CurrentArray:
+	for ball : BallObject in CurrentArray:
 		if ball.spawned == false:
 			ball.spawnBall()
 
 
 func DeleteBalls():
-	for ball : BallsObject in CurrentArray:
+	for ball : BallObject in CurrentArray:
+		CurrentArray = []
 		if ball.spawned == true:
 			ball.deleteBall()
-	CurrentArray = []
+	
 
-func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1, _newBallTexture : String = "dea"):
-	var ball : BallsObject = CurrentArray[index]
+func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
+	var ball : BallObject = CurrentArray[index]
+	var newTexture = load("res://resources/materiales/"+newBallName+".tres")
 	ball.setBallName(newBallName)
 	ball.setBallMass(newBallMass)
-	ball.setBallTexture(load("res://resources/materiales/"+newBallName+".tres"))
+	ball.setBallTexture(newTexture)
+	ball.applyBallTexture()
 	pass
 	
 func VisibilityTogle(visibility : bool):
-	for ball : BallsObject in CurrentArray:
+	for ball : BallObject in CurrentArray:
 		if ball.spawned == true:
 			ball.get_node("pelota").visible = visibility
 	
 
-func DeleteBall(ball : BallsObject):
+func DeleteBall(ball : BallObject):
 	var pos = CurrentArray.find(ball)
 	ball.deleteBall()
 	CurrentArray.pop_at(pos)

@@ -15,7 +15,7 @@ func createBalls():
 		for row in range(rows): 
 			var b = BallsScene.instantiate()
 			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), 0 , ofsetZ + (col*dia))
-			var newBallObject = BallsObject.new() 
+			var newBallObject = BallObject.new() 
 			add_child(b)
 			b.add_child(newBallObject)
 			newBallObject.create_ball(1, TableBallsArray.GetStartingArray()[index], "nashe", index)
