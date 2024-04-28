@@ -3,6 +3,8 @@ class_name BallsArray
 
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
+@export var BallMultiMesh : PackedScene 
+
 var CurrentArray : Array
 var MovementThreshold : float = 0.01
 
@@ -16,6 +18,7 @@ func GenerateBalls():
 	var ofsetX = -0.06 #dos veces el diamentro
 	var ofsetZ = -0.65 #nashe
 	var index = 0
+	var BallMeshes = BallMultiMesh.instantiate()
 	for col in range(5):
 		rows -= 1 
 		for row in range(rows): 
@@ -23,16 +26,21 @@ func GenerateBalls():
 			var newBallObject = BallObject.new()
 			var ballName = StartingArray[index]
 			var ballTexture = "res://resources/materiales/" + ballName + ".tres"
+			var ballMesh : MeshInstance3D = BallMeshes.get_node(ballName).duplicate()
+
 			add_child(newBallObject)
+			
 			newBallObject.setBallName(ballName)
 			newBallObject.setBallPosition(new_position)
 			newBallObject.setBallTexture(load(ballTexture))
+			newBallObject.setBallMesh(ballMesh)
 			CurrentArray.append(newBallObject)
 			index += 1
 
 func SpawnBalls():
 	for ball : BallObject in CurrentArray:
 		if ball.spawned == false:
+
 			ball.spawnBall()
 
 
@@ -49,7 +57,6 @@ func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float 
 	ball.setBallName(newBallName)
 	ball.setBallMass(newBallMass)
 	ball.setBallTexture(newTexture)
-	ball.applyBallTexture()
 	pass
 	
 func VisibilityTogle(visibility : bool):
