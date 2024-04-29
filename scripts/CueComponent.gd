@@ -4,16 +4,17 @@ class_name CueObject
 
 
 
-@onready
-var cameraNode : Camera3D = get_node("../Camera3D")
-@onready
-var cueBall : RigidBody3D =  get_node("../PoolTable/CueBall")
-@onready
-var chargeBar : RichTextLabel = get_node("RichTextLabel")
+@export
+var cameraNode : Camera3D 
+@export
+var cueBall : RigidBody3D 
+@export
+var cueMesh : MeshInstance3D
+@export 
+var chargeBar : RichTextLabel 
 var chargeBarPercentage : int
 var oldChargeBarPercentage : int
-@onready
-var cueMesh : MeshInstance3D = get_node("CueMesh")
+
 
 
 var isCueStickUsed : bool
@@ -90,15 +91,6 @@ func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 
 
 
-func _on_cue_ball_input_event(_camera, _event, _position, _normal, _shape_idx):
-	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false: return
-	isCueStickUsed = true
-	pass # Replace with function body.
-
-
-
-
-
 func setChargeBarText(percentage: int):
 	var tags : String
 	if percentage >= 0 and percentage < 20:
@@ -117,4 +109,6 @@ func setChargeBarText(percentage: int):
 	
 	
 
-
+func _on_cue_ball_clicked():
+	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false: return
+	isCueStickUsed = true
