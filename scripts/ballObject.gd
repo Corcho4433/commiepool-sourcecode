@@ -16,19 +16,15 @@ var spawned : bool
 
 func setBallName(newBallName : String):
 	ballName = newBallName
-	
+
+
 func setBallMass(newBallMass : float = 1):
 	ballMass = newBallMass
 	
-func setBallTexture(newBallTexture : Material):
-	ballTexture = newBallTexture
 
-func setBallMesh(newBallMesh : MeshInstance3D):
-	ballMesh = newBallMesh
 
 func setBallPosition(newBallPosition : Vector3):
 	ballPosition = newBallPosition
-	
 
 
 func get_ballName():
@@ -36,22 +32,45 @@ func get_ballName():
 	
 func spawnBall():
 	var ball = ballScene.instantiate()
-	ballCollisionShape = ball.get_node("CollisionShape3D")
-	ballRigidBody = ball
 	spawned = true
-
-	add_child(ball)
-	ball.add_child(ballMesh)
-	ball.position = ballPosition
+	setBallCollision(ball.get_node("CollisionShape3D"))
+	setBallRigidBody(ball)
+	addBallToScene(ball)
+	addMeshToScene()
 
 	
+func changeBallMesh(newBallMesh : MeshInstance3D):
+	ballRigidBody.remove_child(ballMesh)
+	ballMesh.queue_free()
+	ballMesh = newBallMesh
+	ballMesh.position = Vector3.ZERO
+	addMeshToScene()
+
+
+
+func setBallCollision(collisionShape : CollisionShape3D):
+	ballCollisionShape = collisionShape
+
+func setBallRigidBody(rigidBody : RigidBody3D):
+	ballRigidBody = rigidBody
+
+func addBallToScene(ball):
+	add_child(ball)
+	ball.position = ballPosition
+
+func addMeshToScene():
+	ballRigidBody.add_child(ballMesh)
+	
+
+func setBallMesh(newBallMesh : MeshInstance3D):
+	ballMesh = newBallMesh 
+	ballMesh.position = Vector3.ZERO
 
 
 func deleteBall():
 	queue_free()
 	
 func setVisibilityBall(newVisibility : bool):
-	if !spawned: return
 	get_node("pelota").visible = newVisibility
 
 

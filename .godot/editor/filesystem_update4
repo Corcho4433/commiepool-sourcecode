@@ -1,4 +1,5 @@
 res://escenes/GameEscene.tscn
+res://scripts/ballObject.gd
 res://scripts/ballArrays.gd
 res://escenes/objects/ball.tscn
-res://scripts/ballObject.gd
+res://escenes/objects/pool_table.tscn

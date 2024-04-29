@@ -3,7 +3,6 @@ class_name BallsArray
 
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
-@export var BallMultiMesh : PackedScene 
 
 var CurrentArray : Array
 var MovementThreshold : float = 0.01
@@ -18,45 +17,39 @@ func GenerateBalls():
 	var ofsetX = -0.06 #dos veces el diamentro
 	var ofsetZ = -0.65 #nashe
 	var index = 0
-	var BallMeshes = BallMultiMesh.instantiate()
 	for col in range(5):
 		rows -= 1 
 		for row in range(rows): 
-			var new_position = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
+			var new_position : Vector3 = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
 			var newBallObject = BallObject.new()
-			var ballName = StartingArray[index]
-			var ballTexture = "res://resources/materiales/" + ballName + ".tres"
-			var ballMesh : MeshInstance3D = BallMeshes.get_node(ballName).duplicate()
-
+			var ballName : String = StartingArray[index]
+			var ballMesh : MeshInstance3D = instantiateMesh(ballName)
 			add_child(newBallObject)
-			
+			newBallObject.setBallMesh(ballMesh)
 			newBallObject.setBallName(ballName)
 			newBallObject.setBallPosition(new_position)
-			newBallObject.setBallTexture(load(ballTexture))
-			newBallObject.setBallMesh(ballMesh)
 			CurrentArray.append(newBallObject)
 			index += 1
 
 func SpawnBalls():
 	for ball : BallObject in CurrentArray:
 		if ball.spawned == false:
-
 			ball.spawnBall()
 
 
 func DeleteBalls():
 	for ball : BallObject in CurrentArray:
 		CurrentArray = []
-		if ball.spawned == true:
-			ball.deleteBall()
+		ball.deleteBall()
+
 	
 
 func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
 	var ball : BallObject = CurrentArray[index]
-	var newTexture = load("res://resources/materiales/"+newBallName+".tres")
+	var ballMesh : MeshInstance3D = instantiateMesh(newBallName)
 	ball.setBallName(newBallName)
 	ball.setBallMass(newBallMass)
-	ball.setBallTexture(newTexture)
+	ball.changeBallMesh(ballMesh)
 	pass
 	
 func VisibilityTogle(visibility : bool):
@@ -94,3 +87,10 @@ func ball_exited_playable_area(body, isCueBall):
 func ball_entered_hole(body):
 	body.set_collision_mask_value(1,false)
 	pass # Replace with function body.
+
+func instantiateMesh(ballName : String):
+	var ballScene = load(str("res://resources/meshes/bolas/"+ ballName + ".glb"))
+	ballScene = ballScene.instantiate()
+	var ballMesh = ballScene.get_children()[0]
+	ballScene.remove_child(ballMesh)
+	return ballMesh

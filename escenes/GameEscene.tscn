@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=14 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
 [ext_resource type="Script" path="res://scripts/camarajuego.gd" id="6_63qka"]
-[ext_resource type="PackedScene" uid="uid://b4pytx3ijqktp" path="res://resources/meshes/Bolas_pool.glb" id="8_kquo0"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -100,7 +99,6 @@ script = ExtResource("6_63qka")
 
 [node name="BallArrayComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")
-BallMultiMesh = ExtResource("8_kquo0")
 
 [node name="CueComponent" type="Node" parent="."]
 script = ExtResource("5_e2yek")

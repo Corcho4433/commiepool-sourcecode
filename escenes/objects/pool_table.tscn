@@ -15,7 +15,7 @@ friction = 0.0
 bounce = 0.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_45u6u"]
-size = Vector3(0.0973206, 0.677796, 0.812256)
+size = Vector3(0.0973206, 0.677796, 0.763611)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0dqq"]
 size = Vector3(0.0805664, 0.422363, 0.201721)
@@ -46,23 +46,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0264647, -0.246811, -1.009
 shape = ExtResource("2_423cj")
 
 [node name="WallCollision2" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0264647, -0.246811, 1.02192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0385599, -0.246811, 1.02192)
 shape = ExtResource("2_423cj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558877, -0.0954924, -0.458456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565564, -0.0954924, -0.464867)
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558877, -0.0954924, 0.471342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.561121, -0.0954924, 0.463622)
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.23396, -0.458255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.484074, -0.23396, -0.469352)
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498976, -0.245364, 0.474333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485618, -0.245364, 0.474333)
 shape = SubResource("BoxShape3D_45u6u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
