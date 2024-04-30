@@ -93,4 +93,4 @@ func instantiateMesh(ballName : String):
 	ballScene = ballScene.instantiate()
 	var ballMesh = ballScene.get_children()[0]
 	ballScene.remove_child(ballMesh)
-	return ballMesh
+	return ballMesh.duplicate()

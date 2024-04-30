@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=16 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
 [ext_resource type="Script" path="res://scripts/camarajuego.gd" id="6_63qka"]
+[ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="10_j1a6t"]
+[ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="11_qnwqm"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -25,12 +27,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_eik7x"]
-top_radius = 0.008
-bottom_radius = 0.02
-height = 0.8
-radial_segments = 63
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3b3xh"]
 _surfaces = [{
@@ -95,11 +91,10 @@ script = ExtResource("6_63qka")
 [node name="BallArrayComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")
 
-[node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall", "cueMesh", "chargeBar")]
+[node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall", "chargeBar")]
 script = ExtResource("5_e2yek")
 cameraNode = NodePath("../Camera3D")
 cueBall = NodePath("CueBall")
-cueMesh = NodePath("CueMesh")
 chargeBar = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CueComponent"]
@@ -117,7 +112,6 @@ scroll_active = false
 [node name="CueMesh" type="MeshInstance3D" parent="CueComponent"]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
 visible = false
-mesh = SubResource("CylinderMesh_eik7x")
 
 [node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378553, 0.575699)
@@ -127,9 +121,12 @@ cameraNode = NodePath("../../Camera3D")
 [node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/CueBall"]
 mesh = SubResource("ArrayMesh_3b3xh")
 
+[node name="palo_pool" parent="CueComponent" instance=ExtResource("10_j1a6t")]
+
 [node name="Tienda" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("11_qnwqm")
 theme_override_font_sizes/font_size = 24
 text = "Tienda"
 

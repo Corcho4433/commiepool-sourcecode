@@ -8,8 +8,8 @@ class_name CueObject
 var cameraNode : Camera3D 
 @export
 var cueBall : RigidBody3D 
-@export
-var cueMesh : MeshInstance3D
+@onready
+var cueMesh : MeshInstance3D = get_node("palo_pool/Cylinder")
 @export 
 var chargeBar : RichTextLabel 
 var chargeBarPercentage : int
@@ -59,7 +59,7 @@ func applyStrokePower(force : Vector3, spin : Vector3):
 
 func displayCueStick():
 	var cueRotation = Vector3(1.5708,atan2(direction.x,direction.z),0)
-	var minDistance = direction * -0.41
+	var minDistance = direction * -0.7
 	var cuePosition = ballPosition - (direction * distance) + minDistance
 	cueMesh.rotation = cueRotation
 	cueMesh.position = cuePosition
