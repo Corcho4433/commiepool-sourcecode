@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_iniciar_pressed():
-	get_tree().change_scene_to_file("res://escenes/GameEscene.tscn")
+	get_tree().change_scene_to_file("res://scenes/GameScene.tscn")
 
 
 func _on_salir_pressed():

@@ -1,23 +1,37 @@
-extends Node3D
-class_name PoolTable
+## Coordina las acciones entre el palo de billar y las bolas. Ademas, contiene
+## un sistema de turnos y un sistema de puntuacion.
+class_name PoolTable extends Node3D
+## Si es el turno del jugador 1, turno es igual a PLAYER_ONE
 const PLAYER_ONE = 1
+## Si es el turno del jugador 2, turno es igual a PLAYER_TWO
 const PLAYER_TWO = 2
 
+## Almacena una referencia al objeto [BallsArray] de la escena.
 @onready
 var ball_array : BallsArray = get_node("BallArrayComponent")
+## Almacena una referencia al objeto [CueObject] de la escena.
 @onready
 var cue_component : CueObject = get_node("CueComponent")
+## Almacena una referencia a la camera de la escena.
 @onready
 var camera : Camera3D = get_node("Camera3D")
-var turno : int = PLAYER_ONE	
+## Indica de quien es el turno.
+var turno : int = PLAYER_ONE
+## Se espera un retraso antes de cambiar de turno para permitir 
+## que las bolas se detengan después del golpe.
 var cueUsedFrames : int = 0
+## Indica si el palo de billar ha sido usado
 var cueUsed : bool = false
 
-
+## Es un diccionario que contiene informacion de las bolas que ha metido cada jugador y
+## el tipo de bolas que le corresponde, ej: [br] [br]
+## [code] {PLAYER_ONE: {"Balls": [], "Type": ""}, PLAYER_TWO: {"Balls": [], "Type": ""},}
+## [/code]
 var infoPlayer = {
 	PLAYER_ONE: {"Balls": [], "Type": ""},
 	PLAYER_TWO: {"Balls": [], "Type": ""},
 }
+## Visibilidad de las pelotas
 var active : bool = true
 
 
@@ -25,6 +39,7 @@ func _ready():
 	new_game()
 	pass 
 
+## Inicializa las bolas y las spawnea 
 func new_game():
 	ball_array.GenerateBalls()
 	ball_array.SpawnBalls()
@@ -34,12 +49,8 @@ func new_game():
 
 
 func _process(_delta):
-	
-	
-	
 	var stillBall : bool = ball_array.checkMovement()
 	cue_component.isCueStickActive =  stillBall
-
 	
 	if cueUsed == true and stillBall == true:
 		cueUsedFrames += 1
@@ -51,7 +62,6 @@ func _process(_delta):
 	
 	if stillBall == false:
 		cueUsedFrames = 0
-		cueUsed = true
 
 	
 	
@@ -77,7 +87,7 @@ func _process(_delta):
 
 func _on_cue_ball_strike():
 	cueUsed = true
-	pass # Replace with function body.
+
 
 
 func _on_ball_scored(body, isCueBall):
@@ -109,9 +119,8 @@ func _on_ball_scored(body, isCueBall):
 		
 	print(infoPlayer)
 
-	pass # Replace with function body.
 
-
+## Cambiar de turno
 func changeTurn():
 	if turno == PLAYER_ONE:
 		turno = PLAYER_TWO

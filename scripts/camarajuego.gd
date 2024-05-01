@@ -1,4 +1,5 @@
 extends Camera3D
+
 var CameraDictionary = {
 	"PoolTable": 
 		{

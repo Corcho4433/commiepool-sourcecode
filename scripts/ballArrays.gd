@@ -26,9 +26,9 @@ func GenerateBalls():
 			var ballName : String = StartingArray[index]
 			var ballMesh : MeshInstance3D = instantiateMesh(ballName)
 			add_child(newBallObject)
-			newBallObject.setBallMesh(ballMesh)
-			newBallObject.setBallName(ballName)
-			newBallObject.setBallPosition(new_position)
+			newBallObject.ballMesh = ballMesh
+			newBallObject.ballName = ballName
+			newBallObject.ballPosition = new_position
 			CurrentArray.append(newBallObject)
 			index += 1
 
@@ -48,8 +48,8 @@ func DeleteBalls():
 func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
 	var ball : BallObject = CurrentArray[index]
 	var ballMesh : MeshInstance3D = instantiateMesh(newBallName)
-	ball.setBallName(newBallName)
-	ball.setBallMass(newBallMass)
+	ball.ballName = newBallName
+	ball.ballMass = newBallMass
 	ball.changeBallMesh(ballMesh)
 	pass
 	
@@ -102,4 +102,3 @@ func checkTypeBall(ball : BallObject):
 		return "Smooth"
 	else:
 		return "Stripped"
-	pass
