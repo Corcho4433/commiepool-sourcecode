@@ -87,7 +87,6 @@ func ball_exited_playable_area(body, isCueBall):
 
 func ball_entered_hole(body):
 	body.set_collision_mask_value(1,false)
-	pass # Replace with function body.
 
 func instantiateMesh(ballName : String):
 	var ballScene = load(str("res://resources/meshes/bolas/"+ ballName + ".glb"))

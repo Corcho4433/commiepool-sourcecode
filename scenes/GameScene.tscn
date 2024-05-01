@@ -57,6 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
 shape = SubResource("HeightMapShape3D_gydyj")
 
 [node name="HoleCollisionDisabler" type="Area3D" parent="PoolTable"]
+visible = false
 script = ExtResource("5_rf0n2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]

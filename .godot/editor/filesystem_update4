@@ -1,8 +1,5 @@
-res://escenes/objects/ball.tscn
-res://escenes/GameEscene.tscn
-res://scripts/ballObject.gd
-res://scripts/mains.gd
-res://scripts/ballArrays.gd
-res://scripts/camarajuego.gd
+res://scenes/objects/ball.tscn
 res://scenes/mainmenu.tscn
-res://scripts/mainmenus.gd
+res://scenes/GameScene.tscn
+res://scenes/objects/balls_component.tscn
+res://scripts/CueComponent.gd

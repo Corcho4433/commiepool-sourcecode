@@ -27,8 +27,8 @@ var mousePosition : Vector3
 var appliedForce : Vector3
 var direction : Vector3
 var distance : float
-const FORCE_MULTIPLIER : float = 400
-const MAX_FORCE_VARIATION : float = 1.5
+const FORCE_MULTIPLIER : float = 9
+const MAX_FORCE_VARIATION : float = 1.1
 const MIN_FORCE_VARIATION : float = 1
 const  MAX_DISTANCE : float = 0.4
 
@@ -55,7 +55,7 @@ func _process(_delta):
 		
 		
 func applyStrokePower(force : Vector3, spin : Vector3):
-	cueBall.apply_force(force, spin)
+	cueBall.apply_impulse(force, spin)
 	
 
 func displayCueStick():

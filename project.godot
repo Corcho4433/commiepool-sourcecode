@@ -63,7 +63,5 @@ IncreaseCuePower={
 
 [physics]
 
-3d/default_linear_damp=0.5
-3d/default_angular_damp=0.7
-3d/sleep_threshold_linear=0.2
-3d/sleep_threshold_angular=0.2
+3d/default_linear_damp=0.7
+3d/default_angular_damp=0.5
