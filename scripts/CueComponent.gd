@@ -1,7 +1,7 @@
 extends Node
 class_name CueObject
 
-
+signal ball_strike 
 
 
 @export
@@ -51,11 +51,12 @@ func _process(_delta):
 		isCueStickUsed = false
 		chargeBar.visible = false
 		applyStrokePower(appliedForce, Vector3.ZERO)
+		emit_signal("ball_strike")
 		
 		
 func applyStrokePower(force : Vector3, spin : Vector3):
 	cueBall.apply_force(force, spin)
-
+	
 
 func displayCueStick():
 	var cueRotation = Vector3(1.5708,atan2(direction.x,direction.z),0)

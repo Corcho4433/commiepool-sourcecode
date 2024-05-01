@@ -3,9 +3,10 @@ class_name BallsArray
 
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
-
+var SmoothBalls = ["Ball1","Ball2","Ball3","Ball4","Ball5","Ball6","Ball7"]
+var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Bal14","Ball15"]
 var CurrentArray : Array
-var MovementThreshold : float = 0.01
+const  MOVEMENT_THRESHOLD : float = 0.01
 
 
 func GetStartingArray():
@@ -66,7 +67,7 @@ func DeleteBall(ball : BallObject):
 func checkMovement():
 	var allBalls = get_tree().get_nodes_in_group("allBalls")
 	for ballRigidBody : RigidBody3D in allBalls:
-		if ballRigidBody.linear_velocity.length() > MovementThreshold:
+		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD :
 			return false
 	return true
 
@@ -94,3 +95,11 @@ func instantiateMesh(ballName : String):
 	var ballMesh = ballScene.get_children()[0]
 	ballScene.remove_child(ballMesh)
 	return ballMesh.duplicate()
+	
+	
+func checkTypeBall(ball : BallObject):
+	if ball.ballName in SmoothBalls:
+		return "Smooth"
+	else:
+		return "Stripped"
+	pass

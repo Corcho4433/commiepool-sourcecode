@@ -68,7 +68,7 @@ func setBallMesh(newBallMesh : MeshInstance3D):
 
 
 func deleteBall():
-	queue_free()
+	ballRigidBody.queue_free()
 	
 func setVisibilityBall(newVisibility : bool):
 	get_node("pelota").visible = newVisibility
