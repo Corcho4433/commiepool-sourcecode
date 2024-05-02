@@ -1,5 +1,5 @@
-res://scenes/objects/ball.tscn
 res://scenes/mainmenu.tscn
 res://scenes/GameScene.tscn
 res://scenes/objects/balls_component.tscn
-res://scripts/CueComponent.gd
+res://scenes/objects/ball.tscn
+res://scenes/objects/pool_table.tscn
