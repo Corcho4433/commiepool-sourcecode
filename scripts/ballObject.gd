@@ -1,9 +1,9 @@
-extends Node
+
 ## La clase BallObject se encarga de guardar la informacion individual de cada pelota
 ## y agregarla a la escena principal como nodo hijo de [BallsArray]. [br] [br]
 ## El arbol de nodos de una bola spawneada se ve asi : [BallObject] -> [RigidBody3D]
 ## (llamado pelota) -> [CollisionShape3D] y [MeshInstance3D].
-class_name BallObject
+class_name BallObject extends Node
 
 
 

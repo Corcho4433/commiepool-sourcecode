@@ -1,6 +1,6 @@
 ## Coordina las acciones entre el palo de billar y las bolas. Ademas, contiene
 ## un sistema de turnos y un sistema de puntuacion.
-class_name PoolTable extends Node3D
+class_name PoolTable extends Node
 ## Si es el turno del jugador 1, turno es igual a PLAYER_ONE
 const PLAYER_ONE = 1
 ## Si es el turno del jugador 2, turno es igual a PLAYER_TWO
@@ -22,14 +22,13 @@ var turno : int = PLAYER_ONE
 var cueUsedFrames : int = 0
 ## Indica si el palo de billar ha sido usado
 var cueUsed : bool = false
-
 ## Es un diccionario que contiene informacion de las bolas que ha metido cada jugador y
 ## el tipo de bolas que le corresponde, ej: [br] [br]
 ## [code] {PLAYER_ONE: {"Balls": [], "Type": ""}, PLAYER_TWO: {"Balls": [], "Type": ""},}
 ## [/code]
 var infoPlayer = {
-	PLAYER_ONE: {"Balls": [], "Type": ""},
-	PLAYER_TWO: {"Balls": [], "Type": ""},
+	PLAYER_ONE: {"Balls": [], "Type": "","TurnoExtra": false},
+	PLAYER_TWO: {"Balls": [], "Type": "", "TurnoExtra": false},
 }
 ## Visibilidad de las pelotas
 var active : bool = true
@@ -114,6 +113,7 @@ func _on_ball_scored(body, isCueBall):
 	
 	if typeScoringPlayer == type:
 		infoPlayer[turno]["Balls"].append(ball)
+		infoPlayer[turno]["TurnoExtra"] = true
 	else:
 		infoPlayer[turnoOtherPlayer]["Balls"].append(ball)
 		
@@ -122,7 +122,8 @@ func _on_ball_scored(body, isCueBall):
 
 ## Cambiar de turno
 func changeTurn():
-	if turno == PLAYER_ONE:
+	if (turno == PLAYER_ONE and infoPlayer[PLAYER_ONE]["TurnoExtra"] == false) or infoPlayer[PLAYER_TWO]["TurnoExtra"] == true:
 		turno = PLAYER_TWO
 	else: 
 		turno = PLAYER_ONE
+	

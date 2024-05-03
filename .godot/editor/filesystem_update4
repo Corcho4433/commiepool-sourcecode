@@ -3,3 +3,4 @@ res://scenes/GameScene.tscn
 res://scenes/objects/balls_component.tscn
 res://scenes/objects/ball.tscn
 res://scenes/objects/pool_table.tscn
+res://scripts/mains.gd
