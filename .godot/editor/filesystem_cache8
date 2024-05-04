@@ -3,7 +3,7 @@ ea4bc82a6ad023ab7ee23ee620429895
 icon.svg::CompressedTexture2D::8208639071365591023::1714821745::1714821745::1::::<><>::
 ::res://resources/::1714821745
 font.ttf::FontFile::4908229385752385534::1714821745::1714821745::1::::<><>::
-::res://resources/backups/::1714828604
+::res://resources/backups/::1714831194
 ::res://resources/materiales/::1714821745
 Ball1.tres::StandardMaterial3D::4217752557888193388::1714821745::0::1::::<><>::
 Ball2.tres::StandardMaterial3D::4122394879959402119::1714821745::0::1::::<><>::
@@ -20,8 +20,8 @@ Ball12.tres::StandardMaterial3D::3744097196246720920::1714821745::0::1::::<><>::
 Ball13.tres::StandardMaterial3D::923804001268109647::1714821745::0::1::::<><>::
 Ball14.tres::StandardMaterial3D::4401077034020048083::1714821745::0::1::::<><>::
 Ball15.tres::StandardMaterial3D::9125944030487217031::1714821745::0::1::::<><>::
-::res://resources/meshes/::1714827927
-habitacion_pool.gltf::PackedScene::5810035550684030414::1714828611::1714828613::1::::<><>::uid://d2lv8vhtylby7::::res://resources/texturas/124-old-wood-plank-pbr-texture-seamless-hr.jpg<>uid://dae1tsu60e5g7::::res://resources/texturas/brick_texture.jpg<>uid://c50srwav7e07h::::res://resources/texturas/images.jpg<>uid://b8soclabfsqpv::::res://resources/texturas/Russian rug.jpg<>uid://ctgr10hlsoiyj::::res://resources/texturas/poster.jpg<>uid://ci6aemiyq7t3a::::res://resources/texturas/scratched-aluminum-texture-background_125540-937_jpg.jpg<>uid://b8mav2kofe2vf::::res://resources/texturas/istockphoto-1422696878-612x612_jpg.jpg<>uid://dj6qr8nqesfmp::::res://resources/texturas/brown-wood-texture-abstract-background-600nw-755924149_webp.webp<>uid://51oneohm31ep::::res://resources/texturas/primer-plano-abstracto-fondo-metalico.jpg<>uid://15nwb4ko1f3e::::res://resources/texturas/primer-plano-abstracto-fondo-metalico_n.jpg<>uid://com2oumh7t0o3::::res://resources/texturas/radiobuttons.png<>uid://dxrqmh2uc6dqk::::res://resources/texturas/cropped-Dartboard.png<>uid://fkbuyfio7mcp::::res://resources/texturas/soviet_poster.jpg
+::res://resources/meshes/::1714828613
+habitacion_pool.gltf::PackedScene::5810035550684030414::1714831204::1714831205::1::::<><>::uid://d2lv8vhtylby7::::res://resources/texturas/124-old-wood-plank-pbr-texture-seamless-hr.jpg<>uid://dae1tsu60e5g7::::res://resources/texturas/brick_texture.jpg<>uid://c50srwav7e07h::::res://resources/texturas/images.jpg<>uid://b8soclabfsqpv::::res://resources/texturas/Russian rug.jpg<>uid://ctgr10hlsoiyj::::res://resources/texturas/poster.jpg<>uid://ci6aemiyq7t3a::::res://resources/texturas/scratched-aluminum-texture-background_125540-937_jpg.jpg<>uid://b8mav2kofe2vf::::res://resources/texturas/istockphoto-1422696878-612x612_jpg.jpg<>uid://dj6qr8nqesfmp::::res://resources/texturas/brown-wood-texture-abstract-background-600nw-755924149_webp.webp<>uid://51oneohm31ep::::res://resources/texturas/primer-plano-abstracto-fondo-metalico.jpg<>uid://15nwb4ko1f3e::::res://resources/texturas/primer-plano-abstracto-fondo-metalico_n.jpg<>uid://com2oumh7t0o3::::res://resources/texturas/radiobuttons.png<>uid://dxrqmh2uc6dqk::::res://resources/texturas/cropped-Dartboard.png<>uid://fkbuyfio7mcp::::res://resources/texturas/soviet_poster.jpg
 palo_pool.gltf::PackedScene::5182420411924129721::1714821745::1714821745::1::::<><>::
 ruleta.glb::PackedScene::4275752521436042378::1714821745::1714821745::1::::<><>::
 ::res://resources/meshes/bolas/::1714821745
@@ -78,31 +78,31 @@ pool_table.tres::BoxShape3D::2602822906250563369::1714821745::0::1::::<><>::
 ::res://resources/temas/::1714821745
 botonesmenu.tres::Theme::4180823580096228879::1714821745::0::1::::<><>::
 ::res://resources/texturas/::1714827685
-124-old-wood-plank-pbr-texture-seamless-hr.jpg::CompressedTexture2D::9078404087347555788::1714828611::1714821745::1::::<><>::
+124-old-wood-plank-pbr-texture-seamless-hr.jpg::CompressedTexture2D::9078404087347555788::1714831204::1714821745::1::::<><>::
 225-parquet-medium-color-pbr-texture-seamless-hr.jpg::CompressedTexture2D::771223894858931208::1714824097::1714821745::1::::<><>::
 background-made-from-bricks.jpg::CompressedTexture2D::5589450996726211915::1714821745::1714821745::1::::<><>::
-brick_texture.jpg::CompressedTexture2D::7169133111750152948::1714828611::1714821745::1::::<><>::
-brown-wood-texture-abstract-background-600nw-755924149_webp.webp::CompressedTexture2D::7855960938664132299::1714828611::1714821745::1::::<><>::
-cropped-Dartboard.png::CompressedTexture2D::8809693188269960206::1714828611::1714823594::1::::<><>::
-images.jpg::CompressedTexture2D::6931240541255644651::1714828611::1714821745::1::::<><>::
-istockphoto-1422696878-612x612_jpg.jpg::CompressedTexture2D::4727463992690354667::1714828611::1714821745::1::::<><>::
-poster.jpg::CompressedTexture2D::6119895606973521801::1714828611::1714821745::1::::<><>::
-primer-plano-abstracto-fondo-metalico.jpg::CompressedTexture2D::2160212616021896959::1714828611::1714821745::1::::<><>::
-primer-plano-abstracto-fondo-metalico_n.jpg::CompressedTexture2D::1887669973379276800::1714828611::1714821745::1::::<><>::
-radiobuttons.png::CompressedTexture2D::5781923140652978644::1714828611::1714821745::1::::<><>::
-Russian rug.jpg::CompressedTexture2D::4740665510617481171::1714828611::1714821745::1::::<><>::
-scratched-aluminum-texture-background_125540-937_jpg.jpg::CompressedTexture2D::5398355613793683076::1714828611::1714821745::1::::<><>::
-soviet_poster.jpg::CompressedTexture2D::371685697269513379::1714828611::1714827685::1::::<><>::
+brick_texture.jpg::CompressedTexture2D::7169133111750152948::1714831204::1714821745::1::::<><>::
+brown-wood-texture-abstract-background-600nw-755924149_webp.webp::CompressedTexture2D::7855960938664132299::1714831204::1714821745::1::::<><>::
+cropped-Dartboard.png::CompressedTexture2D::8809693188269960206::1714831204::1714823594::1::::<><>::
+images.jpg::CompressedTexture2D::6931240541255644651::1714831204::1714821745::1::::<><>::
+istockphoto-1422696878-612x612_jpg.jpg::CompressedTexture2D::4727463992690354667::1714831204::1714821745::1::::<><>::
+poster.jpg::CompressedTexture2D::6119895606973521801::1714831204::1714821745::1::::<><>::
+primer-plano-abstracto-fondo-metalico.jpg::CompressedTexture2D::2160212616021896959::1714831204::1714821745::1::::<><>::
+primer-plano-abstracto-fondo-metalico_n.jpg::CompressedTexture2D::1887669973379276800::1714831204::1714821745::1::::<><>::
+radiobuttons.png::CompressedTexture2D::5781923140652978644::1714831204::1714821745::1::::<><>::
+Russian rug.jpg::CompressedTexture2D::4740665510617481171::1714831204::1714821745::1::::<><>::
+scratched-aluminum-texture-background_125540-937_jpg.jpg::CompressedTexture2D::5398355613793683076::1714831204::1714821745::1::::<><>::
+soviet_poster.jpg::CompressedTexture2D::371685697269513379::1714831204::1714827685::1::::<><>::
 texturas.txt::TextFile::-1::1714821745::0::1::::<><>::
-::res://scenes/::1714827834
+::res://scenes/::1714829599
 ball_class.tscn::PackedScene::3381292401203376582::1714821745::0::1::::<><>::res://scripts/BallObject.gd
-GameScene.tscn::PackedScene::657469277710268642::1714827834::0::1::::<><>::res://scripts/mains.gd<>res://scripts/PlayableAreaCollision.gd<>uid://tkhkinj6x1va::::res://scenes/objects/pool_table.tscn<>res://scripts/ballArrays.gd<>uid://sp1w1csj6psn::::res://scenes/objects/ball.tscn<>res://scripts/CueBall.gd<>res://scripts/CueComponent.gd<>res://scripts/HoleCollision.gd<>res://scripts/camarajuego.gd<>uid://cf3nybk3xcitt::::res://resources/meshes/palo_pool.gltf<>uid://cb6t2567igbpm::::res://resources/font.ttf
-mainmenu.tscn::PackedScene::6197184342092380735::1714827833::0::1::::<><>::res://scripts/mainmenus.gd<>uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b0ths25jbrq2b::::res://resources/temas/botonesmenu.tres<>uid://cb6t2567igbpm::::res://resources/font.ttf
+GameScene.tscn::PackedScene::657469277710268642::1714829599::0::1::::<><>::res://scripts/mains.gd<>res://scripts/PlayableAreaCollision.gd<>uid://tkhkinj6x1va::::res://scenes/objects/pool_table.tscn<>res://scripts/ballArrays.gd<>uid://sp1w1csj6psn::::res://scenes/objects/ball.tscn<>res://scripts/CueBall.gd<>res://scripts/CueComponent.gd<>res://scripts/HoleCollision.gd<>res://scripts/camarajuego.gd<>uid://cf3nybk3xcitt::::res://resources/meshes/palo_pool.gltf<>uid://cb6t2567igbpm::::res://resources/font.ttf
+mainmenu.tscn::PackedScene::6197184342092380735::1714829599::0::1::::<><>::res://scripts/mainmenus.gd<>uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b0ths25jbrq2b::::res://resources/temas/botonesmenu.tres<>uid://cb6t2567igbpm::::res://resources/font.ttf
 ruleta.tscn::PackedScene::4737526372185409331::1714821745::0::1::::<><>::uid://b16hawl4drvp7::::res://resources/meshes/ruleta.glb
-::res://scenes/objects/::1714827834
-ball.tscn::PackedScene::1295984150601128949::1714827834::0::1::::<><>::
-balls_component.tscn::PackedScene::8413235962584189732::1714827834::0::1::::<><>::res://scripts/BallObject.gd
-pool_table.tscn::PackedScene::1354675124272165818::1714827834::0::1::::<><>::uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b8q5mqp8nar3h::::res://scenes/ruleta.tscn
+::res://scenes/objects/::1714829599
+ball.tscn::PackedScene::1295984150601128949::1714829599::0::1::::<><>::
+balls_component.tscn::PackedScene::8413235962584189732::1714829599::0::1::::<><>::res://scripts/BallObject.gd
+pool_table.tscn::PackedScene::1354675124272165818::1714829599::0::1::::<><>::uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b8q5mqp8nar3h::::res://scenes/ruleta.tscn
 ::res://scripts/::1714821745
 ballArrays.gd::GDScript::-1::1714821745::0::1::::BallsArray<>Node<>::
 ballObject.gd::GDScript::-1::1714821745::0::1::::BallObject<>Node<>::
