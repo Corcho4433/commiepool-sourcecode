@@ -116,14 +116,20 @@ func _on_ball_scored(body, isCueBall):
 		infoPlayer[turno]["TurnoExtra"] = true
 	else:
 		infoPlayer[turnoOtherPlayer]["Balls"].append(ball)
-		
 	print(infoPlayer)
-
 
 ## Cambiar de turno
 func changeTurn():
-	if (turno == PLAYER_ONE and infoPlayer[PLAYER_ONE]["TurnoExtra"] == false) or infoPlayer[PLAYER_TWO]["TurnoExtra"] == true:
-		turno = PLAYER_TWO
-	else: 
-		turno = PLAYER_ONE
+	var extraTurnPlayerOne =  infoPlayer[PLAYER_ONE]["TurnoExtra"]
+	var extraTurnPlayerTwo = infoPlayer[PLAYER_TWO]["TurnoExtra"]
 	
+	if (turno == PLAYER_ONE and extraTurnPlayerOne == true):
+		turno = PLAYER_ONE
+		infoPlayer[PLAYER_ONE]["TurnoExtra"] = false
+	elif turno == PLAYER_TWO and extraTurnPlayerTwo == true: 
+		turno = PLAYER_TWO
+		infoPlayer[PLAYER_TWO]["TurnoExtra"] = false
+	elif turno == PLAYER_ONE:
+		turno = PLAYER_TWO
+	elif turno == PLAYER_TWO:
+		turno = PLAYER_ONE
