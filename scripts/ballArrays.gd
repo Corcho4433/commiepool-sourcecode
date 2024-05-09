@@ -24,9 +24,7 @@ func GenerateBalls():
 			var new_position : Vector3 = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
 			var newBallObject = BallObject.new()
 			var ballName : String = StartingArray[index]
-			var ballMesh : MeshInstance3D = instantiateMesh(ballName)
 			add_child(newBallObject)
-			newBallObject.ballMesh = ballMesh
 			newBallObject.ballName = ballName
 			newBallObject.ballPosition = new_position
 			CurrentArray.append(newBallObject)
@@ -45,13 +43,13 @@ func DeleteBalls():
 
 	
 
-func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
-	var ball : BallObject = CurrentArray[index]
-	var ballMesh : MeshInstance3D = instantiateMesh(newBallName)
-	ball.ballName = newBallName
-	ball.ballMass = newBallMass
-	ball.changeBallMesh(ballMesh)
-	pass
+#func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
+	#var ball : BallObject = CurrentArray[index]
+	#var ballMesh : MeshInstance3D = instantiateMesh(newBallName)
+	#ball.ballName = newBallName
+	#ball.ballMass = newBallMass
+	#ball.changeBallMesh(ballMesh)
+	#pass
 	
 func VisibilityTogle(visibility : bool):
 	for ball : BallObject in CurrentArray:
@@ -88,13 +86,7 @@ func ball_exited_playable_area(body, isCueBall):
 func ball_entered_hole(body):
 	body.set_collision_mask_value(1,false)
 
-func instantiateMesh(ballName : String):
-	var ballScene = load(str("res://resources/meshes/bolas/"+ ballName + ".glb"))
-	ballScene = ballScene.instantiate()
-	var ballMesh = ballScene.get_children()[0]
-	ballScene.remove_child(ballMesh)
-	return ballMesh.duplicate()
-	
+
 	
 func checkTypeBall(ball : BallObject):
 	if ball.ballName in SmoothBalls:

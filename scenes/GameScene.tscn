@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=17 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/camarajuego.gd" id="6_63qka"]
 [ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="10_j1a6t"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="11_qnwqm"]
+[ext_resource type="Script" path="res://scripts/TurnComponent.gd" id="12_wiqqh"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -145,6 +146,9 @@ light_energy = 0.8
 shadow_enabled = true
 shadow_bias = 0.0
 omni_attenuation = 0.732043
+
+[node name="TurnComponent" type="Node" parent="."]
+script = ExtResource("12_wiqqh")
 
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="." method="_on_ball_scored"]
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]

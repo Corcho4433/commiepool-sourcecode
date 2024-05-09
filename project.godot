@@ -63,5 +63,7 @@ IncreaseCuePower={
 
 [physics]
 
+common/physics_ticks_per_second=600
+common/max_physics_steps_per_frame=80
 3d/default_linear_damp=0.7
 3d/default_angular_damp=0.5

@@ -27,9 +27,9 @@ var mousePosition : Vector3
 var appliedForce : Vector3
 var direction : Vector3
 var distance : float
-const FORCE_MULTIPLIER : float = 9
-const MAX_FORCE_VARIATION : float = 1.1
-const MIN_FORCE_VARIATION : float = 1
+@export var FORCE_MULTIPLIER : float = 9
+@export var MAX_FORCE_VARIATION : float = 1.1
+@export var MIN_FORCE_VARIATION : float = 1
 const  MAX_DISTANCE : float = 0.4
 
 

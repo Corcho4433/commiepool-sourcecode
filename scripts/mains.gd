@@ -1,6 +1,6 @@
 ## Coordina las acciones entre el palo de billar y las bolas. Ademas, contiene
 ## un sistema de turnos y un sistema de puntuacion.
-class_name PoolTable extends Node
+class_name GameState extends Node
 ## Si es el turno del jugador 1, turno es igual a PLAYER_ONE
 const PLAYER_ONE = 1
 ## Si es el turno del jugador 2, turno es igual a PLAYER_TWO

@@ -1,9 +1,9 @@
-
+extends Node
 ## La clase BallObject se encarga de guardar la informacion individual de cada pelota
 ## y agregarla a la escena principal como nodo hijo de [BallsArray]. [br] [br]
 ## El arbol de nodos de una bola spawneada se ve asi : [BallObject] -> [RigidBody3D]
 ## (llamado pelota) -> [CollisionShape3D] y [MeshInstance3D].
-class_name BallObject extends Node
+class_name BallObject 
 
 
 
@@ -30,27 +30,21 @@ var spawned : bool
 func spawnBall():
 	var ballScene : PackedScene = load("res://scenes/objects/ball.tscn")
 	var ball = ballScene.instantiate()
+	ballMesh = instantiateMesh(Database.Balls[ballName].mesh) 
 	spawned = true
 	ballCollisionShape = ball.get_node("CollisionShape3D")
 	ballRigidBody = ball
 	_addBallToScene(ball)
-	_addMeshToScene()
+	_addMeshToScene(ballMesh)
 
-
-## Cambia el mesh de una bola
-func changeBallMesh(newBallMesh : MeshInstance3D):
-	ballRigidBody.remove_child(ballMesh)
-	ballMesh.queue_free()
-	ballMesh = newBallMesh
-	ballMesh.position = Vector3.ZERO
-	_addMeshToScene()
 
 func _addBallToScene(ball : RigidBody3D):
 	add_child(ball)
 	ball.position = ballPosition
 
-func _addMeshToScene():
-	ballRigidBody.add_child(ballMesh)
+func _addMeshToScene(meshInstance: MeshInstance3D):
+	ballRigidBody.add_child(meshInstance)
+
 	
 ## Borra la bola en pantalla, pero mantiene su informacion.
 func deleteBall():
@@ -62,3 +56,10 @@ func setVisibilityBall(newVisibility : bool):
 	get_node("pelota").visible = newVisibility
 
 
+func instantiateMesh(mesh : String):
+	var newMeshScene = load(mesh)
+	newMeshScene = newMeshScene.instantiate()
+	var newBallMesh = newMeshScene.get_children()[0]
+	newMeshScene.remove_child(newBallMesh)
+	return newBallMesh.duplicate()
+	
