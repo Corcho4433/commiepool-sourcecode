@@ -90,6 +90,13 @@ transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 
 current = true
 script = ExtResource("6_63qka")
 
+[node name="Tienda" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("11_qnwqm")
+theme_override_font_sizes/font_size = 24
+text = "Tienda"
+
 [node name="BallArrayComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")
 
@@ -125,14 +132,12 @@ mesh = SubResource("ArrayMesh_3b3xh")
 
 [node name="palo_pool" parent="CueComponent" instance=ExtResource("10_j1a6t")]
 
-[node name="Tienda" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_fonts/font = ExtResource("11_qnwqm")
-theme_override_font_sizes/font_size = 24
-text = "Tienda"
+[node name="TurnComponent" type="Node" parent="."]
+script = ExtResource("12_wiqqh")
 
-[node name="MainRoomLight" type="OmniLight3D" parent="."]
+[node name="Light" type="Node3D" parent="."]
+
+[node name="MainRoomLight" type="OmniLight3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35292, 0.0158571)
 light_energy = 0.8
 shadow_enabled = true
@@ -140,20 +145,18 @@ shadow_bias = 0.0
 omni_range = 10.353
 omni_attenuation = 0.732043
 
-[node name="RouleteLight" type="OmniLight3D" parent="."]
+[node name="RouleteLight" type="OmniLight3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54008, -5.17547)
 light_energy = 0.8
 shadow_enabled = true
 shadow_bias = 0.0
 omni_attenuation = 0.732043
 
-[node name="TurnComponent" type="Node" parent="."]
-script = ExtResource("12_wiqqh")
-
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
-[connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_on_playable_area_collision_ball_exited_playable_area"]
+[connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_ball_scored"]
 [connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
+[connection signal="pressed" from="Tienda" to="Camera3D" method="_on_tienda_pressed"]
 [connection signal="ball_strike" from="CueComponent" to="." method="_on_cue_ball_strike"]
 [connection signal="ball_strike" from="CueComponent" to="TurnComponent" method="_on_cue_component_ball_strike"]
 [connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]
-[connection signal="pressed" from="Tienda" to="Camera3D" method="_on_tienda_pressed"]
+[connection signal="score_ball" from="TurnComponent" to="." method="_on_turn_score_ball"]

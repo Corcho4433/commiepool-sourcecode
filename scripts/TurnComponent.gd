@@ -1,7 +1,7 @@
 extends Node
 class_name TurnManager 
 
-
+signal score_ball(turn : int,ball : BallObject)
 ## Almacena una referencia al objeto [BallsArray] de la escena.
 @onready
 var ball_array : BallsArray = get_node("../BallArrayComponent")
@@ -48,9 +48,14 @@ func _process(_delta):
 		
 		
 func changeTurn():
-	print(infoTurns)
 
-	if turn == PLAYER_ONE:
+	if turn == PLAYER_ONE and infoTurns[turn]["ExtraTurn"]:
+		turn = PLAYER_ONE
+		infoTurns[turn]["ExtraTurn"] = false
+	elif turn == PLAYER_TWO and infoTurns[turn]["ExtraTurn"]:
+		turn = PLAYER_TWO
+		infoTurns[turn]["ExtraTurn"] = false
+	elif turn == PLAYER_ONE:
 		turn = PLAYER_TWO
 	elif turn == PLAYER_TWO:
 		turn = PLAYER_ONE
@@ -58,28 +63,34 @@ func changeTurn():
 func _on_cue_component_ball_strike():
 	cueUsed = true
 
-func _on_playable_area_collision_ball_exited_playable_area(body, isCueBall):
+func _ball_scored(body, isCueBall):
 	if isCueBall: return
-	getExtraTurns(body.get_parent())
-	
-	
-func getExtraTurns(ball):
-	var otherTurn = get_other_player_turn()
+	var ball = body.get_parent()
 	var types = ball_array.checkTypeBall(ball)
-	print(types)
+	var otherTurn = get_other_player_turn()
+	getExtraTurns(ball,types)
+	
 	if firstTurn:
 		infoTurns[turn]["Type"] = types[0]
 		infoTurns[otherTurn]["Type"] = types[1]
 		firstTurn = false
 	
 	if infoTurns[turn]["Type"] == types[0]:
-		infoTurns[turn]["ExtraTurn"]= true
+		score_ball.emit(turn, ball)
+	else:
+		score_ball.emit(otherTurn, ball)
 	
-	pass
+func getExtraTurns(ball : BallObject,types : Array):
 
+	var otherTurn = get_other_player_turn()
+
+	if infoTurns[turn]["Type"] == types[0]:
+		infoTurns[turn]["ExtraTurn"]= true
 
 func get_other_player_turn():
 	if turn == PLAYER_ONE:
 		return PLAYER_TWO
 	else:
 		return PLAYER_ONE
+
+
