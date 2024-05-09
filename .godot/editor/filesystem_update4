@@ -1,9 +1,5 @@
-res://scenes/mainmenu.tscn
-res://scripts/ballDatabase.gd
-res://scripts/ballObject.gd
-res://scripts/ballArrays.gd
 res://scenes/GameScene.tscn
-res://scripts/mains.gd
-res://scripts/TurnComponent.gd
-res://scripts/CueComponent.gd
 res://scenes/objects/ball.tscn
+res://scripts/TurnComponent.gd
+res://scripts/mains.gd
+res://scripts/ballArrays.gd

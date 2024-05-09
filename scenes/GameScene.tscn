@@ -150,9 +150,10 @@ omni_attenuation = 0.732043
 [node name="TurnComponent" type="Node" parent="."]
 script = ExtResource("12_wiqqh")
 
-[connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="." method="_on_ball_scored"]
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
+[connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_on_playable_area_collision_ball_exited_playable_area"]
 [connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
 [connection signal="ball_strike" from="CueComponent" to="." method="_on_cue_ball_strike"]
+[connection signal="ball_strike" from="CueComponent" to="TurnComponent" method="_on_cue_component_ball_strike"]
 [connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]
 [connection signal="pressed" from="Tienda" to="Camera3D" method="_on_tienda_pressed"]

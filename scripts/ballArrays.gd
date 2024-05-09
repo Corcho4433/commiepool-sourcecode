@@ -90,6 +90,6 @@ func ball_entered_hole(body):
 	
 func checkTypeBall(ball : BallObject):
 	if ball.ballName in SmoothBalls:
-		return "Smooth"
+		return ["Smooth", "Stripped"]
 	else:
-		return "Stripped"
+		return ["Stripped", "Smooth"]
