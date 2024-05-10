@@ -60,11 +60,14 @@ func _process(_delta):
 	pass
 
 
-func check_win(turn : int):
-	if infoPlayer[turn]["Balls"].size() >= 7:
-		print("u win")
+func check_win(turn : int,ball : BallObject):
 
+	if infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
+		print("jugador " + str(turn) +" gana")
+	elif ball.ballName == "Ball8":
+		print("jugador " + str(turn) +" pierde")
+	
 func _on_turn_score_ball(turn, ball):
 	infoPlayer[turn]["Balls"].append(ball)
-	check_win(turn)
-	print(infoPlayer)
+	check_win(turn,ball)
+

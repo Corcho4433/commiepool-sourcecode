@@ -1,5 +1,2 @@
 res://scenes/GameScene.tscn
 res://scenes/objects/ball.tscn
-res://scripts/TurnComponent.gd
-res://scripts/mains.gd
-res://scripts/ballArrays.gd

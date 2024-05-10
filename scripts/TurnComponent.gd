@@ -64,10 +64,14 @@ func _on_cue_component_ball_strike():
 	cueUsed = true
 
 func _ball_scored(body, isCueBall):
-	if isCueBall: return
+	var otherTurn = get_other_player_turn()
+	if isCueBall: 
+		infoTurns[otherTurn]["ExtraTurn"] = true
+
+		return
+
 	var ball = body.get_parent()
 	var types = ball_array.checkTypeBall(ball)
-	var otherTurn = get_other_player_turn()
 	getExtraTurns(ball,types)
 	
 	if firstTurn:
