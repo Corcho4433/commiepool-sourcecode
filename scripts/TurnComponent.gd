@@ -29,6 +29,10 @@ var cueUsedFrames : int = 0
 ## Indica si el palo de billar ha sido usado
 var cueUsed : bool = false
 
+func _ready():
+	GameEvent.cue_ball_hit_ball.connect(cue_ball_collide)
+	
+
 
 
 func _process(_delta):
@@ -97,4 +101,7 @@ func get_other_player_turn():
 	else:
 		return PLAYER_ONE
 
+func cue_ball_collide(ball_name : String):
+	print(ball_name)
+	pass
 

@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Ball" load_steps=2 format=3 uid="uid://t7owp07e46rq"]
-
-[ext_resource type="Script" path="res://scripts/ballResource.gd" id="1_wn1i6"]
-
-[resource]
-script = ExtResource("1_wn1i6")
-ball_name = "Ball1"
-ball_mass = 1

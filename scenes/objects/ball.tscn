@@ -12,6 +12,7 @@ collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_avylx")
 continuous_cd = true
+contact_monitor = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4ndp0")
