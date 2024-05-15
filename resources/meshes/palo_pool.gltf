@@ -17,27 +17,27 @@
 			"mesh":0,
 			"name":"Cylinder",
 			"rotation":[
-				0.70710688829422,
+				0.7071068286895752,
 				0,
 				0,
-				0.7071066498756409
+				0.7071068286895752
 			],
 			"scale":[
 				0.031600140035152435,
-				0.6610720753669739,
-				0.031600143760442734
+				0.6610720157623291,
+				0.031600140035152435
 			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"Material.002",
+			"name":"Material.001",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.3080396056175232,
-					0.04057307168841362,
-					0.0009546766523271799,
+					0,
+					0,
+					0,
 					1
 				],
 				"metallicFactor":0,
@@ -49,27 +49,12 @@
 			"name":"Material.003",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0,
-					0,
-					0,
+					0.04799327999353409,
+					0.09979081153869629,
+					0.12735946476459503,
 					1
 				],
-				"metallicFactor":0,
-				"roughnessFactor":0.5
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"Material.004",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.11116714775562286,
-					0.13805116713047028,
-					0.2247011512517929,
-					1
-				],
-				"metallicFactor":0,
-				"roughnessFactor":0.5
+				"metallicFactor":0
 			}
 		}
 	],
@@ -92,8 +77,7 @@
 						"NORMAL":5,
 						"TEXCOORD_0":6
 					},
-					"indices":7,
-					"material":1
+					"indices":7
 				},
 				{
 					"attributes":{
@@ -102,7 +86,7 @@
 						"TEXCOORD_0":10
 					},
 					"indices":11,
-					"material":2
+					"material":1
 				}
 			]
 		}
@@ -111,10 +95,10 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":91,
+			"count":161,
 			"max":[
 				0.9749279022216797,
-				1,
+				1.0166971683502197,
 				0.9009688496589661
 			],
 			"min":[
@@ -127,53 +111,53 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":91,
+			"count":161,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":91,
+			"count":161,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":183,
+			"count":267,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":28,
+			"count":56,
 			"max":[
-				0.41678568720817566,
-				1.0166971683502197,
-				0.3851678967475891
+				0.7495979070663452,
+				0.9387809634208679,
+				0.6927326917648315
 			],
 			"min":[
-				-0.41678568720817566,
-				1,
-				-0.42750415205955505
+				-0.7495979070663452,
+				-0.19257156550884247,
+				-0.7688753008842468
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":28,
+			"count":56,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":28,
+			"count":56,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":7,
 			"componentType":5123,
-			"count":42,
+			"count":84,
 			"type":"SCALAR"
 		},
 		{
@@ -214,80 +198,80 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1092,
+			"byteLength":1932,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1092,
-			"byteOffset":1092,
+			"byteLength":1932,
+			"byteOffset":1932,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":728,
-			"byteOffset":2184,
+			"byteLength":1288,
+			"byteOffset":3864,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":366,
-			"byteOffset":2912,
+			"byteLength":534,
+			"byteOffset":5152,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":336,
-			"byteOffset":3280,
+			"byteLength":672,
+			"byteOffset":5688,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":336,
-			"byteOffset":3616,
+			"byteLength":672,
+			"byteOffset":6360,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":224,
-			"byteOffset":3952,
+			"byteLength":448,
+			"byteOffset":7032,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":84,
-			"byteOffset":4176,
+			"byteLength":168,
+			"byteOffset":7480,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":420,
-			"byteOffset":4260,
+			"byteOffset":7648,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":420,
-			"byteOffset":4680,
+			"byteOffset":8068,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":280,
-			"byteOffset":5100,
+			"byteOffset":8488,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":114,
-			"byteOffset":5380,
+			"byteOffset":8768,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":5496,
+			"byteLength":8884,
 			"uri":"palo_pool.bin"
 		}
 	]

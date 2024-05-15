@@ -11,7 +11,11 @@ const  MOVEMENT_THRESHOLD : float = 0.01
 
 func GetStartingArray():
 	return StartingArray
-	
+
+func ShuffleBalls():
+	StartingArray.shuffle()
+	StartingArray.find("Ball1")
+
 func GenerateBalls():
 	var rows : int = 6
 	var dia = 0.03
@@ -87,9 +91,10 @@ func ball_entered_hole(body):
 	body.set_collision_mask_value(1,false)
 
 
+
 	
-func checkTypeBall(ball : BallObject):
-	if ball.ballName in SmoothBalls:
+func checkTypeBall(ball_name : String):
+	if ball_name in SmoothBalls:
 		return ["Smooth", "Stripped"]
 	else:
 		return ["Stripped", "Smooth"]

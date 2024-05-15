@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.44",
+		"generator":"Khronos glTF Blender I/O v4.1.62",
 		"version":"2.0"
 	},
 	"extensionsUsed":[
@@ -1064,8 +1064,7 @@
 				"baseColorTexture":{
 					"index":6
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.5
+				"metallicFactor":0
 			}
 		},
 		{
@@ -1088,8 +1087,7 @@
 				"baseColorTexture":{
 					"index":7
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.5
+				"metallicFactor":0
 			}
 		},
 		{

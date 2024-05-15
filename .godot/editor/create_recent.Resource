@@ -1,1 +1,1 @@
-Ball
+StandardMaterial3D

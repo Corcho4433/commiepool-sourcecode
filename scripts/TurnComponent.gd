@@ -19,7 +19,7 @@ var infoTurns = {
 	PLAYER_TWO: {"Type": "", "ExtraTurn": false}
 }
 var firstTurn : bool = true
-
+var firstBallTouched : String = ""
 
 
 
@@ -45,6 +45,7 @@ func _process(_delta):
 			changeTurn()
 			print(turn)
 			cueUsed = false
+			firstBallTouched = ""
 			cueUsedFrames = 0  # Reinicia el contador de frames
 	
 	if stillBall == false:
@@ -52,7 +53,6 @@ func _process(_delta):
 		
 		
 func changeTurn():
-
 	if turn == PLAYER_ONE and infoTurns[turn]["ExtraTurn"]:
 		turn = PLAYER_ONE
 		infoTurns[turn]["ExtraTurn"] = false
@@ -63,6 +63,7 @@ func changeTurn():
 		turn = PLAYER_TWO
 	elif turn == PLAYER_TWO:
 		turn = PLAYER_ONE
+	GameEvent.change_turn.emit(turn)
 
 func _on_cue_component_ball_strike():
 	cueUsed = true
@@ -71,29 +72,31 @@ func _ball_scored(body, isCueBall):
 	var otherTurn = get_other_player_turn()
 	if isCueBall: 
 		infoTurns[otherTurn]["ExtraTurn"] = true
-
+		infoTurns[turn]["ExtraTurn"] = false
 		return
 
-	var ball = body.get_parent()
-	var types = ball_array.checkTypeBall(ball)
-	getExtraTurns(ball,types)
+	var ball : BallObject = body.get_parent()
+	var types = ball_array.checkTypeBall(ball.ballName)
+	
 	
 	if firstTurn:
 		infoTurns[turn]["Type"] = types[0]
 		infoTurns[otherTurn]["Type"] = types[1]
 		firstTurn = false
-	
+	getExtraTurns(types)
 	if infoTurns[turn]["Type"] == types[0]:
 		score_ball.emit(turn, ball)
 	else:
 		score_ball.emit(otherTurn, ball)
 	
-func getExtraTurns(ball : BallObject,types : Array):
-
+func getExtraTurns(types : Array):
+	var firstBallType = ball_array.checkTypeBall(firstBallTouched)
 	var otherTurn = get_other_player_turn()
-
 	if infoTurns[turn]["Type"] == types[0]:
-		infoTurns[turn]["ExtraTurn"]= true
+		infoTurns[turn]["ExtraTurn"] = true
+	if infoTurns[turn]["Type"] == firstBallType[1] or firstBallTouched == "":
+		infoTurns[otherTurn]["ExtraTurn"] = true
+		infoTurns[turn]["ExtraTurn"] = false
 
 func get_other_player_turn():
 	if turn == PLAYER_ONE:
@@ -102,6 +105,5 @@ func get_other_player_turn():
 		return PLAYER_ONE
 
 func cue_ball_collide(ball_name : String):
-	print(ball_name)
-	pass
-
+	if firstBallTouched == "":
+		firstBallTouched = ball_name

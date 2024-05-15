@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=18 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="10_j1a6t"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="11_qnwqm"]
 [ext_resource type="Script" path="res://scripts/TurnComponent.gd" id="12_wiqqh"]
+[ext_resource type="Script" path="res://scripts/GUIComponent.gd" id="13_syd34"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -46,7 +47,6 @@ _surfaces = [{
 script = ExtResource("1_1s41a")
 
 [node name="PoolTable" parent="." instance=ExtResource("3_8ne0i")]
-input_ray_pickable = false
 
 [node name="PlayableAreaCollision" type="Area3D" parent="PoolTable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0951779, 0)
@@ -58,7 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
 shape = SubResource("HeightMapShape3D_gydyj")
 
 [node name="HoleCollisionDisabler" type="Area3D" parent="PoolTable"]
-visible = false
 script = ExtResource("5_rf0n2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
@@ -107,7 +106,6 @@ cueBall = NodePath("CueBall")
 chargeBar = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CueComponent"]
-visible = false
 offset_left = 139.0
 offset_top = 131.0
 offset_right = 207.0
@@ -118,9 +116,7 @@ text = "[center] 0%"
 fit_content = true
 scroll_active = false
 
-[node name="CueMesh" type="MeshInstance3D" parent="CueComponent"]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
-visible = false
+[node name="palo_pool" parent="CueComponent" instance=ExtResource("10_j1a6t")]
 
 [node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378553, 0.575699)
@@ -131,27 +127,28 @@ cameraNode = NodePath("../../Camera3D")
 [node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/CueBall"]
 mesh = SubResource("ArrayMesh_3b3xh")
 
-[node name="palo_pool" parent="CueComponent" instance=ExtResource("10_j1a6t")]
-
 [node name="TurnComponent" type="Node" parent="."]
 script = ExtResource("12_wiqqh")
 
 [node name="Light" type="Node3D" parent="."]
 
 [node name="MainRoomLight" type="OmniLight3D" parent="Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35292, 0.0158571)
-light_energy = 0.8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842502, 0.0158571)
+light_energy = 0.207
 shadow_enabled = true
 shadow_bias = 0.0
 omni_range = 10.353
 omni_attenuation = 0.732043
 
 [node name="RouleteLight" type="OmniLight3D" parent="Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54008, -5.17547)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63089, 2.51148, -5.12746)
 light_energy = 0.8
 shadow_enabled = true
 shadow_bias = 0.0
 omni_attenuation = 0.732043
+
+[node name="GUIComponent" type="Node" parent="."]
+script = ExtResource("13_syd34")
 
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_ball_scored"]

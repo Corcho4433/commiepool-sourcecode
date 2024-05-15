@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="1_danym"]
 [ext_resource type="PackedScene" uid="uid://b8q5mqp8nar3h" path="res://scenes/ruleta.tscn" id="1_e51j8"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xip2e"]
-friction = 0.5
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j4x7x"]
+friction = 0.05
+bounce = 0.15
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt8lb"]
 size = Vector3(1.18066, 0.07576, 1.92364)
 
-[node name="PoolTable" type="StaticBody3D"]
-physics_material_override = SubResource("PhysicsMaterial_xip2e")
+[node name="PoolTable" type="Node3D"]
 
 [node name="Ruleta" parent="." instance=ExtResource("1_e51j8")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 2.08632, 2.07384, -5.09941)
@@ -18,6 +18,9 @@ transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 
 [node name="habitacion_pool" parent="." instance=ExtResource("1_danym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.82596, 0)
 
-[node name="TableCollision" type="CollisionShape3D" parent="."]
+[node name="mesa" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_j4x7x")
+
+[node name="TableCollision" type="CollisionShape3D" parent="mesa"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118417, -0.213578, 0.0171793)
 shape = SubResource("BoxShape3D_rt8lb")

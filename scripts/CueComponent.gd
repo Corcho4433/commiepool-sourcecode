@@ -33,6 +33,9 @@ var distance : float
 const  MAX_DISTANCE : float = 0.4
 
 
+func _ready():
+	GameEvent.change_turn.connect(_change_cue_color)
+	_change_cue_color(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -113,3 +116,14 @@ func setChargeBarText(percentage: int):
 func _on_cue_ball_clicked():
 	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false: return
 	isCueStickUsed = true
+	
+func _change_cue_color(turn : int):
+	var material : Material 
+	if turn == 1:
+		material  = load("res://resources/materiales/palo1.tres")
+	elif turn == 2: 
+		material = load("res://resources/materiales/palo2.tres")
+
+	cueMesh.set_surface_override_material(1,material)
+	
+
