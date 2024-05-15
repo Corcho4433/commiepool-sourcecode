@@ -106,6 +106,7 @@ cueBall = NodePath("CueBall")
 chargeBar = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CueComponent"]
+visible = false
 offset_left = 139.0
 offset_top = 131.0
 offset_right = 207.0

@@ -1,12 +1,1 @@
-res://scenes/objects/pool_table.tscn
-res://scenes/habitacion_pool.tscn
 res://scenes/GameScene.tscn
-res://scenes/objects/ball.tscn
-res://scenes/palo_pool.tscn
-res://resources/materiales/palo2.tres
-res://scripts/game_event.gd
-res://scripts/TurnComponent.gd
-res://scripts/CueComponent.gd
-res://resources/materiales/palo1.tres
-res://scripts/ballArrays.gd
-res://scripts/GUIComponent.gd
