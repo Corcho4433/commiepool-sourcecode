@@ -39,5 +39,3 @@ func cameraTransition(state: String):
 		var vector = CameraDictionary[state][step][1]
 		var duration = CameraDictionary[state][step][2]
 		tween.tween_property(self,property, vector , duration)
-	pass
-

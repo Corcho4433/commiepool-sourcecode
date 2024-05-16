@@ -41,7 +41,7 @@ func _process(_delta):
 	
 	if cueUsed == true and stillBall == true:
 		cueUsedFrames += 1
-		if cueUsedFrames >= 30:
+		if cueUsedFrames >= 2:
 			changeTurn()
 			print(turn)
 			cueUsed = false

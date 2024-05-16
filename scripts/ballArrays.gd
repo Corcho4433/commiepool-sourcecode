@@ -2,19 +2,22 @@ extends Node
 class_name BallsArray
 
 
-var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball8","Ball10","Ball2","Ball9","Ball1"]
+var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball10","Ball2","Ball9"]
 var SmoothBalls = ["Ball1","Ball2","Ball3","Ball4","Ball5","Ball6","Ball7"]
 var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Bal14","Ball15"]
 var CurrentArray : Array
 const  MOVEMENT_THRESHOLD : float = 0.01
 
+func _ready():
+	ShuffleBalls()
 
 func GetStartingArray():
 	return StartingArray
 
 func ShuffleBalls():
 	StartingArray.shuffle()
-	StartingArray.find("Ball1")
+	StartingArray.append("Ball1")
+	StartingArray.insert(10,"Ball8")
 
 func GenerateBalls():
 	var rows : int = 6
