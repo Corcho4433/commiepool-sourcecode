@@ -2,7 +2,6 @@ extends Node
 class_name GUI
 
 @export var cueStickNode : Node3D
-@export var chargeBar : RichTextLabel
 @export var camera : Camera3D
 var _cueStick : MeshInstance3D
 
@@ -18,7 +17,6 @@ func _ready():
 	change_cue_visibility()
 
 func update_cue_charge(ball_pos : Vector3, direction : Vector3, distance : float):
-	displayChargeBar(ball_pos,direction,distance)
 	displayCueStick(ball_pos,direction,distance)
 
 
@@ -35,7 +33,6 @@ func change_cue_visibility():
 	if _cueStick.visible == false:
 		await GameEvent.update_cue_charge
 	_cueStick.visible = !_cueStick.visible
-	chargeBar.visible = !chargeBar.visible
 	
 func displayCueStick(ball_pos : Vector3, direction : Vector3, distance : float):
 	var cueRotation : Vector3 = Vector3(1.5708,atan2(direction.x,direction.z),0)
@@ -44,31 +41,8 @@ func displayCueStick(ball_pos : Vector3, direction : Vector3, distance : float):
 	_cueStick.rotation = cueRotation
 	_cueStick.position = cuePosition
 
-func displayChargeBar(ball_pos : Vector3, direction : Vector3, distance : float):
-	const  MAX_DISTANCE : float = GameEvent.MAX_DISTANCE
-	var chargeBarPosition : Vector3 = ball_pos - (direction * distance)
-	var minDistance : Vector3 = direction * -0.15
-	var chargeBarPercentage : int = int((distance / MAX_DISTANCE ) * 100  )
-	chargeBar.visible = true
-	chargeBar.position = camera.unproject_position(chargeBarPosition + minDistance) 
-	setChargeBarText(chargeBarPercentage)
 		
 		
-func setChargeBarText(percentage: int):
-	var tags : String
-	if percentage >= 0 and percentage < 20:
-		tags = "[color=aqua][wave]"
-	elif percentage >= 20 and percentage < 40: 
-		tags = "[color=green][wave]"
-	elif percentage >= 40 and percentage < 60:
-		tags = "[color=yellow][wave]"
-	elif percentage >= 60 and percentage < 90:
-		tags = "[color=red][shake]"
-	elif percentage >= 90:
-		tags = "[shake][rainbow]"
-	chargeBar.parse_bbcode("[center]" + tags)
-	chargeBar.add_text(str(percentage) + "%")
-	chargeBar.pop_all()
 
 func display_ball_scored(_turn:int, _ball: BallObject):
 	pass
