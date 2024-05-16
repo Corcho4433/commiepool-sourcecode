@@ -1,4 +1,6 @@
 res://scenes/GameScene.tscn
-res://scripts/TurnComponent.gd
 res://scripts/CueComponent.gd
-res://scripts/ballArrays.gd
+res://scripts/game_event.gd
+res://scripts/GUIComponent.gd
+res://scripts/mains.gd
+res://scripts/TurnComponent.gd

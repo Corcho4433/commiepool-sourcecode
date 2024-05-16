@@ -106,7 +106,7 @@ cueBall = NodePath("CueBall")
 chargeBar = NodePath("../GUIComponent/RichTextLabel")
 
 [node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378553, 0.575699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154643, 0.575699)
 max_contacts_reported = 100
 script = ExtResource("5_0d3vu")
 cameraNode = NodePath("../../Camera3D")
@@ -126,7 +126,6 @@ camera = NodePath("../Camera3D")
 [node name="palo_pool" parent="GUIComponent" instance=ExtResource("10_j1a6t")]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GUIComponent"]
-visible = false
 offset_left = 139.0
 offset_top = 131.0
 offset_right = 207.0
@@ -161,4 +160,3 @@ omni_attenuation = 0.732043
 [connection signal="ball_strike" from="CueComponent" to="TurnComponent" method="_on_cue_component_ball_strike"]
 [connection signal="body_entered" from="CueComponent/CueBall" to="CueComponent/CueBall" method="_on_body_entered"]
 [connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]
-[connection signal="score_ball" from="TurnComponent" to="." method="_on_turn_score_ball"]

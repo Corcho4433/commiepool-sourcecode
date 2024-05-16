@@ -24,15 +24,17 @@ var mousePosition : Vector3
 
 
 var appliedForce : Vector3
-var oldDirection : Vector3
+var _oldDirection : Vector3
 var direction : Vector3
 var distance : float
 @export var FORCE_MULTIPLIER : float = 9
 @export var MAX_FORCE_VARIATION : float = 1.1
 @export var MIN_FORCE_VARIATION : float = 1
-const  MAX_DISTANCE : float = 0.4
 
 
+
+func _ready():
+	GameEvent.cue_used_changed.connect(_on_cue_ball_clicked)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,29 +43,31 @@ func _process(_delta):
 	mousePosition = cameraNode.project_position(get_viewport().get_mouse_position(),1)
 	ballPosition = cueBall.position
 	appliedForce = getStrokePower(ballPosition,mousePosition)
-	if oldDirection != direction:
+	if _oldDirection != direction:
 		GameEvent.update_cue_charge.emit(ballPosition,direction,distance)
-
+	
 
 	if Input.is_action_just_released("LeftClick"):
-		isCueStickUsed = false
-		chargeBar.visible = false
-		applyStrokePower(appliedForce, Vector3.ZERO)
-		emit_signal("ball_strike")
-		GameEvent.cue_used_changed.emit()
+		_handle_strike()
+		
 	
-	oldDirection = direction
+	_oldDirection = direction
 	
 func applyStrokePower(force : Vector3, spin : Vector3):
 	cueBall.apply_impulse(force, spin)
 	
 func getStrokePower(ballPos: Vector3, shotPos: Vector3):
+	const MAX_DISTANCE : float = GameEvent.MAX_DISTANCE
+	const MIN_DISTANCE : float = GameEvent.MIN_DISTANCE
 	var forceVariation : float = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
 	var posDifference : Vector3  = ballPos - shotPos
 	posDifference[1] = 0
 	distance = posDifference.length()
 	direction = posDifference.normalized()
-	if distance >= MAX_DISTANCE: distance = MAX_DISTANCE
+	if distance >= MAX_DISTANCE: 
+		distance = MAX_DISTANCE
+	elif distance <= MIN_DISTANCE:
+		distance = 0
 	return direction * FORCE_MULTIPLIER * distance * forceVariation
 
 
@@ -72,4 +76,11 @@ func _on_cue_ball_clicked():
 	isCueStickUsed = true
 	GameEvent.cue_used_changed.emit()
 
-
+func _handle_strike():
+	isCueStickUsed = false
+	if distance == 0: 
+			GameEvent.cue_used_changed.emit()
+	else:
+		applyStrokePower(appliedForce, Vector3.ZERO)
+		emit_signal("ball_strike")
+		GameEvent.cue_used_changed.emit()

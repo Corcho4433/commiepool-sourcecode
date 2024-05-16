@@ -1,7 +1,6 @@
 extends Node
 class_name TurnManager 
 
-signal score_ball(turn : int,ball : BallObject)
 ## Almacena una referencia al objeto [BallsArray] de la escena.
 @onready
 var ball_array : BallsArray = get_node("../BallArrayComponent")
@@ -38,7 +37,7 @@ func _ready():
 func _process(_delta):
 	var stillBall : bool = ball_array.checkMovement()
 	cue_component.isCueStickActive =  stillBall
-	
+
 	if cueUsed == true and stillBall == true:
 		cueUsedFrames += 1
 		if cueUsedFrames >= 2:
@@ -85,9 +84,9 @@ func _ball_scored(body, isCueBall):
 		firstTurn = false
 	getExtraTurns(types)
 	if infoTurns[turn]["Type"] == types[0]:
-		score_ball.emit(turn, ball)
+		GameEvent.on_ball_scored.emit(turn, ball)
 	else:
-		score_ball.emit(otherTurn, ball)
+		GameEvent.on_ball_scored.emit(otherTurn, ball)
 	
 func getExtraTurns(types : Array):
 	var firstBallType = ball_array.checkTypeBall(firstBallTouched)

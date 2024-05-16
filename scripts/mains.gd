@@ -20,15 +20,13 @@ var camera : Camera3D = get_node("Camera3D")
 ## el tipo de bolas que le corresponde, ej: [br] [br]
 ## [code] {PLAYER_ONE: {"Balls": [], "Type": ""}, PLAYER_TWO: {"Balls": [], "Type": ""},}
 ## [/code]
-var infoPlayer = {
-	PLAYER_ONE: {"Balls": []},
-	PLAYER_TWO: {"Balls": []},
-}
+
 ## Visibilidad de las pelotas
 var active : bool = true
 
 
 func _ready():
+	GameEvent.on_ball_scored.connect(_on_turn_score_ball)
 	new_game()
 	pass 
 
@@ -61,13 +59,14 @@ func _process(_delta):
 
 
 func check_win(turn : int,ball : BallObject):
-
-	if infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
+	
+	if GameEvent.infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
 		print("jugador " + str(turn) +" gana")
 	elif ball.ballName == "Ball8":
 		print("jugador " + str(turn) +" pierde")
 	
 func _on_turn_score_ball(turn, ball):
-	infoPlayer[turn]["Balls"].append(ball)
+	GameEvent.infoPlayer[turn]["Balls"].append(ball)
+	print(GameEvent.infoPlayer)
 	check_win(turn,ball)
 
