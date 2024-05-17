@@ -58,17 +58,20 @@ func applyStrokePower(force : Vector3, spin : Vector3):
 	
 func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 	const MAX_DISTANCE : float = GameInfo.MAX_DISTANCE
-	const MIN_DISTANCE : float = GameInfo.MIN_DISTANCE
+	const MAX_DISTANCE_FORCE : float = GameInfo.MAX_DISTANCE_FORCE
+	const MIN_DISTANCE : float = GameInfo.MIN_DISTANCE *  (MAX_DISTANCE_FORCE/ MAX_DISTANCE)
+	var distanceForce : float 
 	var forceVariation : float = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
 	var posDifference : Vector3  = ballPos - shotPos
 	posDifference[1] = 0
-	distance = posDifference.length()
+	distance  = posDifference.length()
 	direction = posDifference.normalized()
 	if distance >= MAX_DISTANCE: 
-		distance = MAX_DISTANCE
+		distance = MAX_DISTANCE 
 	elif distance <= MIN_DISTANCE:
 		distance = 0
-	return direction * FORCE_MULTIPLIER * distance * forceVariation
+	distanceForce = distance * (MAX_DISTANCE_FORCE /MAX_DISTANCE)
+	return direction * FORCE_MULTIPLIER * distanceForce * forceVariation
 
 
 func _on_cue_ball_clicked():

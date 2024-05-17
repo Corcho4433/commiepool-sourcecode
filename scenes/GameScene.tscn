@@ -82,6 +82,9 @@ script = ExtResource("4_7f1v5")
 script = ExtResource("5_e2yek")
 cameraNode = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 cueBall = NodePath("CueBall")
+FORCE_MULTIPLIER = null
+MAX_FORCE_VARIATION = null
+MIN_FORCE_VARIATION = null
 
 [node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703911, 0.575699)

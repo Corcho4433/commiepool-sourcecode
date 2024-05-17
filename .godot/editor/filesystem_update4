@@ -2,9 +2,7 @@ res://scenes/GameScene.tscn
 res://scripts/CueBall.gd
 res://scenes/mainmenu.tscn
 res://scenes/objects/ball.tscn
-res://scripts/ballArrays.gd
-res://scripts/game_event.gd
 res://scenes/objects/pool_table.tscn
-res://scripts/GUIComponent.gd
 res://scenes/palo_pool.tscn
+res://scripts/CueComponent.gd
 res://scripts/game_info.gd
