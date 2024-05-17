@@ -10,10 +10,15 @@ const  MOVEMENT_THRESHOLD : float = 0.01
 
 func _ready():
 	ShuffleBalls()
+	GameEvent.freeze_balls.connect(FreezeBalls)
 
 func GetStartingArray():
 	return StartingArray
 
+func FreezeBalls():
+	for ball : BallObject in CurrentArray:
+		ball.get_node("pelota").freeze = true
+		
 func ShuffleBalls():
 	StartingArray.shuffle()
 	StartingArray.append("Ball1")

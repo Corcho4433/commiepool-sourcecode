@@ -78,13 +78,15 @@ shape = SubResource("SphereShape3D_63gom")
 [node name="BallArrayComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")
 
-[node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall")]
+[node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall", "chargeBar")]
 script = ExtResource("5_e2yek")
 cameraNode = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 cueBall = NodePath("CueBall")
+chargeBar = NodePath("")
 
 [node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154643, 0.575699)
+disable_mode = 1
 max_contacts_reported = 100
 script = ExtResource("5_0d3vu")
 cameraNode = NodePath("../../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
@@ -151,4 +153,5 @@ omni_attenuation = 0.732043
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_ball_scored"]
 [connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
 [connection signal="ball_strike" from="CueComponent" to="TurnComponent" method="_on_cue_component_ball_strike"]
+[connection signal="body_entered" from="CueComponent/CueBall" to="CueComponent/CueBall" method="_on_body_entered"]
 [connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]

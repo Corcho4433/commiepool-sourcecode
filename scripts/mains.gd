@@ -13,8 +13,7 @@ var ball_array : BallsArray = get_node("BallArrayComponent")
 @onready
 var turn_manager : TurnManager	 = get_node("TurnComponent") 
 ## Almacena una referencia a la camera de la escena.
-@onready
-var camera : Camera3D = get_node("Camera3D")
+
 
 ## Es un diccionario que contiene informacion de las bolas que ha metido cada jugador y
 ## el tipo de bolas que le corresponde, ej: [br] [br]
@@ -27,8 +26,8 @@ var active : bool = true
 
 func _ready():
 	GameEvent.on_ball_scored.connect(_on_turn_score_ball)
+	GameEvent.penalty_commited.connect(handle_penalty)
 	new_game()
-	pass 
 
 ## Inicializa las bolas y las spawnea 
 func new_game():
@@ -44,8 +43,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("SpawnBalls"):
 		ball_array.GenerateBalls()
 		ball_array.SpawnBalls()
-	if Input.is_action_just_pressed("RightClick"):
-		ball_array.DeleteBalls()
 		
 	if Input.is_action_just_pressed("ChangeBall"):
 		var longitud = ball_array.CurrentArray.size() - 1
@@ -60,13 +57,15 @@ func _process(_delta):
 
 func check_win(turn : int,ball : BallObject):
 	
-	if GameEvent.infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
+	if GameInfo.infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
 		print("jugador " + str(turn) +" gana")
 	elif ball.ballName == "Ball8":
 		print("jugador " + str(turn) +" pierde")
 	
 func _on_turn_score_ball(turn, ball):
-	GameEvent.infoPlayer[turn]["Balls"].append(ball)
-	print(GameEvent.infoPlayer)
+	GameInfo.infoPlayer[turn]["Balls"].append(ball)
 	check_win(turn,ball)
+	
+func handle_penalty():
+	pass
 

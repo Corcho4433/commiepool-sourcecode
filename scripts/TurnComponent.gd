@@ -70,8 +70,7 @@ func _on_cue_component_ball_strike():
 func _ball_scored(body, isCueBall):
 	var otherTurn = get_other_player_turn()
 	if isCueBall: 
-		infoTurns[otherTurn]["ExtraTurn"] = true
-		infoTurns[turn]["ExtraTurn"] = false
+		penalty()
 		return
 
 	var ball : BallObject = body.get_parent()
@@ -90,12 +89,11 @@ func _ball_scored(body, isCueBall):
 	
 func getExtraTurns(types : Array):
 	var firstBallType = ball_array.checkTypeBall(firstBallTouched)
-	var otherTurn = get_other_player_turn()
 	if infoTurns[turn]["Type"] == types[0]:
 		infoTurns[turn]["ExtraTurn"] = true
 	if infoTurns[turn]["Type"] == firstBallType[1] or firstBallTouched == "":
-		infoTurns[otherTurn]["ExtraTurn"] = true
-		infoTurns[turn]["ExtraTurn"] = false
+		penalty()
+		
 
 func get_other_player_turn():
 	if turn == PLAYER_ONE:
@@ -106,3 +104,8 @@ func get_other_player_turn():
 func cue_ball_collide(ball_name : String):
 	if firstBallTouched == "":
 		firstBallTouched = ball_name
+
+
+func penalty():
+	infoTurns[turn]["ExtraTurn"] = false
+	GameEvent.penalty_commited.emit()
