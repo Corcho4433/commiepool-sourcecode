@@ -72,9 +72,8 @@ func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 
 
 func _on_cue_ball_clicked():
-	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false or isCueStickUsed == true or GameInfo.is_dragging == true: return
+	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false or isCueStickUsed == true: return
 	isCueStickUsed = true
-	GameInfo.is_striking = true
 	GameEvent.cue_used_changed.emit()
 
 func _handle_strike():
@@ -83,7 +82,6 @@ func _handle_strike():
 		applyStrokePower(appliedForce, Vector3.ZERO)
 		GameEvent.ball_strike.emit()
 	
-	GameInfo.is_striking = false
 	GameEvent.cue_used_changed.emit()
 
 func change_cue_active(value : bool):

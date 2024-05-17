@@ -17,7 +17,7 @@ var infoTurns = {
 	PLAYER_ONE: {"Type": "", "ExtraTurn": false, "BallInHand": false},
 	PLAYER_TWO: {"Type": "", "ExtraTurn": false, "BallInHand": false}
 }
-var firstTurn : bool = true
+var firstBall : bool = true
 var firstBallTouched : String = ""
 
 
@@ -30,19 +30,20 @@ var cueUsed : bool = false
 
 func _ready():
 	GameEvent.cue_ball_hit_ball.connect(cue_ball_collide)
-	
+	GameEvent.ball_strike.connect(_on_cue_component_ball_strike)
 
 
 
 func _process(_delta):
 	var stillBall : bool = ball_array.checkMovement()
-	cue_component.isCueStickActive =  stillBall
-
+	cue_component.isCueStickActive = stillBall
+	
 	if cueUsed == true and stillBall == true:
 		cueUsedFrames += 1
-		if cueUsedFrames >= 2:
+		if cueUsedFrames >= 4:
+			print("Antes: ",infoTurns)
 			changeTurn()
-			print(turn)
+			print("Despues: ",infoTurns)
 			cueUsed = false
 			firstBallTouched = ""
 			cueUsedFrames = 0  # Reinicia el contador de frames
@@ -62,8 +63,7 @@ func changeTurn():
 		turn = PLAYER_TWO
 	elif turn == PLAYER_TWO:
 		turn = PLAYER_ONE
-		
-	
+
 	GameEvent.change_turn.emit(turn)
 
 func _on_cue_component_ball_strike():
@@ -79,23 +79,27 @@ func _ball_scored(body, isCueBall):
 	var types = ball_array.checkTypeBall(ball.ballName)
 	
 	
-	if firstTurn:
+	if firstBall:
 		infoTurns[turn]["Type"] = types[0]
 		infoTurns[otherTurn]["Type"] = types[1]
-		firstTurn = false
+		firstBallTouched = "DNC"
+		firstBall = false
 	getExtraTurns(types)
 	if infoTurns[turn]["Type"] == types[0]:
 		GameEvent.on_ball_scored.emit(turn, ball)
 	else:
 		GameEvent.on_ball_scored.emit(otherTurn, ball)
 	
+	
+	
 func getExtraTurns(types : Array):
 	var firstBallType = ball_array.checkTypeBall(firstBallTouched)
 	if infoTurns[turn]["Type"] == types[0]:
 		infoTurns[turn]["ExtraTurn"] = true
-	if infoTurns[turn]["Type"] == firstBallType[1] or firstBallTouched == "":
+	if (infoTurns[turn]["Type"] == firstBallType[1] or firstBallTouched == "") and firstBallTouched != "DNC":
 		penalty()
-		
+		print(firstBallTouched)
+
 
 func get_other_player_turn():
 	if turn == PLAYER_ONE:
@@ -112,4 +116,5 @@ func cue_ball_collide(ball_name : String):
 func penalty():
 	var otherTurn = get_other_player_turn()
 	infoTurns[turn]["ExtraTurn"] = false
+	infoTurns[otherTurn]["BallInHand"] = true
 	GameEvent.penalty_commited.emit()
