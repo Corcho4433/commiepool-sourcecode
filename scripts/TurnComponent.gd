@@ -14,8 +14,8 @@ const PLAYER_TWO = 2
 ## Indica de quien es el turno.
 var turn : int = PLAYER_ONE
 var infoTurns = {
-	PLAYER_ONE: {"Type": "", "ExtraTurn": false},
-	PLAYER_TWO: {"Type": "", "ExtraTurn": false}
+	PLAYER_ONE: {"Type": "", "ExtraTurn": false, "BallInHand": false},
+	PLAYER_TWO: {"Type": "", "ExtraTurn": false, "BallInHand": false}
 }
 var firstTurn : bool = true
 var firstBallTouched : String = ""
@@ -62,6 +62,8 @@ func changeTurn():
 		turn = PLAYER_TWO
 	elif turn == PLAYER_TWO:
 		turn = PLAYER_ONE
+		
+	
 	GameEvent.change_turn.emit(turn)
 
 func _on_cue_component_ball_strike():
@@ -106,6 +108,8 @@ func cue_ball_collide(ball_name : String):
 		firstBallTouched = ball_name
 
 
+
 func penalty():
+	var otherTurn = get_other_player_turn()
 	infoTurns[turn]["ExtraTurn"] = false
 	GameEvent.penalty_commited.emit()

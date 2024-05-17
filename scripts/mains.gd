@@ -11,7 +11,7 @@ const PLAYER_TWO = 2
 var ball_array : BallsArray = get_node("BallArrayComponent")
 ## Almacena una referencia al objeto [CueObject] de la escena.
 @onready
-var turn_manager : TurnManager	 = get_node("TurnComponent") 
+var turn_manager : TurnManager = get_node("TurnComponent") 
 ## Almacena una referencia a la camera de la escena.
 
 
@@ -26,7 +26,6 @@ var active : bool = true
 
 func _ready():
 	GameEvent.on_ball_scored.connect(_on_turn_score_ball)
-	GameEvent.penalty_commited.connect(handle_penalty)
 	new_game()
 
 ## Inicializa las bolas y las spawnea 
@@ -43,20 +42,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("SpawnBalls"):
 		ball_array.GenerateBalls()
 		ball_array.SpawnBalls()
-		
-	if Input.is_action_just_pressed("ChangeBall"):
-		var longitud = ball_array.CurrentArray.size() - 1
-		for i in longitud:
-			ball_array.ChangeBall(randi_range(1,longitud) , "Ball" + str(randi_range(1,15)))
-		
-	if Input.is_action_just_pressed("VisibiltyToggle"):
-		active = !active
-		ball_array.VisibilityTogle(active)
-	pass
 
-
-func check_win(turn : int,ball : BallObject):
-	
+func check_win(turn : int,ball : BallObject):	
 	if GameInfo.infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
 		print("jugador " + str(turn) +" gana")
 	elif ball.ballName == "Ball8":
@@ -66,6 +53,4 @@ func _on_turn_score_ball(turn, ball):
 	GameInfo.infoPlayer[turn]["Balls"].append(ball)
 	check_win(turn,ball)
 	
-func handle_penalty():
-	pass
 

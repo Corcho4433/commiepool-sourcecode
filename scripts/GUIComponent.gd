@@ -3,11 +3,17 @@ class_name GUI
 
 @export var cueStickNode : Node3D
 @export var camera : Camera3D
+@onready var lampara : MeshInstance3D = get_node("../PoolTable/habitacion_pool/lampara")
+@onready var bombilla : MeshInstance3D = get_node("../PoolTable/habitacion_pool/bombilla")
+@onready var bombillita : MeshInstance3D = get_node("../PoolTable/habitacion_pool/BezierCurve")
 var _cueStick : MeshInstance3D
 
 
 
 func _ready():
+	lampara.set_layer_mask_value(1,false)
+	bombilla.set_layer_mask_value(1,false)
+	bombillita.set_layer_mask_value(1,false)
 	_cueStick = cueStickNode.get_node("Cylinder")
 	_cueStick.scale = _cueStick.scale * GameInfo.cue_scale
 	GameEvent.update_cue_charge.connect(update_cue_charge)

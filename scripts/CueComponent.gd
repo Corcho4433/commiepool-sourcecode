@@ -1,7 +1,7 @@
 extends Node
 class_name CueObject
 
-signal ball_strike 
+
 
 
 @export
@@ -9,10 +9,6 @@ var cameraNode : Camera3D
 @export
 var cueBall : RigidBody3D 
 
-@export 
-var chargeBar : RichTextLabel 
-var chargeBarPercentage : int
-var oldChargeBarPercentage : int
 
 
 
@@ -35,7 +31,7 @@ var distance : float
 
 func _ready():
 	GameEvent.cue_used_changed.connect(_on_cue_ball_clicked)
-
+	GameEvent.change_cue_active.connect(change_cue_active)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -56,6 +52,7 @@ func _process(_delta):
 func applyStrokePower(force : Vector3, spin : Vector3):
 	cueBall.apply_impulse(force, spin)
 	
+	
 func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 	const MAX_DISTANCE : float = GameInfo.MAX_DISTANCE
 	const MAX_DISTANCE_FORCE : float = GameInfo.MAX_DISTANCE_FORCE
@@ -75,15 +72,19 @@ func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 
 
 func _on_cue_ball_clicked():
-	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false or isCueStickUsed == true: return
+	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false or isCueStickUsed == true or GameInfo.is_dragging == true: return
 	isCueStickUsed = true
+	GameInfo.is_striking = true
 	GameEvent.cue_used_changed.emit()
 
 func _handle_strike():
 	isCueStickUsed = false
-	if distance == 0: 
-			GameEvent.cue_used_changed.emit()
-	else:
+	if distance != 0: 
 		applyStrokePower(appliedForce, Vector3.ZERO)
-		emit_signal("ball_strike")
-		GameEvent.cue_used_changed.emit()
+		GameEvent.ball_strike.emit()
+	
+	GameInfo.is_striking = false
+	GameEvent.cue_used_changed.emit()
+
+func change_cue_active(value : bool):
+	isCueStickActive = value

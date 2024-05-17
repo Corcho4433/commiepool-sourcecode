@@ -14,3 +14,5 @@ var infoPlayer = {
 	PLAYER_ONE: {"Balls": []},
 	PLAYER_TWO: {"Balls": []},
 }
+var is_dragging : bool = false
+var is_striking : bool = false
