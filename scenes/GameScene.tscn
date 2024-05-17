@@ -84,7 +84,7 @@ cameraNode = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D"
 cueBall = NodePath("CueBall")
 
 [node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154643, 0.575699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703911, 0.575699)
 max_contacts_reported = 100
 script = ExtResource("5_0d3vu")
 cameraNode = NodePath("../../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
@@ -101,6 +101,7 @@ cueStickNode = NodePath("palo_pool")
 camera = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 
 [node name="palo_pool" parent="GUIComponent" instance=ExtResource("10_j1a6t")]
+rotation_order = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

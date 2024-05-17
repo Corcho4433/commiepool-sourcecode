@@ -7,4 +7,4 @@ signal cue_used_changed()
 #penalty comited no esta programada ashe
 signal penalty_commited()
 signal on_ball_scored(turn : int, ball : BallObject)
-signal freeze_balls()
+

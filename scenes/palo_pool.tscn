@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="1_sa8s1"]
 
 [node name="palo_pool" instance=ExtResource("1_sa8s1")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(0.0316001, 0, 0, 0, -2.88964e-08, -0.0316001, 0, 0.661072, -1.38129e-09, 0, 0, 0)

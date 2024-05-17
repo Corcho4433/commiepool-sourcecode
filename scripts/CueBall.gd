@@ -14,7 +14,8 @@ func _process(_delta):
 		if Input.is_action_just_pressed("RightClick"):
 			isDragging = true
 		if isDragging:
-			global_position = cameraNode.project_position(get_viewport().get_mouse_position(),0.985)
+			set_collision_layer_value(1,false)
+			global_position = cameraNode.project_position(get_viewport().get_mouse_position(),0.987)
 		if Input.is_action_just_released("RightClick"):
 			handle_drop()
 
@@ -27,7 +28,8 @@ func _process(_delta):
 			emit_signal("cue_ball_clicked")
 
 func handle_drop():
-	if bodies.size() == 0 :
+	if get_contact_count() == 1 :
+		set_collision_layer_value(1,true)
 		isDraggable = false
 		isDragging = false
 

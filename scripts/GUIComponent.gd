@@ -9,6 +9,7 @@ var _cueStick : MeshInstance3D
 
 func _ready():
 	_cueStick = cueStickNode.get_node("Cylinder")
+	_cueStick.scale = _cueStick.scale * GameInfo.cue_scale
 	GameEvent.update_cue_charge.connect(update_cue_charge)
 	GameEvent.change_turn.connect(change_cue_color)
 	GameEvent.cue_used_changed.connect(change_cue_visibility)
@@ -35,11 +36,13 @@ func change_cue_visibility():
 	_cueStick.visible = !_cueStick.visible
 	
 func displayCueStick(ball_pos : Vector3, direction : Vector3, distance : float):
-	var cueRotation : Vector3 = Vector3(1.5708,atan2(direction.x,direction.z),0)
-	var minDistance : Vector3 = direction * -0.7
-	var cuePosition : Vector3 = ball_pos - (direction * distance) + minDistance
+	const cue_lenght : float = 0.7
+	var scale = GameInfo.cue_scale
+	var cueRotation : Vector3 = Vector3(1.5708, atan2(direction.x, direction.z), 0)
+	var cuePosition : Vector3 = ball_pos + (-direction * distance) - (cue_lenght * direction * scale)
 	_cueStick.rotation = cueRotation
 	_cueStick.position = cuePosition
+
 
 		
 		
