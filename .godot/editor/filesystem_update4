@@ -1,8 +1,6 @@
 res://scenes/GameScene.tscn
 res://scripts/CueBall.gd
-res://scripts/CueComponent.gd
-res://scripts/game_info.gd
-res://scripts/TurnComponent.gd
 res://scenes/objects/ball.tscn
-res://scripts/mains.gd
 res://scenes/objects/pool_table.tscn
+res://scripts/TurnComponent.gd
+res://scripts/ballArrays.gd

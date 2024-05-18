@@ -41,6 +41,8 @@ func _process(_delta):
 	if cueUsed == true and stillBall == true:
 		cueUsedFrames += 1
 		if cueUsedFrames >= 4:
+			if firstBallTouched == "":
+				penalty()
 			print("Antes: ",infoTurns)
 			changeTurn()
 			print("Despues: ",infoTurns)
@@ -53,6 +55,7 @@ func _process(_delta):
 		
 		
 func changeTurn():
+	infoTurns[turn]["BallInHand"] = false
 	if turn == PLAYER_ONE and infoTurns[turn]["ExtraTurn"]:
 		turn = PLAYER_ONE
 		infoTurns[turn]["ExtraTurn"] = false
@@ -63,7 +66,8 @@ func changeTurn():
 		turn = PLAYER_TWO
 	elif turn == PLAYER_TWO:
 		turn = PLAYER_ONE
-
+	
+	
 	GameEvent.change_turn.emit(turn)
 
 func _on_cue_component_ball_strike():
@@ -98,7 +102,7 @@ func getExtraTurns(types : Array):
 		infoTurns[turn]["ExtraTurn"] = true
 	if (infoTurns[turn]["Type"] == firstBallType[1] or firstBallTouched == "") and firstBallTouched != "DNC":
 		penalty()
-		print(firstBallTouched)
+		
 
 
 func get_other_player_turn():

@@ -52,7 +52,9 @@ func _on_body_entered(body):
 		GameEvent.cue_ball_hit_ball.emit(body.get_parent().ballName)
 
 func set_dragging():
+	print("activar")
 	isDraggable = true
 	
 func ball_striked():
+	print("desactivar")
 	isDraggable = false

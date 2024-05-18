@@ -4,9 +4,9 @@ class_name BallsArray
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball10","Ball2","Ball9"]
 var SmoothBalls = ["Ball1","Ball2","Ball3","Ball4","Ball5","Ball6","Ball7"]
-var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Bal14","Ball15"]
+var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Ball14","Ball15"]
 var CurrentArray : Array
-const  MOVEMENT_THRESHOLD : float = 0.01
+const MOVEMENT_THRESHOLD : float = 0.01
 
 func _ready():
 	ShuffleBalls()
@@ -17,7 +17,17 @@ func GetStartingArray():
 
 		
 func ShuffleBalls():
+	var cornerStripped : String = StrippedBall.pick_random()
+	var cornerSmooth : String = SmoothBalls.pick_random()
+	while cornerSmooth == "Ball1":
+		cornerSmooth  = SmoothBalls.pick_random()
+	StartingArray.pop_at(StartingArray.find(cornerSmooth))	
+	StartingArray.pop_at(StartingArray.find(cornerStripped))
+	
 	StartingArray.shuffle()
+	
+	StartingArray.push_front(cornerSmooth)
+	StartingArray.insert(4,cornerStripped)
 	StartingArray.append("Ball1")
 	StartingArray.insert(10,"Ball8")
 
