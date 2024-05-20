@@ -96,10 +96,10 @@ func ball_exited_playable_area(body, isCueBall):
 		body.linear_velocity = Vector3(0,0,0)
 		body.angular_velocity = Vector3(0,0,0)
 		body.set_collision_mask_value(1,true)
-		return
-	var ball = body.get_parent()
-	DeleteBall(ball)
-	pass # Replace with function body.
+	else:
+		var ball = body.get_parent()
+		DeleteBall(ball)
+
 
 
 func ball_entered_hole(body):
@@ -111,5 +111,7 @@ func ball_entered_hole(body):
 func checkTypeBall(ball_name : String):
 	if ball_name in SmoothBalls:
 		return ["Smooth", "Stripped"]
-	else:
+	elif ball_name in StrippedBall:
 		return ["Stripped", "Smooth"]
+	else:
+		return null

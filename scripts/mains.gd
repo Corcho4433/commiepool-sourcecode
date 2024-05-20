@@ -43,10 +43,10 @@ func _process(_delta):
 		ball_array.GenerateBalls()
 		ball_array.SpawnBalls()
 
-func check_win(turn : int,ball : BallObject):
-	if GameInfo.infoPlayer[turn]["Balls"].size() >= 8 and ball.ballName == "Ball8":
+func check_win(turn : int,ball_name : String):
+	if GameInfo.infoPlayer[turn]["Balls"].size() >= 8 and ball_name == "Ball8":
 		print("jugador " + str(turn) +" gana")
-	elif ball.ballName == "Ball8":
+	elif ball_name == "Ball8":
 		print("jugador " + str(turn) +" pierde")
 	
 func _on_turn_score_ball(turn, ball):

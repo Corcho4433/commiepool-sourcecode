@@ -7,6 +7,6 @@ var collidingBodies : Array[Node3D]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	for body in get_overlapping_bodies():
-		if body.name == "pelota" or body.name == "CueBall":
+		if body.is_in_group("allBalls"):
 			emit_signal("ball_entered_hole",body)
-	pass
+

@@ -4,3 +4,6 @@ res://scenes/objects/ball.tscn
 res://scenes/objects/pool_table.tscn
 res://scripts/TurnComponent.gd
 res://scripts/ballArrays.gd
+res://scripts/mains.gd
+res://scripts/HoleCollision.gd
+res://scripts/game_event.gd

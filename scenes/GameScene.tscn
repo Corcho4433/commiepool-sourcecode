@@ -49,26 +49,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
 shape = SubResource("HeightMapShape3D_gydyj")
 
 [node name="HoleCollisionDisabler" type="Area3D" parent="PoolTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184973, 0, 0)
 script = ExtResource("5_rf0n2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.571981, -0.126104, 0.00652567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.578383, -0.126104, 0.00652567)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552791, -0.126104, 0.00652567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.535745, -0.127525, 0.0140528)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502871, -0.126104, -0.96957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515689, -0.126104, -0.9811)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, -0.963586)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478521, -0.126104, -0.97625)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, 0.975743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469723, -0.126104, 0.965725)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
@@ -81,15 +82,17 @@ script = ExtResource("4_7f1v5")
 [node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall")]
 script = ExtResource("5_e2yek")
 cameraNode = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
-cueBall = NodePath("CueBall")
+cueBall = NodePath("BallObject/CueBall")
 
-[node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703911, 0.575699)
-max_contacts_reported = 100
+[node name="BallObject" type="Node" parent="CueComponent" node_paths=PackedStringArray("cameraNode")]
 script = ExtResource("5_0d3vu")
 cameraNode = NodePath("../../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 
-[node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/CueBall"]
+[node name="CueBall" parent="CueComponent/BallObject" instance=ExtResource("4_lnexn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703911, 0.575699)
+max_contacts_reported = 100
+
+[node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/BallObject/CueBall"]
 mesh = SubResource("ArrayMesh_3b3xh")
 
 [node name="TurnComponent" type="Node" parent="."]
@@ -152,5 +155,4 @@ omni_attenuation = 0.732043
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_ball_scored"]
 [connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
-[connection signal="body_entered" from="CueComponent/CueBall" to="CueComponent/CueBall" method="_on_body_entered"]
-[connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]
+[connection signal="cue_ball_clicked" from="CueComponent/BallObject" to="CueComponent" method="_on_cue_ball_clicked"]
