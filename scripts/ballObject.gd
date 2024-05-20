@@ -19,7 +19,7 @@ var ballCollisionShape : CollisionShape3D
 var ballMesh : MeshInstance3D 
 ## Rigid Body de la bola.
 var ballRigidBody : RigidBody3D
-
+var ballType : String 
 ## Si se encuentra spawneado el rigid body, la informacion no se borra aunque no este
 ## spawneado.
 var spawned : bool
@@ -30,7 +30,8 @@ var spawned : bool
 func spawnBall():
 	var ballScene : PackedScene = load("res://scenes/objects/ball.tscn")
 	var ball = ballScene.instantiate()
-	ballMesh = instantiateMesh(Database.Balls[ballName].mesh) 
+	ballMesh = instantiateMesh(GameInfo.Balls[ballName].mesh) 
+	
 	spawned = true
 	ballCollisionShape = ball.get_node("CollisionShape3D")
 	ballRigidBody = ball

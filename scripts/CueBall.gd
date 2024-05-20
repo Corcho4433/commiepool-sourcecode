@@ -10,6 +10,7 @@ signal cue_ball_clicked
 func _ready():
 	ballName = "CueBall"
 	ballRigidBody = get_child(0)
+	ballType = "CueBall"
 	GameEvent.penalty_commited.connect(set_dragging)
 	GameEvent.ball_strike.connect(ball_striked)
 
@@ -52,12 +53,10 @@ func handle_drop():
 
 func _on_body_entered(body):
 	if body.name == "pelota":
-		GameEvent.cue_ball_hit_ball.emit(body.get_parent().ballName)
+		GameEvent.cue_ball_hit_ball.emit(body.get_parent())
 
 func set_dragging():
-	print("activar")
 	isDraggable = true
 	
 func ball_striked():
-	print("desactivar")
 	isDraggable = false

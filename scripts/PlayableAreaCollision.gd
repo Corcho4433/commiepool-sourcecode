@@ -1,5 +1,5 @@
 extends Area3D
-signal ball_exited_playable_area(body: Node3D,isCueBall : bool)
+signal ball_exited_playable_area(body: Node3D)
 var collidingBodies : Array[Node3D]
 
 # Called when the node enters the scene tree for the first time.
@@ -10,8 +10,6 @@ func _process(_delta):
 	if collidingBodies:
 		for body in get_overlapping_bodies():
 			var isCueBall : bool = false
-			if body.name == "CueBall":
-				isCueBall = true
-			emit_signal("ball_exited_playable_area",body,isCueBall)
+			emit_signal("ball_exited_playable_area",body)
 		
 

@@ -49,8 +49,8 @@ func check_win(turn : int,ball_name : String):
 	elif ball_name == "Ball8":
 		print("jugador " + str(turn) +" pierde")
 	
-func _on_turn_score_ball(turn, ball):
+func _on_turn_score_ball(turn : int, ball : BallObject):
 	GameInfo.infoPlayer[turn]["Balls"].append(ball)
-	check_win(turn,ball)
+	check_win(turn,ball.ballName)
 	
 
