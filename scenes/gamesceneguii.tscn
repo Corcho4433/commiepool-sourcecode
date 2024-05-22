@@ -3,10 +3,8 @@
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://scenes/objects/pool_table.tscn" id="3_8ne0i"]
-[ext_resource type="Script" path="res://scripts/ballArrays.gd" id="4_7f1v5"]
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://scenes/objects/ball.tscn" id="4_lnexn"]
 [ext_resource type="Script" path="res://scripts/CueBall.gd" id="5_0d3vu"]
-[ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
 [ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="10_j1a6t"]
 [ext_resource type="Script" path="res://scripts/TurnComponent.gd" id="12_wiqqh"]
@@ -20,6 +18,219 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [sub_resource type="SphereShape3D" id="SphereShape3D_63gom"]
 custom_solver_bias = 0.025
 radius = 0.05
+
+[sub_resource type="GDScript" id="GDScript_al15d"]
+script/source = "extends Node
+class_name BallsArray
+
+
+var StartingArray = [\"Ball12\",\"Ball6\",\"Ball15\",\"Ball13\",\"Ball5\",\"Ball4\",\"Ball14\",\"Ball7\",\"Ball11\",\"Ball3\",\"Ball10\",\"Ball2\",\"Ball9\"]
+var SmoothBalls = [\"Ball1\",\"Ball2\",\"Ball3\",\"Ball4\",\"Ball5\",\"Ball6\",\"Ball7\"]
+var StrippedBall = [\"Ball9\",\"Ball10\",\"Ball11\",\"Ball12\",\"Ball13\",\"Ball14\",\"Ball15\"]
+var CurrentArray : Array
+const MOVEMENT_THRESHOLD : float = 0.01
+
+func _ready():
+	ShuffleBalls()
+
+func GetStartingArray():
+	return StartingArray
+
+
+		
+func ShuffleBalls():
+	var cornerStripped : String = StrippedBall.pick_random()
+	var cornerSmooth : String = SmoothBalls.pick_random()
+	while cornerSmooth == \"Ball1\":
+		cornerSmooth  = SmoothBalls.pick_random()
+	StartingArray.pop_at(StartingArray.find(cornerSmooth))	
+	StartingArray.pop_at(StartingArray.find(cornerStripped))
+	
+	StartingArray.shuffle()
+	
+	StartingArray.push_front(cornerSmooth)
+	StartingArray.insert(4,cornerStripped)
+	StartingArray.append(\"Ball1\")
+	StartingArray.insert(10,\"Ball8\")
+
+func GenerateBalls():
+	var rows : int = 6
+	var dia = 0.03
+	var ofsetX = -0.06 #dos veces el diamentro
+	var ofsetZ = -0.65 #nashe
+	var index = 0
+	for col in range(5):
+		rows -= 1 
+		for row in range(rows): 
+			var new_position : Vector3 = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
+			var newBallObject = BallObject.new()
+			var ballName : String = StartingArray[index]
+			add_child(newBallObject)
+			newBallObject.ballName = ballName
+			newBallObject.ballPosition = new_position
+			newBallObject.ballType = GameInfo.Balls[ballName][\"type\"]
+			newBallObject.ballImg = load(\"res://resources/texturas/Balls_GUI_sprites/\"+ ballName.to_lower() + \".png\")
+			CurrentArray.append(newBallObject)
+			index += 1
+
+func SpawnBalls():
+	for ball : BallObject in CurrentArray:
+		if ball.spawned == false:
+			ball.spawnBall()
+
+
+func DeleteBalls():
+	for ball : BallObject in CurrentArray:
+		CurrentArray = []
+		ball.deleteBall()
+
+	
+
+#func ChangeBall(index:int, newBallName : String = \"Ball1\" , newBallMass : float = 1):
+	#var ball : BallObject = CurrentArray[index]
+	#var ballMesh : MeshInstance3D = instantiateMesh(newBallName)
+	#ball.ballName = newBallName
+	#ball.ballMass = newBallMass
+	#ball.changeBallMesh(ballMesh)
+	#pass
+	
+func VisibilityTogle(visibility : bool):
+	for ball : BallObject in CurrentArray:
+		if ball.spawned == true:
+			ball.get_node(\"pelota\").visible = visibility
+	
+
+func DeleteBall(ball : BallObject):
+	var pos = CurrentArray.find(ball)
+	ball.deleteBall()
+	CurrentArray.pop_at(pos)
+	
+func checkMovement():
+	var allBalls = get_tree().get_nodes_in_group(\"allBalls\")
+	for ballRigidBody : RigidBody3D in allBalls:
+		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD :
+			return false
+	return true
+
+
+
+func ball_exited_playable_area(body):
+	var ball : BallObject = body.get_parent()
+	if ball.ballName == \"CueBall\": 
+		body.position = Vector3(0,-0.038,0.576)
+		body.linear_velocity = Vector3(0,0,0)
+		body.angular_velocity = Vector3(0,0,0)
+		body.set_collision_mask_value(1,true)
+	else:
+		DeleteBall(ball)
+
+
+
+func ball_entered_hole(body):
+	body.set_collision_mask_value(1,false)
+
+
+
+	
+func checkTypeBall(ball_name : String):
+	if ball_name in SmoothBalls:
+		return [\"Smooth\", \"Stripped\"]
+	elif ball_name in StrippedBall:
+		return [\"Stripped\", \"Smooth\"]
+	else:
+		return null
+"
+
+[sub_resource type="GDScript" id="GDScript_d42h4"]
+script/source = "extends Node
+class_name CueObject
+
+
+
+
+@export
+var cameraNode : Camera3D 
+@export
+var cueBall : RigidBody3D 
+
+
+
+
+var isCueStickUsed : bool
+var isCueStickActive : bool
+
+var ballPosition : Vector3
+var mousePosition : Vector3
+
+
+var appliedForce : Vector3
+var _oldDirection : Vector3
+var direction : Vector3
+var distance : float
+@export var FORCE_MULTIPLIER : float = 9
+@export var MAX_FORCE_VARIATION : float = 1.1
+@export var MIN_FORCE_VARIATION : float = 1
+
+
+
+func _ready():
+	GameEvent.cue_used_changed.connect(_on_cue_ball_clicked)
+	GameEvent.change_cue_active.connect(change_cue_active)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	if isCueStickActive == false or isCueStickUsed == false: return
+	mousePosition = cameraNode.project_position(get_viewport().get_mouse_position(),1)
+	ballPosition = cueBall.position
+	appliedForce = getStrokePower(ballPosition,mousePosition)
+	if _oldDirection != direction:
+		GameEvent.update_cue_charge.emit(ballPosition,direction,distance)
+	
+
+	if Input.is_action_just_released(\"LeftClick\"):
+		_handle_strike()
+		
+	
+	_oldDirection = direction
+	
+func applyStrokePower(force : Vector3, spin : Vector3):
+	cueBall.apply_impulse(force, spin)
+	
+	
+func getStrokePower(ballPos: Vector3, shotPos: Vector3):
+	const MAX_DISTANCE : float = GameInfo.MAX_DISTANCE
+	const MAX_DISTANCE_FORCE : float = GameInfo.MAX_DISTANCE_FORCE
+	const MIN_DISTANCE : float = GameInfo.MIN_DISTANCE *  (MAX_DISTANCE_FORCE/ MAX_DISTANCE)
+	var distanceForce : float 
+	var forceVariation : float = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
+	var posDifference : Vector3  = ballPos - shotPos
+	posDifference[1] = 0
+	distance  = posDifference.length()
+	direction = posDifference.normalized()
+	if distance >= MAX_DISTANCE: 
+		distance = MAX_DISTANCE 
+	elif distance <= MIN_DISTANCE:
+		distance = 0
+	distanceForce = distance * (MAX_DISTANCE_FORCE /MAX_DISTANCE)
+	return direction * FORCE_MULTIPLIER * distanceForce * forceVariation
+
+
+func _on_cue_ball_clicked():
+	if Input.is_action_pressed(\"LeftClick\") == false or isCueStickActive == false or isCueStickUsed == true: return
+	isCueStickUsed = true
+	GameEvent.cue_used_changed.emit()
+
+func _handle_strike():
+	isCueStickUsed = false
+	if distance != 0: 
+		applyStrokePower(appliedForce, Vector3.ZERO)
+		GameEvent.ball_strike.emit()
+	
+	GameEvent.cue_used_changed.emit()
+
+func change_cue_active(value : bool):
+	isCueStickActive = value
+"
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3b3xh"]
 _surfaces = [{
@@ -76,10 +287,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521354, -0.126104, 0.97574
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="BallArrayComponent" type="Node" parent="."]
-script = ExtResource("4_7f1v5")
+script = SubResource("GDScript_al15d")
 
 [node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cueBall")]
-script = ExtResource("5_e2yek")
+script = SubResource("GDScript_d42h4")
 cueBall = NodePath("CueBall")
 
 [node name="CueBall" parent="CueComponent" instance=ExtResource("4_lnexn")]
