@@ -24,6 +24,8 @@ var ballType : String
 ## spawneado.
 var spawned : bool
 
+var ballImg : Texture2D
+
 
 
 ## Inicializa ,con informacion previamente almacenada, una instancia de una bola.
@@ -31,7 +33,7 @@ func spawnBall():
 	var ballScene : PackedScene = load("res://scenes/objects/ball.tscn")
 	var ball = ballScene.instantiate()
 	ballMesh = instantiateMesh(GameInfo.Balls[ballName].mesh) 
-	
+	add_to_group("allBallObjects")
 	spawned = true
 	ballCollisionShape = ball.get_node("CollisionShape3D")
 	ballRigidBody = ball
@@ -63,4 +65,6 @@ func instantiateMesh(mesh : String):
 	var newBallMesh = newMeshScene.get_children()[0]
 	newMeshScene.remove_child(newBallMesh)
 	return newBallMesh.duplicate()
-	
+
+func _to_string():
+	return ballName

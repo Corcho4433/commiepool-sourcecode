@@ -9,7 +9,6 @@ func _process(_delta):
 	collidingBodies = get_overlapping_bodies()
 	if collidingBodies:
 		for body in get_overlapping_bodies():
-			var isCueBall : bool = false
 			emit_signal("ball_exited_playable_area",body)
 		
 

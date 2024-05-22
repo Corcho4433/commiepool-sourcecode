@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=15 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
@@ -9,27 +9,8 @@
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="5_e2yek"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
 [ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="10_j1a6t"]
-[ext_resource type="Script" path="res://scripts/ballGrid.gd" id="12_cfkuu"]
-[ext_resource type="Texture2D" uid="uid://bmpatpe17mcmj" path="res://resources/texturas/GUI_p1.png" id="12_jalug"]
 [ext_resource type="Script" path="res://scripts/TurnComponent.gd" id="12_wiqqh"]
-[ext_resource type="Texture2D" uid="uid://cthrbprrf8kug" path="res://resources/texturas/ball1.png" id="13_3gsme"]
 [ext_resource type="Script" path="res://scripts/GUIComponent.gd" id="13_syd34"]
-[ext_resource type="Texture2D" uid="uid://b0uruk5d0f3o0" path="res://resources/texturas/Balls_GUI_sprites/ball2.png" id="14_44cgn"]
-[ext_resource type="Texture2D" uid="uid://bo88y3re4t14c" path="res://resources/texturas/Balls_GUI_sprites/ball3.png" id="15_c8cjf"]
-[ext_resource type="Texture2D" uid="uid://d4ioy8crh6gvj" path="res://resources/texturas/Balls_GUI_sprites/ball4.png" id="16_a5r50"]
-[ext_resource type="Texture2D" uid="uid://67d5m8clogpt" path="res://resources/texturas/Balls_GUI_sprites/ball5.png" id="17_w0wi6"]
-[ext_resource type="Texture2D" uid="uid://ciloc8attxfd4" path="res://resources/texturas/Balls_GUI_sprites/ball6.png" id="18_5u8if"]
-[ext_resource type="Texture2D" uid="uid://vm8jippk2hav" path="res://resources/texturas/Balls_GUI_sprites/ball7.png" id="19_7capg"]
-[ext_resource type="Texture2D" uid="uid://dj6vo24gv23xp" path="res://resources/texturas/Balls_GUI_sprites/ball9.png" id="20_dnwxm"]
-[ext_resource type="Texture2D" uid="uid://coksiavvh673l" path="res://resources/texturas/Balls_GUI_sprites/ball10.png" id="21_56c54"]
-[ext_resource type="Texture2D" uid="uid://hswtqv3xpu7s" path="res://resources/texturas/Balls_GUI_sprites/ball11.png" id="22_40a22"]
-[ext_resource type="Texture2D" uid="uid://bho5mur032qgh" path="res://resources/texturas/Balls_GUI_sprites/ball12.png" id="23_p78kl"]
-[ext_resource type="Texture2D" uid="uid://xx12uar6t6td" path="res://resources/texturas/Balls_GUI_sprites/ball13.png" id="24_x3rdp"]
-[ext_resource type="Texture2D" uid="uid://hw30vo4i0ng" path="res://resources/texturas/Balls_GUI_sprites/ball14.png" id="25_pxdx6"]
-[ext_resource type="Texture2D" uid="uid://dpsd6wqorg3bu" path="res://resources/texturas/Balls_GUI_sprites/ball15.png" id="26_7ngq3"]
-[ext_resource type="Texture2D" uid="uid://x1angvhol8o8" path="res://resources/texturas/pj1_icon.png" id="27_sn6mi"]
-[ext_resource type="Texture2D" uid="uid://pikmfm0u6012" path="res://resources/texturas/GUI_p2.png" id="28_4k5gl"]
-[ext_resource type="Texture2D" uid="uid://c16aw8jiihj8k" path="res://resources/texturas/pj2_icon.png" id="29_5nd0l"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -68,27 +49,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
 shape = SubResource("HeightMapShape3D_gydyj")
 
 [node name="HoleCollisionDisabler" type="Area3D" parent="PoolTable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184973, 0, 0)
 script = ExtResource("5_rf0n2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.578383, -0.126104, 0.00652567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.571981, -0.126104, 0.00652567)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.535745, -0.127525, 0.0140528)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552791, -0.126104, 0.00652567)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515689, -0.126104, -0.9811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502871, -0.126104, -0.96957)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478521, -0.126104, -0.97625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, -0.963586)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469723, -0.126104, 0.965725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460716, -0.126104, 0.975743)
 shape = SubResource("SphereShape3D_63gom")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="PoolTable/HoleCollisionDisabler"]
@@ -98,41 +78,34 @@ shape = SubResource("SphereShape3D_63gom")
 [node name="BallArrayComponent" type="Node" parent="."]
 script = ExtResource("4_7f1v5")
 
-[node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall")]
+[node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cueBall")]
 script = ExtResource("5_e2yek")
-cameraNode = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
-cueBall = NodePath("BallObject/CueBall")
+cueBall = NodePath("CueBall")
 
-[node name="BallObject" type="Node" parent="CueComponent" node_paths=PackedStringArray("cameraNode")]
-script = ExtResource("5_0d3vu")
-cameraNode = NodePath("../../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
-
-[node name="CueBall" parent="CueComponent/BallObject" instance=ExtResource("4_lnexn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703911, 0.575699)
+[node name="CueBall" parent="CueComponent" instance=ExtResource("4_lnexn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154643, 0.575699)
 max_contacts_reported = 100
+script = ExtResource("5_0d3vu")
 
-[node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/BallObject/CueBall"]
+[node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/CueBall"]
 mesh = SubResource("ArrayMesh_3b3xh")
 
 [node name="TurnComponent" type="Node" parent="."]
 script = ExtResource("12_wiqqh")
 
-[node name="GUIComponent" type="Node" parent="." node_paths=PackedStringArray("cueStickNode", "camera")]
+[node name="GUIComponent" type="Node" parent="." node_paths=PackedStringArray("cueStickNode")]
 script = ExtResource("13_syd34")
 cueStickNode = NodePath("palo_pool")
-camera = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 
 [node name="palo_pool" parent="GUIComponent" instance=ExtResource("10_j1a6t")]
-rotation_order = 0
 
 [node name="Light" type="Node3D" parent="."]
 
 [node name="MainRoomLight" type="OmniLight3D" parent="Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00543043, 0.0158571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842502, 0.0158571)
 light_energy = 0.207
 shadow_enabled = true
 shadow_bias = 0.0
-shadow_blur = 0.0
 omni_range = 10.353
 omni_attenuation = 0.732043
 
@@ -143,221 +116,8 @@ shadow_enabled = true
 shadow_bias = 0.0
 omni_attenuation = 0.732043
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.998264
-anchor_bottom = 1.00463
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1150, 651)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.84, 0)
-current = true
-
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("containersP1", "containersP2")]
-layout_mode = 3
-anchor_right = 0.998
-anchor_bottom = 1.005
-offset_top = -1.0
-offset_right = 0.303955
-offset_bottom = -0.23999
-script = ExtResource("12_cfkuu")
-containersP1 = [NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D"), NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D2"), NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D3"), NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D4"), NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D5"), NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D6"), NodePath("MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth/Sprite2D7")]
-containersP2 = [NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D3"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D4"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D5"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D6"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D7")]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-offset_right = 1150.0
-offset_bottom = 326.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("12_jalug")
-centered = false
-
-[node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control"]
-layout_mode = 2
-offset_left = 4.0
-offset_top = 6.0
-offset_right = 389.0
-offset_bottom = 97.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Stripped" type="Node2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("20_dnwxm")
-offset = Vector2(146, -23)
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("21_56c54")
-offset = Vector2(195, 23)
-
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("22_40a22")
-offset = Vector2(244, -23)
-
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("23_p78kl")
-offset = Vector2(293, 23)
-
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("24_x3rdp")
-offset = Vector2(342, -23)
-
-[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("26_7ngq3")
-offset = Vector2(440, -23)
-
-[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("25_pxdx6")
-offset = Vector2(390, 23)
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("27_sn6mi")
-centered = false
-offset = Vector2(0, -55)
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1151.0
-offset_top = -325.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("28_4k5gl")
-centered = false
-offset = Vector2(-600, -128)
-
-[node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control"]
-layout_mode = 2
-offset_left = -382.0
-offset_top = -98.0
-offset_right = -3.0
-offset_bottom = -7.0
-size_flags_horizontal = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="Smooth" type="Node2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("13_3gsme")
-centered = false
-offset = Vector2(-474, -64)
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("14_44cgn")
-centered = false
-offset = Vector2(-425, -110)
-
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("15_c8cjf")
-centered = false
-offset = Vector2(-377, -64)
-
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("16_a5r50")
-centered = false
-offset = Vector2(-328, -110)
-
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("17_w0wi6")
-centered = false
-offset = Vector2(-279, -64)
-
-[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("18_5u8if")
-centered = false
-offset = Vector2(-230, -110)
-
-[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Smooth"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("19_7capg")
-centered = false
-offset = Vector2(-181, -64)
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("29_5nd0l")
-centered = false
-offset = Vector2(-112, -110)
-
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="BallArrayComponent" method="ball_exited_playable_area"]
 [connection signal="ball_exited_playable_area" from="PoolTable/PlayableAreaCollision" to="TurnComponent" method="_ball_scored"]
 [connection signal="ball_entered_hole" from="PoolTable/HoleCollisionDisabler" to="BallArrayComponent" method="ball_entered_hole"]
-[connection signal="cue_ball_clicked" from="CueComponent/BallObject" to="CueComponent" method="_on_cue_ball_clicked"]
-[connection signal="body_entered" from="CueComponent/BallObject/CueBall" to="CueComponent/BallObject" method="_on_body_entered"]
+[connection signal="body_entered" from="CueComponent/CueBall" to="CueComponent/CueBall" method="_on_body_entered"]
+[connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]

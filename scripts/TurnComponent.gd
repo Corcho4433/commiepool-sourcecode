@@ -86,27 +86,24 @@ func _ball_scored(body):
 
 func score_balls():
 	var otherTurn = get_other_player_turn()
-	var idx = 0
 	for ball : BallObject in ballsScored:
 		var type : String = ball.ballType
 		if type == "CueBall": 
 			commitedPenalty = true
-			break
+			continue
 		if firstBall:
 			calc_first_turn(type)
-		if idx == 0:
-			calc_extra_turn(type)
+
+		calc_extra_turn(type)
 		if infoTurns[turn]["Type"] == type:
 			GameEvent.on_ball_scored.emit(turn, ball)
 		elif infoTurns[turn]["Type"] == type:
 			GameEvent.on_ball_scored.emit(otherTurn, ball)
 		
-		idx += 1
 	
 func calc_extra_turn(type : String):
 	if infoTurns[turn]["Type"] == type:
 		infoTurns[turn]["ExtraTurn"] = true
-		
 		
 	
 func calc_penalty():
