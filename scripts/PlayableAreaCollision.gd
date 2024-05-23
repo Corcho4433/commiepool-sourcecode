@@ -9,6 +9,6 @@ func _process(_delta):
 	collidingBodies = get_overlapping_bodies()
 	if collidingBodies:
 		for body in get_overlapping_bodies():
-			emit_signal("ball_exited_playable_area",body)
-		
+			GameEvent.ball_exited_playable_area.emit(body)
+	 		
 

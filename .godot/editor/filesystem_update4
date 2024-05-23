@@ -1,2 +1,8 @@
-res://scenes/mainmenu.tscn
 res://scenes/GameScene.tscn
+res://scripts/ballArrays.gd
+res://scenes/mainmenu.tscn
+res://scripts/PlayableAreaCollision.gd
+res://scripts/game_event.gd
+res://scripts/HoleCollision.gd
+res://scripts/TurnComponent.gd
+res://scripts/TurnState.gd

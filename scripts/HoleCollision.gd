@@ -8,5 +8,5 @@ var collidingBodies : Array[Node3D]
 func _process(_delta):
 	for body in get_overlapping_bodies():
 		if body.is_in_group("allBalls"):
-			emit_signal("ball_entered_hole",body)
+			GameEvent.ball_entered_hole.emit(body)
 

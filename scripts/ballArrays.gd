@@ -9,6 +9,8 @@ var CurrentArray : Array
 const MOVEMENT_THRESHOLD : float = 0.01
 
 func _ready():
+	GameEvent.ball_exited_playable_area.connect(ball_exited_playable_area)
+	GameEvent.ball_entered_hole.connect(ball_entered_hole)
 	ShuffleBalls()
 
 func GetStartingArray():
@@ -92,13 +94,16 @@ func checkMovement():
 
 
 
-func ball_exited_playable_area(body):
+func ball_exited_playable_area(body : RigidBody3D):
 	var ball : BallObject = body.get_parent()
-	if ball.ballName == "CueBall": 
+	if ball.ballName == "CueBall":
+		body.freeze = true
+		await GameEvent.change_turn
+		body.freeze = false
 		body.position = Vector3(0,-0.038,0.576)
+		body.set_collision_mask_value(1,true)
 		body.linear_velocity = Vector3(0,0,0)
 		body.angular_velocity = Vector3(0,0,0)
-		body.set_collision_mask_value(1,true)
 	else:
 		DeleteBall(ball)
 

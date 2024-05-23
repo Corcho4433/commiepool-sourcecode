@@ -32,9 +32,7 @@ var cueUsed : bool = false
 func _ready():
 	GameEvent.cue_ball_hit_ball.connect(cue_ball_collide)
 	GameEvent.ball_strike.connect(_on_cue_component_ball_strike)
-
-	
-
+	GameEvent.ball_exited_playable_area.connect(_ball_scored)
 
 
 func _process(_delta):
@@ -102,7 +100,7 @@ func calc_extra_turn(type : String):
 func calc_penalty():
 	if touchedBall == false:
 		turn_state.change_state("miss")
-	elif firstBallTouched.ballType != infoTurns[turn]["Type"]:
+	elif firstBallTouched.ballType != infoTurns[turn]["Type"] and infoTurns[turn]["Type"] != "":
 		turn_state.change_state("hit opponent ball")
 	
 

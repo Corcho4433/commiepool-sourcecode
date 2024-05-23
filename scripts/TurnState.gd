@@ -23,10 +23,12 @@ func change_state(newState : String) :
 			state = "penalty ob"
 		"hit opponent ball":
 			state = "penalty ov"
-		"score own ball":
-			state = "extra turn"
 		"score cue ball":
 			state = "penalty ob"
+		"score own ball":
+			if "penalty" not in state:
+				state = "extra turn"
+	print(state)
 
 
 func reset():
