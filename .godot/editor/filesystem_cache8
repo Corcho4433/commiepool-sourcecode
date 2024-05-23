@@ -1,18 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1716391927
+::res://::1716474837
 icon.svg::CompressedTexture2D::8208639071365591023::1712853401::1716391929::1::::<><>::
-::res://resources/::1715814511
+::res://resources/::1716391928
 font.ttf::FontFile::4908229385752385534::1714576212::1716391928::1::::<><>::
 ::res://resources/backups/::1715814511
 ::res://resources/materiales/::1715915346
 a.tres::StandardMaterial3D::3375222455637174350::1715915346::0::1::::<><>::
 palo1.tres::StandardMaterial3D::5222304409131263451::1715814511::0::1::::<><>::
 palo2.tres::StandardMaterial3D::6357069424722600388::1715814511::0::1::::<><>::
-::res://resources/meshes/::1715814511
+::res://resources/meshes/::1716391940
 habitacion_pool.gltf::PackedScene::5810035550684030414::1715814511::1716391940::1::::<><>::uid://re4eo1f06qu4::::res://resources/texturas/woodfloor_planks.jpg<>uid://dae1tsu60e5g7::::res://resources/texturas/brick_texture.jpg<>uid://xiki3hpn72cb::::res://resources/texturas/woodwall_planks.jpg<>uid://rejoc5rwl53b::::res://resources/texturas/russian_rug.jpg<>uid://co8xw8twwfbir::::res://resources/texturas/soviet_poster_1.jpg<>uid://c2j7nd74lxh2m::::res://resources/texturas/scratched_aluminum.jpg<>uid://cspj47pt6gvx5::::res://resources/texturas/table_carpet.jpg<>uid://b3usdyfla6ofm::::res://resources/texturas/brown_wood_table.jpg<>uid://bkjqr270wt1my::::res://resources/texturas/radio_speaker.jpg<>uid://15nwb4ko1f3e::::res://resources/texturas/primer-plano-abstracto-fondo-metalico_n.jpg<>uid://com2oumh7t0o3::::res://resources/texturas/radiobuttons.png<>uid://cso6vwctslk7o::::res://resources/texturas/dartboard.png<>uid://bhgb1jl23hlh::::res://resources/texturas/soviet_poster_2.jpg<>uid://bt0p53k21ceya::::res://resources/texturas/beam_steel.jpg<>uid://5xk0xguuuhpj::::res://resources/texturas/caoba_wood.jpg
 palo_pool.gltf::PackedScene::5182420411924129721::1715814511::1716391938::1::::<><>::
 ruleta.glb::PackedScene::4275752521436042378::1713712776::1716391937::1::::<><>::
-::res://resources/meshes/bolas/::1715222973
+::res://resources/meshes/bolas/::1716391940
 Ball0.glb::PackedScene::4536117853394505661::1714409130::1716391935::1::::<><>::uid://de850xm7r4rpf::::res://resources/meshes/bolas/Ball0_Bolas_pool_0.png<>uid://c4eho7ui15viq::::res://resources/meshes/bolas/Ball0_Bolas_pool_0-2.png
 Ball0_Bolas_pool_0-2.png::CompressedTexture2D::6817027076012138884::1714409130::1716391930::1::::<><>::
 Ball0_Bolas_pool_0.png::CompressedTexture2D::7510009274198539199::1714409130::1716391930::1::::<><>::
@@ -65,7 +65,7 @@ Ball15_Bolas_pool_15.png::CompressedTexture2D::2746407441978245979::1714409130::
 pool_table.tres::BoxShape3D::2602822906250563369::1714409130::0::1::::<><>::
 ::res://resources/temas/::1712948278
 botonesmenu.tres::Theme::4180823580096228879::1712947958::0::1::::<><>::
-::res://resources/texturas/::1716387439
+::res://resources/texturas/::1716391933
 ball1.png::CompressedTexture2D::6121914830350491022::1716387439::1716391929::1::::<><>::
 beam_steel.jpg::CompressedTexture2D::3772583972739288016::1715814511::1716391929::1::::<><>::
 brick_texture.jpg::CompressedTexture2D::7169133111750152948::1715814511::1716391929::1::::<><>::
@@ -87,7 +87,7 @@ table_carpet.jpg::CompressedTexture2D::6067806164964053056::1715814511::17163919
 texturas.txt::TextFile::-1::1712853401::0::1::::<><>::
 woodfloor_planks.jpg::CompressedTexture2D::1203236564582276653::1715814511::1716391929::1::::<><>::
 woodwall_planks.jpg::CompressedTexture2D::1631481364153754529::1715814511::1716391929::1::::<><>::
-::res://resources/texturas/Balls 2/::1715912834
+::res://resources/texturas/Balls 2/::1716391930
 0-2.png::CompressedTexture2D::5733217104642632299::1715912834::1716391930::1::::<><>::
 0-2_n.png::CompressedTexture2D::7324247632651025067::1715912834::1716391930::1::::<><>::
 0.png::CompressedTexture2D::1432419325949601830::1715912834::1716391930::1::::<><>::
@@ -152,7 +152,7 @@ woodwall_planks.jpg::CompressedTexture2D::1631481364153754529::1715814511::17163
 15-2_n.png::CompressedTexture2D::444905241439571869::1715912834::1716391929::1::::<><>::
 15.png::CompressedTexture2D::1156171171831827081::1715912834::1716391929::1::::<><>::
 15_n.png::CompressedTexture2D::2102591001708394641::1715912834::1716391929::1::::<><>::
-::res://resources/texturas/Balls_GUI_sprites/::1716387439
+::res://resources/texturas/Balls_GUI_sprites/::1716391929
 ball1.png::CompressedTexture2D::5645464801784310788::1715912834::1716391929::1::::<><>::
 ball2.png::CompressedTexture2D::4183497806227811965::1715912834::1716391929::1::::<><>::
 ball3.png::CompressedTexture2D::3439236977461290220::1715912834::1716391929::1::::<><>::
@@ -168,19 +168,19 @@ ball12.png::CompressedTexture2D::2908487894929078155::1715912834::1716391929::1:
 ball13.png::CompressedTexture2D::1663452001547094701::1715912834::1716391929::1::::<><>::
 ball14.png::CompressedTexture2D::15837766548457524::1716387439::1716391929::1::::<><>::
 ball15.png::CompressedTexture2D::8249492196701871782::1715912834::1716391929::1::::<><>::
-::res://scenes/::1716391908
+::res://scenes/::1716393731
 ball_class.tscn::PackedScene::3381292401203376582::1715222945::0::1::::<><>::res://scripts/ballObject.gd
-GameScene.tscn::PackedScene::657469277710268642::1716391908::0::1::::<><>::res://scripts/mains.gd<>res://scripts/PlayableAreaCollision.gd<>uid://tkhkinj6x1va::::res://scenes/objects/pool_table.tscn<>uid://sp1w1csj6psn::::res://scenes/objects/ball.tscn<>res://scripts/CueBall.gd<>res://scripts/HoleCollision.gd<>uid://cf3nybk3xcitt::::res://resources/meshes/palo_pool.gltf<>res://scripts/ballGrid.gd<>uid://bmpatpe17mcmj::::res://resources/texturas/GUI_p1.png<>res://scripts/TurnComponent.gd<>uid://cthrbprrf8kug::::res://resources/texturas/ball1.png<>res://scripts/GUIComponent.gd<>uid://b0uruk5d0f3o0::::res://resources/texturas/Balls_GUI_sprites/ball2.png<>uid://bo88y3re4t14c::::res://resources/texturas/Balls_GUI_sprites/ball3.png<>uid://d4ioy8crh6gvj::::res://resources/texturas/Balls_GUI_sprites/ball4.png<>uid://67d5m8clogpt::::res://resources/texturas/Balls_GUI_sprites/ball5.png<>uid://ciloc8attxfd4::::res://resources/texturas/Balls_GUI_sprites/ball6.png<>uid://vm8jippk2hav::::res://resources/texturas/Balls_GUI_sprites/ball7.png<>uid://dj6vo24gv23xp::::res://resources/texturas/Balls_GUI_sprites/ball9.png<>uid://coksiavvh673l::::res://resources/texturas/Balls_GUI_sprites/ball10.png<>uid://hswtqv3xpu7s::::res://resources/texturas/Balls_GUI_sprites/ball11.png<>uid://bho5mur032qgh::::res://resources/texturas/Balls_GUI_sprites/ball12.png<>uid://xx12uar6t6td::::res://resources/texturas/Balls_GUI_sprites/ball13.png<>uid://hw30vo4i0ng::::res://resources/texturas/Balls_GUI_sprites/ball14.png<>uid://dpsd6wqorg3bu::::res://resources/texturas/Balls_GUI_sprites/ball15.png<>uid://x1angvhol8o8::::res://resources/texturas/pj1_icon.png<>uid://pikmfm0u6012::::res://resources/texturas/GUI_p2.png<>uid://c16aw8jiihj8k::::res://resources/texturas/pj2_icon.png
+GameScene.tscn::PackedScene::657469277710268642::1716393731::0::1::::<><>::res://scripts/mains.gd<>res://scripts/PlayableAreaCollision.gd<>uid://tkhkinj6x1va::::res://scenes/objects/pool_table.tscn<>uid://sp1w1csj6psn::::res://scenes/objects/ball.tscn<>res://scripts/CueBall.gd<>res://scripts/HoleCollision.gd<>res://scripts/ballArrays.gd<>res://scripts/CueComponent.gd<>uid://cf3nybk3xcitt::::res://resources/meshes/palo_pool.gltf<>res://scripts/ballGrid.gd<>uid://bmpatpe17mcmj::::res://resources/texturas/GUI_p1.png<>res://scripts/TurnComponent.gd<>uid://cthrbprrf8kug::::res://resources/texturas/ball1.png<>res://scripts/GUIComponent.gd<>uid://b0uruk5d0f3o0::::res://resources/texturas/Balls_GUI_sprites/ball2.png<>uid://bo88y3re4t14c::::res://resources/texturas/Balls_GUI_sprites/ball3.png<>uid://d4ioy8crh6gvj::::res://resources/texturas/Balls_GUI_sprites/ball4.png<>uid://67d5m8clogpt::::res://resources/texturas/Balls_GUI_sprites/ball5.png<>uid://ciloc8attxfd4::::res://resources/texturas/Balls_GUI_sprites/ball6.png<>uid://vm8jippk2hav::::res://resources/texturas/Balls_GUI_sprites/ball7.png<>uid://dj6vo24gv23xp::::res://resources/texturas/Balls_GUI_sprites/ball9.png<>uid://coksiavvh673l::::res://resources/texturas/Balls_GUI_sprites/ball10.png<>uid://hswtqv3xpu7s::::res://resources/texturas/Balls_GUI_sprites/ball11.png<>uid://bho5mur032qgh::::res://resources/texturas/Balls_GUI_sprites/ball12.png<>uid://xx12uar6t6td::::res://resources/texturas/Balls_GUI_sprites/ball13.png<>uid://hw30vo4i0ng::::res://resources/texturas/Balls_GUI_sprites/ball14.png<>uid://dpsd6wqorg3bu::::res://resources/texturas/Balls_GUI_sprites/ball15.png<>uid://x1angvhol8o8::::res://resources/texturas/pj1_icon.png<>uid://pikmfm0u6012::::res://resources/texturas/GUI_p2.png<>uid://c16aw8jiihj8k::::res://resources/texturas/pj2_icon.png
 gamesceneguii.tscn::PackedScene::657469277710268642::1716391908::0::1::::<><>::res://scripts/mains.gd<>res://scripts/PlayableAreaCollision.gd<>uid://tkhkinj6x1va::::res://scenes/objects/pool_table.tscn<>uid://sp1w1csj6psn::::res://scenes/objects/ball.tscn<>res://scripts/CueBall.gd<>res://scripts/HoleCollision.gd<>uid://cf3nybk3xcitt::::res://resources/meshes/palo_pool.gltf<>res://scripts/TurnComponent.gd<>res://scripts/GUIComponent.gd
 habitacion_pool.tscn::PackedScene::1307621706900692101::1715814511::0::1::::<><>::uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf
-mainmenu.tscn::PackedScene::6197184342092380735::1715975374::0::1::::<><>::res://scripts/mainmenus.gd<>uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b0ths25jbrq2b::::res://resources/temas/botonesmenu.tres<>uid://cb6t2567igbpm::::res://resources/font.ttf
+mainmenu.tscn::PackedScene::6197184342092380735::1716393316::0::1::::<><>::res://scripts/mainmenus.gd<>uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b0ths25jbrq2b::::res://resources/temas/botonesmenu.tres<>uid://cb6t2567igbpm::::res://resources/font.ttf
 palo_pool.tscn::PackedScene::4650412364563598867::1715970835::0::1::::<><>::uid://cf3nybk3xcitt::::res://resources/meshes/palo_pool.gltf
 ruleta.tscn::PackedScene::4737526372185409331::1714077062::0::1::::<><>::uid://b16hawl4drvp7::::res://resources/meshes/ruleta.glb
 ::res://scenes/objects/::1716391908
 ball.tscn::PackedScene::1295984150601128949::1716391908::0::1::::<><>::
 balls_component.tscn::PackedScene::8413235962584189732::1715222945::0::1::::<><>::res://scripts/ballObject.gd
 pool_table.tscn::PackedScene::1354675124272165818::1716391908::0::1::::<><>::uid://co1oo31uohjek::::res://resources/meshes/habitacion_pool.gltf<>uid://b8q5mqp8nar3h::::res://scenes/ruleta.tscn
-::res://scripts/::1716391874
+::res://scripts/::1716393731
 ballArrays.gd::GDScript::-1::1716387439::0::1::::BallsArray<>Node<>::
 ballGrid.gd::GDScript::-1::1716387794::0::1::::GridBall<>Control<>::
 ballObject.gd::GDScript::-1::1716387439::0::1::::BallObject<>Node<>::
@@ -195,5 +195,5 @@ mainmenus.gd::GDScript::-1::1714581300::0::1::::<>CanvasLayer<>::
 mains.gd::GDScript::-1::1716387437::0::1::::GameState<>Node<>::
 PlayableAreaCollision.gd::GDScript::-1::1716387439::0::1::::<>Area3D<>::
 TableComponent.gd::GDScript::-1::1714322351::0::1::::TableClass<>Node<>::
-TurnComponent.gd::GDScript::-1::1716391874::0::1::::TurnManager<>Node<>::
-TurnState.gd::GDScript::-1::1716391509::0::1::::TurnState<>RefCounted<>::
+TurnComponent.gd::GDScript::-1::1716393731::0::1::::TurnManager<>Node<>::
+TurnState.gd::GDScript::-1::1716392987::0::1::::TurnState<>Node<>::

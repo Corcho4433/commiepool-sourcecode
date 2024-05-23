@@ -33,6 +33,8 @@ func _ready():
 	GameEvent.cue_ball_hit_ball.connect(cue_ball_collide)
 	GameEvent.ball_strike.connect(_on_cue_component_ball_strike)
 
+	
+
 
 
 func _process(_delta):
@@ -57,6 +59,7 @@ func _process(_delta):
 		
 func changeTurn():
 	var state = turn_state.state
+	print(state)
 	if state == "extra turn": return
 	if "penalty" in state: 
 		GameEvent.penalty_commited.emit()
@@ -79,9 +82,8 @@ func score_balls():
 	var otherTurn = get_other_player_turn()
 	for ball : BallObject in ballsScored:
 		var type : String = ball.ballType
-		print(turn_state.state)
 		if type == "CueBall": 
-			turn_state.change_state("penalty ob")
+			turn_state.change_state("score cue ball")
 			continue
 		if firstBall:
 			calc_first_turn(type)
@@ -94,14 +96,14 @@ func score_balls():
 	
 func calc_extra_turn(type : String):
 	if infoTurns[turn]["Type"] == type:
-		turn_state.change_state("extra turn")
+		turn_state.change_state("score own ball")
 		
 	
 func calc_penalty():
 	if touchedBall == false:
-		turn_state.change_state("penalty ob")
-	elif firstBallTouched.ballType != infoTurns[turn]["Type"] and infoTurns[turn]["Type"] != "":
-		turn_state.change_state("penalty ov")
+		turn_state.change_state("miss")
+	elif firstBallTouched.ballType != infoTurns[turn]["Type"]:
+		turn_state.change_state("hit opponent ball")
 	
 
 func calc_first_turn(type : String):
@@ -129,3 +131,5 @@ func get_other_type(type : String):
 		return "Stripped"
 	else:
 		return "Smooth"
+		
+
