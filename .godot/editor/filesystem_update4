@@ -1,4 +1,2 @@
 res://scenes/mainmenu.tscn
 res://scenes/GameScene.tscn
-res://scripts/TurnComponent.gd
-res://scripts/TurnState.gd
