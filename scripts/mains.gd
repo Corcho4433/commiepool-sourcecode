@@ -7,8 +7,7 @@ const PLAYER_ONE = 1
 const PLAYER_TWO = 2
 
 ## Almacena una referencia al objeto [BallsArray] de la escena.
-@onready
-var ball_array : BallsArray = get_node("BallArrayComponent")
+@export var ball_array : BallsArray 
 ## Almacena una referencia al objeto [CueObject] de la escena.
 
 ## Almacena una referencia a la camera de la escena.
@@ -17,11 +16,6 @@ var infoPlayer = {
 	PLAYER_ONE: {"Balls": []},
 	PLAYER_TWO: {"Balls": []},
 }
-
-## Es un diccionario que contiene informacion de las bolas que ha metido cada jugador y
-## el tipo de bolas que le corresponde, ej: [br] [br]
-## [code] {PLAYER_ONE: {"Balls": [], "Type": ""}, PLAYER_TWO: {"Balls": [], "Type": ""},}
-## [/code]
 
 
 

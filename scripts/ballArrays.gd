@@ -3,12 +3,17 @@ class_name BallsArray
 
 
 var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14","Ball7","Ball11","Ball3","Ball10","Ball2","Ball9"]
-var SmoothBalls = ["Ball1","Ball2","Ball3","Ball4","Ball5","Ball6","Ball7"]
-var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Ball14","Ball15"]
+var ballsScored : Array[BallObject] = []
 var CurrentArray : Array
 
 
+var firstBallTouched : BallObject 
+var touchedBall : bool = false
+
 func _ready():
+	GameEvent.cue_ball_hit_ball.connect(cue_ball_collide)
+	GameEvent.ball_exited_playable_area.connect(_ball_scored)
+	GameEvent.change_turn.connect(turn_changed)
 	ShuffleBalls()
 
 func GetStartingArray():
@@ -17,6 +22,8 @@ func GetStartingArray():
 
 		
 func ShuffleBalls():
+	var SmoothBalls = ["Ball1","Ball2","Ball3","Ball4","Ball5","Ball6","Ball7"]
+	var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Ball14","Ball15"]
 	var cornerStripped : String = StrippedBall.pick_random()
 	var cornerSmooth : String = SmoothBalls.pick_random()
 	while cornerSmooth == "Ball1":
@@ -83,11 +90,18 @@ func checkMovement():
 		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD :
 			return false
 	return true
+	
+	
+func cue_ball_collide(ball : BallObject):
+	if !touchedBall:
+		firstBallTouched = ball
+		touchedBall = true
 
-func checkTypeBall(ball_name : String):
-	if ball_name in SmoothBalls:
-		return ["Smooth", "Stripped"]
-	elif ball_name in StrippedBall:
-		return ["Stripped", "Smooth"]
-	else:
-		return null
+func _ball_scored(body):
+	var ball : BallObject = body
+	ballsScored.append(ball)
+
+func turn_changed():
+	ballsScored = []
+	touchedBall = false
+

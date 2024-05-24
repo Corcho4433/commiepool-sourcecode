@@ -61,6 +61,7 @@ func ball_striked():
 func score():
 	freeze = true
 	linear_velocity = Vector3(0,0,0)
+	
 	await GameEvent.change_turn
 	freeze = false
 	position = Vector3(0,-0.038,0.576)

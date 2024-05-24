@@ -80,7 +80,6 @@ func _handle_strike():
 	if distance != 0: 
 		applyStrokePower(appliedForce, Vector3.ZERO)
 		GameEvent.ball_strike.emit()
-	
 	GameEvent.cue_used_changed.emit()
 
 func change_cue_active(value : bool):
