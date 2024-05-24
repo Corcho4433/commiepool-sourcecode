@@ -74,8 +74,6 @@ func _ball_scored(body):
 	var ball : BallObject = body.get_parent()
 	ballsScored.append(ball)
 
-	
-
 func score_balls():
 	var otherTurn = get_other_player_turn()
 	for ball : BallObject in ballsScored:
@@ -86,7 +84,7 @@ func score_balls():
 		if firstBall:
 			calc_first_turn(type)
 		calc_extra_turn(type)
-		if infoTurns[turn]["Type"] == type:
+		if infoTurns[turn]["Type"] == type or "" == type:
 			GameEvent.on_ball_scored.emit(turn, ball)
 		elif infoTurns[turn]["Type"] == type:
 			GameEvent.on_ball_scored.emit(otherTurn, ball)

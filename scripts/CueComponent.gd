@@ -26,7 +26,9 @@ var distance : float
 @export var FORCE_MULTIPLIER : float = 9
 @export var MAX_FORCE_VARIATION : float = 1.1
 @export var MIN_FORCE_VARIATION : float = 1
-
+@export var MAX_DISTANCE_FORCE = 0.4
+@export var MAX_DISTANCE = 0.3
+@export var MIN_DISTANCE = 0.04
 
 
 func _ready():
@@ -54,9 +56,7 @@ func applyStrokePower(force : Vector3, spin : Vector3):
 	
 	
 func getStrokePower(ballPos: Vector3, shotPos: Vector3):
-	const MAX_DISTANCE : float = GameInfo.MAX_DISTANCE
-	const MAX_DISTANCE_FORCE : float = GameInfo.MAX_DISTANCE_FORCE
-	const MIN_DISTANCE : float = GameInfo.MIN_DISTANCE *  (MAX_DISTANCE_FORCE/ MAX_DISTANCE)
+	var MIN_DISTANCE_TO_BALL : float = MIN_DISTANCE *  (MAX_DISTANCE_FORCE/ MAX_DISTANCE)
 	var distanceForce : float 
 	var forceVariation : float = randf_range(MIN_FORCE_VARIATION,MAX_FORCE_VARIATION)
 	var posDifference : Vector3  = ballPos - shotPos
@@ -65,7 +65,7 @@ func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 	direction = posDifference.normalized()
 	if distance >= MAX_DISTANCE: 
 		distance = MAX_DISTANCE 
-	elif distance <= MIN_DISTANCE:
+	elif distance <= MIN_DISTANCE_TO_BALL:
 		distance = 0
 	distanceForce = distance * (MAX_DISTANCE_FORCE /MAX_DISTANCE)
 	return direction * FORCE_MULTIPLIER * distanceForce * forceVariation

@@ -155,8 +155,8 @@ offset_top = -1.0
 offset_right = 0.303955
 offset_bottom = -0.23999
 script = ExtResource("12_cfkuu")
-containersP1 = [NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D2"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D3"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D4"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D5"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D6"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/Sprite2D7")]
-containersP2 = [NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D2"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D3"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D4"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D5"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D7"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/Sprite2D6")]
+containersP1 = [NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/1"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/2"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/3"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/4"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/5"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/6"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/7")]
+containersP2 = [NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/1"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/2"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/3"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/4"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/5"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/6"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/7")]
 
 [node name="P2" type="MarginContainer" parent="GUIComponent/CanvasLayer/Grid"]
 layout_mode = 1
@@ -199,40 +199,40 @@ size_flags_horizontal = 0
 
 [node name="Stripped" type="Node2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 
-[node name="Sprite2D" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+[node name="1" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("20_dnwxm")
 offset = Vector2(146, -23)
 
-[node name="Sprite2D2" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+[node name="2" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("21_56c54")
 offset = Vector2(195, 23)
 
-[node name="Sprite2D3" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+[node name="3" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("22_40a22")
 offset = Vector2(244, -23)
 
-[node name="Sprite2D4" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+[node name="4" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("23_p78kl")
 offset = Vector2(293, 23)
 
-[node name="Sprite2D5" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+[node name="5" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("24_x3rdp")
 offset = Vector2(342, -23)
 
-[node name="Sprite2D7" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("26_7ngq3")
-offset = Vector2(440, -23)
-
-[node name="Sprite2D6" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+[node name="6" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("25_pxdx6")
 offset = Vector2(390, 23)
+
+[node name="7" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("26_7ngq3")
+offset = Vector2(440, -23)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 scale = Vector2(0.8, 0.8)
@@ -291,47 +291,47 @@ size_flags_vertical = 8
 
 [node name="p1" type="Node2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 
-[node name="Sprite2D" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+[node name="1" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("13_3gsme")
+texture = ExtResource("19_7capg")
 centered = false
-offset = Vector2(-474, -64)
+offset = Vector2(-181, -64)
 
-[node name="Sprite2D2" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("14_44cgn")
-centered = false
-offset = Vector2(-425, -110)
-
-[node name="Sprite2D3" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("15_c8cjf")
-centered = false
-offset = Vector2(-377, -64)
-
-[node name="Sprite2D4" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("16_a5r50")
-centered = false
-offset = Vector2(-328, -110)
-
-[node name="Sprite2D5" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("17_w0wi6")
-centered = false
-offset = Vector2(-279, -64)
-
-[node name="Sprite2D6" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+[node name="2" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("18_5u8if")
 centered = false
 offset = Vector2(-230, -110)
 
-[node name="Sprite2D7" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+[node name="3" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("19_7capg")
+texture = ExtResource("17_w0wi6")
 centered = false
-offset = Vector2(-181, -64)
+offset = Vector2(-279, -64)
+
+[node name="4" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("16_a5r50")
+centered = false
+offset = Vector2(-328, -110)
+
+[node name="5" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_c8cjf")
+centered = false
+offset = Vector2(-377, -64)
+
+[node name="6" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_44cgn")
+centered = false
+offset = Vector2(-425, -110)
+
+[node name="7" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_3gsme")
+centered = false
+offset = Vector2(-474, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUIComponent/CanvasLayer/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 scale = Vector2(0.8, 0.8)

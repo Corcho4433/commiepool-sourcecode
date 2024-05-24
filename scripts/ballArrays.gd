@@ -6,7 +6,7 @@ var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14"
 var SmoothBalls = ["Ball1","Ball2","Ball3","Ball4","Ball5","Ball6","Ball7"]
 var StrippedBall = ["Ball9","Ball10","Ball11","Ball12","Ball13","Ball14","Ball15"]
 var CurrentArray : Array
-const MOVEMENT_THRESHOLD : float = 0.01
+
 
 func _ready():
 	GameEvent.ball_exited_playable_area.connect(ball_exited_playable_area)
@@ -59,11 +59,6 @@ func SpawnBalls():
 			ball.spawnBall()
 
 
-func DeleteBalls():
-	for ball : BallObject in CurrentArray:
-		CurrentArray = []
-		ball.deleteBall()
-
 	
 
 #func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
@@ -86,6 +81,7 @@ func DeleteBall(ball : BallObject):
 	CurrentArray.pop_at(pos)
 	
 func checkMovement():
+	const MOVEMENT_THRESHOLD : float = 0.01
 	var allBalls = get_tree().get_nodes_in_group("allBalls")
 	for ballRigidBody : RigidBody3D in allBalls:
 		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD :
