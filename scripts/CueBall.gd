@@ -8,7 +8,7 @@ signal cue_ball_clicked
 
 func _ready():
 	ballName = "CueBall"
-	_ballRigidBody = get_child(0)
+	_ballRigidBody = get_node(".")
 	ballType = "CueBall"
 	GameEvent.penalty_commited.connect(set_dragging)
 	GameEvent.ball_strike.connect(ball_striked)
@@ -22,8 +22,7 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("RightClick") and isDraggable == true and isStriking == false:
 		isDragging = true
-		
-	
+
 	if Input.is_action_just_released("RightClick") and isDraggable == true:
 		handle_drop()
 	
@@ -40,8 +39,6 @@ func _process(_delta):
 		var cameraDistanceToTable =  cameraNode.position.y + 0.15
 		_ballRigidBody.set_collision_layer_value(1,false)
 		_ballRigidBody.global_position = cameraNode.project_position(get_viewport().get_mouse_position(),cameraDistanceToTable)
-	
-	
 
 func handle_drop():
 	for body in _ballRigidBody.get_colliding_bodies():
@@ -51,11 +48,22 @@ func handle_drop():
 	isDragging = false
 
 func _on_body_entered(body):
-	if body.name == "pelota":
-		GameEvent.cue_ball_hit_ball.emit(body.get_parent())
+	if "implements" in body:
+		if Interface.Hitable in body.implements:
+			GameEvent.cue_ball_hit_ball.emit(body.hit())
 
 func set_dragging():
 	isDraggable = true
 	
 func ball_striked():
 	isDraggable = false
+
+func score():
+	freeze = true
+	linear_velocity = Vector3(0,0,0)
+	await GameEvent.change_turn
+	freeze = false
+	position = Vector3(0,-0.038,0.576)
+	set_collision_mask_value(1,true)
+	linear_velocity = Vector3(0,0,0)
+	angular_velocity = Vector3(0,0,0)

@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://sp1w1csj6psn"]
+[gd_scene load_steps=4 format=3 uid="uid://sp1w1csj6psn"]
+
+[ext_resource type="Script" path="res://scripts/ballObject.gd" id="1_miio6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avylx"]
 friction = 0.15
@@ -7,10 +9,12 @@ bounce = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ndp0"]
 radius = 0.03
 
-[node name="pelota" type="RigidBody3D" groups=["allBalls"]]
+[node name="BallObject" type="RigidBody3D" groups=["allBalls"]]
 physics_material_override = SubResource("PhysicsMaterial_avylx")
+freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
+script = ExtResource("1_miio6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4ndp0")

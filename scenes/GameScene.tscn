@@ -101,17 +101,15 @@ script = ExtResource("5_uar20")
 [node name="CueComponent" type="Node" parent="." node_paths=PackedStringArray("cameraNode", "cueBall")]
 script = ExtResource("6_70yt0")
 cameraNode = NodePath("../GUIComponent/CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
-cueBall = NodePath("BallObject/CueBall")
+cueBall = NodePath("CueBall")
 
-[node name="BallObject" type="Node" parent="CueComponent" node_paths=PackedStringArray("cameraNode")]
+[node name="CueBall" parent="CueComponent" node_paths=PackedStringArray("cameraNode") instance=ExtResource("4_lnexn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.170051, 0.575699)
+max_contacts_reported = 100
 script = ExtResource("5_0d3vu")
 cameraNode = NodePath("../../GUIComponent/CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 
-[node name="CueBall" parent="CueComponent/BallObject" instance=ExtResource("4_lnexn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703911, 0.575699)
-max_contacts_reported = 100
-
-[node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/BallObject/CueBall"]
+[node name="PelotaBlanca" type="MeshInstance3D" parent="CueComponent/CueBall"]
 mesh = SubResource("ArrayMesh_3b3xh")
 
 [node name="TurnComponent" type="Node" parent="."]
@@ -357,5 +355,7 @@ shadow_enabled = true
 shadow_bias = 0.0
 omni_attenuation = 0.732043
 
-[connection signal="cue_ball_clicked" from="CueComponent/BallObject" to="CueComponent" method="_on_cue_ball_clicked"]
-[connection signal="body_entered" from="CueComponent/BallObject/CueBall" to="CueComponent/BallObject" method="_on_body_entered"]
+[connection signal="body_entered" from="PoolTable/PlayableAreaCollision" to="PoolTable/PlayableAreaCollision" method="_on_body_entered"]
+[connection signal="body_entered" from="PoolTable/HoleCollisionDisabler" to="PoolTable/HoleCollisionDisabler" method="_on_body_entered"]
+[connection signal="body_entered" from="CueComponent/CueBall" to="CueComponent/CueBall" method="_on_body_entered"]
+[connection signal="cue_ball_clicked" from="CueComponent/CueBall" to="CueComponent" method="_on_cue_ball_clicked"]

@@ -3,7 +3,6 @@ class_name CueObject
 
 
 
-
 @export
 var cameraNode : Camera3D 
 @export

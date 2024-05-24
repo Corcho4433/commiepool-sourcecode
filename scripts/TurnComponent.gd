@@ -71,7 +71,7 @@ func _on_cue_component_ball_strike():
 	cueUsed = true
 
 func _ball_scored(body):
-	var ball : BallObject = body.get_parent()
+	var ball : BallObject = body
 	ballsScored.append(ball)
 
 func score_balls():
@@ -100,7 +100,6 @@ func calc_penalty():
 		turn_state.change_state("miss")
 	elif firstBallTouched.ballType != infoTurns[turn]["Type"] and infoTurns[turn]["Type"] != "":
 		turn_state.change_state("hit opponent ball")
-	
 
 func calc_first_turn(type : String):
 	var otherTurn = get_other_player_turn()
@@ -119,8 +118,6 @@ func cue_ball_collide(ball : BallObject):
 	if !touchedBall:
 		firstBallTouched = ball
 		touchedBall = true
-	
-
 
 func get_other_type(type : String):
 	if type == "Smooth":

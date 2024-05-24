@@ -28,7 +28,6 @@ func change_state(newState : String) :
 		"score own ball":
 			if "penalty" not in state:
 				state = "extra turn"
-	print(state)
 
 
 func reset():

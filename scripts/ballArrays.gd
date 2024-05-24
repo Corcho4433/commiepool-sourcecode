@@ -9,8 +9,6 @@ var CurrentArray : Array
 
 
 func _ready():
-	GameEvent.ball_exited_playable_area.connect(ball_exited_playable_area)
-	GameEvent.ball_entered_hole.connect(ball_entered_hole)
 	ShuffleBalls()
 
 func GetStartingArray():
@@ -43,23 +41,21 @@ func GenerateBalls():
 		rows -= 1 
 		for row in range(rows): 
 			var new_position : Vector3 = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
-			var newBallObject = BallObject.new()
+			var newBallObject : PackedScene = load("res://scenes/objects/ball.tscn")
 			var ballName : String = StartingArray[index]
-			add_child(newBallObject)
-			newBallObject.ballName = ballName
-			newBallObject.ballPosition = new_position
-			newBallObject.ballType = GameInfo.Balls[ballName]["type"]
-			newBallObject.ballImg = load("res://resources/texturas/Balls_GUI_sprites/"+ ballName.to_lower() + ".png")
-			CurrentArray.append(newBallObject)
+			var b = newBallObject.instantiate()
+			add_child(b)
+			b.ballName = ballName
+			b.ballPosition = new_position
+			b.ballType = GameInfo.Balls[ballName]["type"]
+			b.ballImg = load("res://resources/texturas/Balls_GUI_sprites/"+ ballName.to_lower() + ".png")
+			CurrentArray.append(b)
 			index += 1
 
 func SpawnBalls():
 	for ball : BallObject in CurrentArray:
 		if ball.spawned == false:
 			ball.spawnBall()
-
-
-	
 
 #func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
 	#var ball : BallObject = CurrentArray[index]
@@ -88,29 +84,6 @@ func checkMovement():
 			return false
 	return true
 
-
-
-func ball_exited_playable_area(body : RigidBody3D):
-	var ball : BallObject = body.get_parent()
-	if ball.ballName == "CueBall":
-		body.freeze = true
-		await GameEvent.change_turn
-		body.freeze = false
-		body.position = Vector3(0,-0.038,0.576)
-		body.set_collision_mask_value(1,true)
-		body.linear_velocity = Vector3(0,0,0)
-		body.angular_velocity = Vector3(0,0,0)
-	else:
-		DeleteBall(ball)
-
-
-
-func ball_entered_hole(body):
-	body.set_collision_mask_value(1,false)
-
-
-
-	
 func checkTypeBall(ball_name : String):
 	if ball_name in SmoothBalls:
 		return ["Smooth", "Stripped"]
