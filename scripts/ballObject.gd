@@ -5,7 +5,7 @@ extends RigidBody3D
 ## (llamado pelota) -> [CollisionShape3D] y [MeshInstance3D].
 class_name BallObject 
 
-var implements = [Interface.Scorable, Interface.Holeable, Interface.Hitable]
+var implements = [Interface.Scorable, Interface.Hitable]
 ## Nombre de la bola.
 var ballName : String
 ## Masa de la bola, por default 1.
@@ -65,5 +65,6 @@ func score():
 func hit():
 	return self
 
-func disable_collision():
-	set_collision_mask_value(1,false)
+func animate_score():
+	print("skibidi")
+	get_node("BallAnimation").play("score")

@@ -3,10 +3,10 @@ extends Node
 class Scorable:
 	func score():
 		pass
-
-class Holeable:
-	func disable_collision():
+		
+	func animate_score():
 		pass
+
 
 class Hitable:
 	func hit():

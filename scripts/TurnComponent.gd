@@ -27,7 +27,6 @@ var cueUsedFrames : int = 0
 var cueUsed : bool = false
 
 func _ready():
-	
 	GameEvent.ball_strike.connect(_on_cue_component_ball_strike)
 
 
@@ -44,8 +43,7 @@ func _process(_delta):
 			changeTurn()
 			turn_state.reset()
 			cueUsed = false
-			
-	
+
 	if stillBall == false:
 		cueUsedFrames = 0
 		
@@ -104,12 +102,8 @@ func get_other_player_turn():
 	else:
 		return PLAYER_ONE
 
-
-
 func get_other_type(type : String):
 	if type == "Smooth":
 		return "Stripped"
 	else:
 		return "Smooth"
-		
-

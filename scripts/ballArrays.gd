@@ -101,7 +101,7 @@ func _ball_scored(body):
 	var ball : BallObject = body
 	ballsScored.append(ball)
 
-func turn_changed():
+func turn_changed(_turn):
 	ballsScored = []
 	touchedBall = false
 
