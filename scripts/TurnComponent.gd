@@ -63,7 +63,6 @@ func _on_cue_component_ball_strike():
 
 func score_balls():
 	var otherTurn = get_other_player_turn()
-	print(ball_array.ballsScored, ball_array.firstBallTouched)
 	for ball : BallObject in ball_array.ballsScored:
 		var type : String = ball.ballType
 		if type == "CueBall": 
@@ -73,6 +72,7 @@ func score_balls():
 			calc_first_turn(type)
 		calc_extra_turn(type)
 		if infoTurns[turn]["Type"] == type or "" == type:
+			print("skibidi")
 			GameEvent.on_ball_scored.emit(turn, ball)
 		elif infoTurns[turn]["Type"] == type:
 			GameEvent.on_ball_scored.emit(otherTurn, ball)

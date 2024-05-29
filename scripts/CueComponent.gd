@@ -7,9 +7,8 @@ class_name CueObject
 var cameraNode : Camera3D 
 @export
 var cueBall : RigidBody3D 
-
-
-
+@export
+var cueStick : Node3D
 
 var isCueStickUsed : bool
 var isCueStickActive : bool
@@ -41,7 +40,7 @@ func _process(_delta):
 	ballPosition = cueBall.position
 	appliedForce = getStrokePower(ballPosition,mousePosition)
 	if _oldDirection != direction:
-		GameEvent.update_cue_charge.emit(ballPosition,direction,distance)
+		cueStick.update_cue_charge(ballPosition,direction,distance)
 	
 
 	if Input.is_action_just_released("LeftClick"):
@@ -73,14 +72,14 @@ func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 func _on_cue_ball_clicked():
 	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false or isCueStickUsed == true: return
 	isCueStickUsed = true
-	GameEvent.cue_used_changed.emit()
+	cueStick.change_cue_visibility()
 
 func _handle_strike():
 	isCueStickUsed = false
 	if distance != 0: 
 		applyStrokePower(appliedForce, Vector3.ZERO)
 		GameEvent.ball_strike.emit()
-	GameEvent.cue_used_changed.emit()
+	cueStick.change_cue_visibility()
 
 func change_cue_active(value : bool):
 	isCueStickActive = value

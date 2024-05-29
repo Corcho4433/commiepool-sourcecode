@@ -60,11 +60,15 @@ func _to_string():
 	return ballName
 
 func score():
+	GameEvent.ball_exited_playable_area.emit(self)
 	deleteBall()
 
 func hit():
 	return self
 
 func animate_score():
-	print("skibidi")
-	get_node("BallAnimation").play("score")
+	linear_velocity = linear_velocity * 0.2
+	angular_velocity = angular_velocity * 0.2
+	set_collision_mask_value(1,false)
+	await get_tree().create_timer(1).timeout
+	score()

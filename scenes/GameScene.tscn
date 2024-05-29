@@ -1,7 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
-[ext_resource type="Script" path="res://scripts/PlayableAreaCollision.gd" id="3_7pkmi"]
 [ext_resource type="PackedScene" uid="uid://tkhkinj6x1va" path="res://scenes/objects/pool_table.tscn" id="3_8ne0i"]
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://scenes/objects/ball.tscn" id="4_lnexn"]
 [ext_resource type="Script" path="res://scripts/CueBall.gd" id="5_0d3vu"]
@@ -30,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://x1angvhol8o8" path="res://resources/texturas/pj1_icon.png" id="27_sn6mi"]
 [ext_resource type="Texture2D" uid="uid://pikmfm0u6012" path="res://resources/texturas/GUI_p2.png" id="28_4k5gl"]
 [ext_resource type="Texture2D" uid="uid://c16aw8jiihj8k" path="res://resources/texturas/pj2_icon.png" id="29_5nd0l"]
+[ext_resource type="Script" path="res://scripts/palo_pool.gd" id="31_o5pap"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gydyj"]
 map_width = 16
@@ -62,7 +62,6 @@ ball_array = NodePath("TurnComponent/BallArrayComponent")
 [node name="PlayableAreaCollision" type="Area3D" parent="PoolTable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0951779, 0)
 collision_priority = 5.0
-script = ExtResource("3_7pkmi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PoolTable/PlayableAreaCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492338, 0)
@@ -96,14 +95,10 @@ shape = SubResource("SphereShape3D_63gom")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521354, -0.126104, 0.975743)
 shape = SubResource("SphereShape3D_63gom")
 
-[node name="GUIComponent" type="Node" parent="." node_paths=PackedStringArray("cueStickNode", "camera", "grid")]
+[node name="GUIComponent" type="Node" parent="." node_paths=PackedStringArray("camera", "grid")]
 script = ExtResource("13_syd34")
-cueStickNode = NodePath("palo_pool")
 camera = NodePath("CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 grid = NodePath("CanvasLayer/Grid")
-
-[node name="palo_pool" parent="GUIComponent" instance=ExtResource("10_j1a6t")]
-rotation_order = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GUIComponent"]
 follow_viewport_enabled = true
@@ -353,10 +348,15 @@ cameraNode = NodePath("../../../GUIComponent/CanvasLayer/SubViewportContainer/Su
 [node name="PelotaBlanca" type="MeshInstance3D" parent="TurnComponent/BallArrayComponent/CueBall"]
 mesh = SubResource("ArrayMesh_3b3xh")
 
-[node name="CueComponent" type="Node" parent="TurnComponent" node_paths=PackedStringArray("cameraNode", "cueBall")]
+[node name="CueComponent" type="Node" parent="TurnComponent" node_paths=PackedStringArray("cameraNode", "cueBall", "cueStick")]
 script = ExtResource("6_70yt0")
 cameraNode = NodePath("../../GUIComponent/CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 cueBall = NodePath("../BallArrayComponent/CueBall")
+cueStick = NodePath("palo_pool")
+
+[node name="palo_pool" parent="TurnComponent/CueComponent" instance=ExtResource("10_j1a6t")]
+rotation_order = 0
+script = ExtResource("31_o5pap")
 
 [connection signal="body_entered" from="PoolTable/PlayableAreaCollision" to="PoolTable/PlayableAreaCollision" method="_on_body_entered"]
 [connection signal="body_entered" from="PoolTable/HoleCollisionDisabler" to="PoolTable/HoleCollisionDisabler" method="_on_body_entered"]

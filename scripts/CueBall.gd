@@ -42,8 +42,9 @@ func _process(_delta):
 
 func handle_drop():
 	for body in _ballRigidBody.get_colliding_bodies():
-		if body.name == "pelota":
-			return
+		if "implements" in body:
+			if Interface.Hitable in body.implements:
+				return
 	_ballRigidBody.set_collision_layer_value(1,true)
 	isDragging = false
 
@@ -58,10 +59,13 @@ func set_dragging():
 func ball_striked():
 	isDraggable = false
 
-func score():
-	freeze = true
-	linear_velocity = Vector3(0,0,0)
-	
+
+func animate_score():
+	linear_velocity = linear_velocity * 0.2
+	angular_velocity = angular_velocity * 0.2
+	set_collision_mask_value(1,false)
+	await get_tree().create_timer(0.5).timeout
+	score()
 	await GameEvent.change_turn
 	freeze = false
 	position = Vector3(0,-0.038,0.576)
