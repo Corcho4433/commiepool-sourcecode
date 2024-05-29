@@ -6,6 +6,7 @@ var StartingArray = ["Ball12","Ball6","Ball15","Ball13","Ball5","Ball4","Ball14"
 var ballsScored : Array[BallObject] = []
 var CurrentArray : Array
 
+@export var ball_grid : GridBall
 
 var firstBallTouched : BallObject 
 var touchedBall : bool = false
@@ -14,6 +15,7 @@ func _ready():
 	GameEvent.cue_ball_hit_ball.connect(cue_ball_collide)
 	GameEvent.ball_exited_playable_area.connect(_ball_scored)
 	GameEvent.change_turn.connect(turn_changed)
+	ball_grid.toggle_display(false)
 	ShuffleBalls()
 
 func GetStartingArray():
@@ -63,14 +65,6 @@ func SpawnBalls():
 	for ball : BallObject in CurrentArray:
 		if ball.spawned == false:
 			ball.spawnBall()
-
-#func ChangeBall(index:int, newBallName : String = "Ball1" , newBallMass : float = 1):
-	#var ball : BallObject = CurrentArray[index]
-	#var ballMesh : MeshInstance3D = instantiateMesh(newBallName)
-	#ball.ballName = newBallName
-	#ball.ballMass = newBallMass
-	#ball.changeBallMesh(ballMesh)
-	#pass
 	
 func VisibilityTogle(visibility : bool):
 	for ball : BallObject in CurrentArray:
@@ -90,7 +84,6 @@ func checkMovement():
 		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD :
 			return false
 	return true
-	
 	
 func cue_ball_collide(ball : BallObject):
 	if !touchedBall:

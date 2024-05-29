@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://sp1w1csj6psn"]
+[gd_scene load_steps=4 format=3 uid="uid://sp1w1csj6psn"]
 
 [ext_resource type="Script" path="res://scripts/ballObject.gd" id="1_miio6"]
 
@@ -8,14 +8,6 @@ bounce = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ndp0"]
 radius = 0.03
-
-[sub_resource type="Animation" id="Animation_l6bx1"]
-resource_name = "score"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hf4q5"]
-_data = {
-"score": SubResource("Animation_l6bx1")
-}
 
 [node name="BallObject" type="RigidBody3D" groups=["allBalls"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 1, 1)
@@ -27,8 +19,3 @@ script = ExtResource("1_miio6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4ndp0")
-
-[node name="BallAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_hf4q5")
-}

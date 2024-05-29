@@ -38,20 +38,24 @@ func _process(_delta):
 	if isDragging:
 		var cameraDistanceToTable =  cameraNode.position.y + 0.15
 		_ballRigidBody.set_collision_layer_value(1,false)
+# limites de mesa x = 0.5, z = 1 :VV skibidi toilettt
 		_ballRigidBody.global_position = cameraNode.project_position(get_viewport().get_mouse_position(),cameraDistanceToTable)
 
 func handle_drop():
 	for body in _ballRigidBody.get_colliding_bodies():
 		if "implements" in body:
-			if Interface.Hitable in body.implements:
+			if Interface.NotDroppable in body.implements:
 				return
 	_ballRigidBody.set_collision_layer_value(1,true)
 	isDragging = false
 
 func _on_body_entered(body):
+
 	if "implements" in body:
 		if Interface.Hitable in body.implements:
 			GameEvent.cue_ball_hit_ball.emit(body.hit())
+		if Interface.NotDroppable in body.implements:
+			print(body.implements)
 
 func set_dragging():
 	isDraggable = true

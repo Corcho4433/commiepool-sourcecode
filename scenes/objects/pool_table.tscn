@@ -15,12 +15,12 @@ size = Vector3(1.18066, 0.07576, 1.92364)
 [node name="Ruleta" parent="." instance=ExtResource("1_e51j8")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 2.08632, 2.07384, -5.09941)
 
-[node name="habitacion_pool" parent="." instance=ExtResource("1_danym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.82596, 0)
-
 [node name="mesa" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_j4x7x")
 
 [node name="TableCollision" type="CollisionShape3D" parent="mesa"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118417, -0.213578, 0.0171793)
 shape = SubResource("BoxShape3D_rt8lb")
+
+[node name="habitacion_pool" parent="." instance=ExtResource("1_danym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.82596, 0)

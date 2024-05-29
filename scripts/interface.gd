@@ -12,6 +12,9 @@ class Hitable:
 	func hit():
 		pass
 
+class NotDroppable:
+	pass
+
 func get_all_descendants(node):
 	var all_descendants = [node]
 	var children = node.get_children()

@@ -4,6 +4,8 @@ class_name GridBall
 @export var containersP1 : Array[Sprite2D] = []
 @export var containersP2 : Array[Sprite2D] = []
 
+func _ready():
+	GameEvent.on_ball_scored.connect(display_ball_scored)
 
 
 func display(balls : Array[BallObject],containerID : int):
@@ -31,3 +33,29 @@ func toggle_display(value : bool):
 	
 	for container in containersP2:
 		container.visible = value
+		
+
+func display_ball_scored(_turn:int, _ball: BallObject):
+	var allBalls = get_tree().get_nodes_in_group("allBallObjects")
+	var ballSmooth : Array[BallObject] = []
+	var ballStripped : Array[BallObject] = []
+	var _other_turn = _turn
+	
+	if _other_turn == 1:
+		_other_turn = 2
+	else: 
+		_other_turn = 1
+
+	for ball : BallObject in allBalls:
+		if ball.ballType == "Smooth" and ball.spawned == true:
+			ballSmooth.append(ball)
+		elif ball.ballType == "Stripped" and ball.spawned == true:
+			ballStripped.append(ball)
+	
+	if _ball.ballType == "Smooth":
+		display(ballSmooth,_turn)
+		display(ballStripped,_other_turn)
+	else :
+		display(ballSmooth,_other_turn)
+		display(ballStripped,_turn)
+	toggle_display(true)

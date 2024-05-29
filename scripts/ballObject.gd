@@ -5,7 +5,7 @@ extends RigidBody3D
 ## (llamado pelota) -> [CollisionShape3D] y [MeshInstance3D].
 class_name BallObject 
 
-var implements = [Interface.Scorable, Interface.Hitable]
+var implements = [Interface.Scorable, Interface.Hitable, Interface.NotDroppable]
 ## Nombre de la bola.
 var ballName : String
 ## Masa de la bola, por default 1.
