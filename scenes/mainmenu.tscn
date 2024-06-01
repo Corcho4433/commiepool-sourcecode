@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuj7yrefy826n"]
+[gd_scene load_steps=6 format=3 uid="uid://cuj7yrefy826n"]
 
 [ext_resource type="Script" path="res://scripts/mainmenus.gd" id="1_jgc0v"]
 [ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="2_4t082"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/temas/botonesmenu.tres" id="3_ew2oc"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="3_nlpf0"]
+
+[sub_resource type="Environment" id="Environment_un2ux"]
+tonemap_mode = 1
+tonemap_white = 2.0
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.3
+adjustment_saturation = 0.9
 
 [node name="mainmenu" type="CanvasLayer"]
 script = ExtResource("1_jgc0v")
@@ -93,6 +101,9 @@ action_mode = 0
 text = "Salir"
 flat = true
 alignment = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_un2ux")
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/salir" to="." method="_on_salir_pressed"]
