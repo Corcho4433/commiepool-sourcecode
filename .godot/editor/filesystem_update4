@@ -1,7 +1,3 @@
 res://scenes/mainmenu.tscn
-res://resources/meshes/psx_shader.gdshader
 res://scenes/GameScene.tscn
-res://scenes/objects/pool_table.tscn
-res://scenes/objects/ball.tscn
-res://scripts/ballObject.gd
-res://scripts/game_info.gd
+res://scripts/ballArrays.gd

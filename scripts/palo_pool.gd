@@ -22,7 +22,7 @@ func change_cue_visibility():
 func change_cue_color(turn : int):
 	var material : Material 
 	if turn == 1:
-		material  = load("res://resources/materiales/palo1.tres")
+		material  = load("res://resources/materials/palo1.tres")
 	elif turn == 2: 
-		material = load("res://resources/materiales/palo2.tres")
+		material = load("res://resources/materials/palo2.tres")
 	_cueStick.set_surface_override_material(1,material)

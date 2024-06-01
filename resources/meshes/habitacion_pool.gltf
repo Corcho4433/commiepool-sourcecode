@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.44",
+		"generator":"Khronos glTF Blender I/O v4.1.63",
 		"version":"2.0"
 	},
 	"extensionsUsed":[
@@ -1131,12 +1131,9 @@
 		{
 			"doubleSided":true,
 			"name":"Material.012",
-			"normalTexture":{
-				"index":9
-			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":10
+					"index":9
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -1147,7 +1144,7 @@
 			"name":"Material.013",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":11
+					"index":10
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.33132532238960266
@@ -1172,7 +1169,7 @@
 			"name":"Material.026",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":12
+					"index":11
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -1218,7 +1215,7 @@
 			"name":"Material.040",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":13
+					"index":12
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -1298,7 +1295,7 @@
 			"name":"Material.045",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":14
+					"index":13
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -1323,7 +1320,7 @@
 			"name":"Material.025",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":15
+					"index":14
 				},
 				"metallicFactor":0.17499998211860657
 			}
@@ -1347,7 +1344,7 @@
 			"name":"Material.029",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":16
+					"index":15
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -2970,7 +2967,7 @@
 			"source":8
 		},
 		{
-			"sampler":1,
+			"sampler":0,
 			"source":9
 		},
 		{
@@ -2996,97 +2993,88 @@
 		{
 			"sampler":0,
 			"source":15
-		},
-		{
-			"sampler":0,
-			"source":16
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/jpeg",
 			"name":"woodfloor_planks",
-			"uri":"../texturas/woodfloor_planks.jpg"
+			"uri":"../textures/woodfloor_planks.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"brick_texture",
-			"uri":"../texturas/brick_texture.jpg"
+			"uri":"../textures/brick_texture.jpg"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"dark_wood",
-			"uri":"../texturas/dark_wood.png"
+			"uri":"../textures/dark_wood.png"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"woodwall_planks",
-			"uri":"../texturas/woodwall_planks.jpg"
+			"uri":"../textures/woodwall_planks.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"russian_rug",
-			"uri":"../texturas/russian_rug.jpg"
+			"uri":"../textures/russian_rug.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"soviet_poster_1",
-			"uri":"../texturas/soviet_poster_1.jpg"
+			"uri":"../textures/soviet_poster_1.jpg"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"aluminum_texture",
-			"uri":"../texturas/aluminum_texture.png"
+			"uri":"../textures/aluminum_texture.png"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"table_carpet",
-			"uri":"../texturas/table_carpet.jpg"
+			"uri":"../textures/table_carpet.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"brown_wood_table",
-			"uri":"../texturas/brown_wood_table.jpg"
-		},
-		{
-			"mimeType":"image/jpeg",
-			"name":"primer-plano-abstracto-fondo-metalico_n",
-			"uri":"../texturas/primer-plano-abstracto-fondo-metalico_n.jpg"
+			"uri":"../textures/brown_wood_table.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"radio_speaker",
-			"uri":"../texturas/radio_speaker.jpg"
+			"uri":"../textures/radio_speaker.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"scratched_aluminum",
-			"uri":"../texturas/scratched_aluminum.jpg"
+			"uri":"../textures/scratched_aluminum.jpg"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"radiobuttons",
-			"uri":"../texturas/radiobuttons.png"
+			"uri":"../textures/radiobuttons.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"dartboard",
-			"uri":"../texturas/dartboard.png"
+			"uri":"../textures/dartboard.png"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"soviet_poster_2",
-			"uri":"../texturas/soviet_poster_2.jpg"
+			"uri":"../textures/soviet_poster_2.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"beam_steel",
-			"uri":"../texturas/beam_steel.jpg"
+			"uri":"../textures/beam_steel.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"caoba_wood",
-			"uri":"../texturas/caoba_wood.jpg"
+			"uri":"../textures/caoba_wood.jpg"
 		}
 	],
 	"accessors":[

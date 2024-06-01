@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/mainmenus.gd" id="1_jgc0v"]
 [ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="2_4t082"]
-[ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/temas/botonesmenu.tres" id="3_ew2oc"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="3_nlpf0"]
+[ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/themes/botonesmenu.tres" id="4_et0w0"]
 
 [sub_resource type="Environment" id="Environment_un2ux"]
 tonemap_mode = 1
@@ -84,7 +84,7 @@ text = "COMMIE POOL"
 [node name="iniciar" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("3_ew2oc")
+theme = ExtResource("4_et0w0")
 theme_override_fonts/font = ExtResource("3_nlpf0")
 theme_override_font_sizes/font_size = 24
 action_mode = 0
@@ -95,6 +95,7 @@ alignment = 0
 [node name="salir" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
 theme_override_fonts/font = ExtResource("3_nlpf0")
 theme_override_font_sizes/font_size = 24
 action_mode = 0

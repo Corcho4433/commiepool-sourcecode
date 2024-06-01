@@ -57,7 +57,7 @@ func GenerateBalls():
 			b.ballName = ballName
 			b.ballPosition = new_position
 			b.ballType = GameInfo.Balls[ballName]["type"]
-			b.ballImg = load("res://resources/texturas/Balls_GUI_sprites/"+ ballName.to_lower() + ".png")
+			b.ballImg = load("res://resources/textures/Balls_GUI_sprites/"+ ballName.to_lower() + ".png")
 			CurrentArray.append(b)
 			index += 1
 
