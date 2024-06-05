@@ -49,8 +49,8 @@ func _process(_delta):
 	
 	_oldDirection = direction
 	
-func applyStrokePower(force : Vector3, spin : Vector3):
-	cueBall.apply_impulse(force, spin)
+func applyStrokePower(force : Vector3, _spin : Vector3):
+	cueBall.apply_central_impulse(force)
 	
 	
 func getStrokePower(ballPos: Vector3, shotPos: Vector3):
@@ -70,7 +70,7 @@ func getStrokePower(ballPos: Vector3, shotPos: Vector3):
 
 
 func _on_cue_ball_clicked():
-	if Input.is_action_pressed("LeftClick") == false or isCueStickActive == false or isCueStickUsed == true: return
+	if  isCueStickActive == false or isCueStickUsed == true: return
 	isCueStickUsed = true
 	cueStick.change_cue_visibility()
 

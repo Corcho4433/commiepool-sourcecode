@@ -42,6 +42,7 @@ func _process(_delta):
 			score_balls()
 			changeTurn()
 			turn_state.reset()
+
 			cueUsed = false
 
 	if stillBall == false:
@@ -50,12 +51,14 @@ func _process(_delta):
 		
 func changeTurn():
 	var state = turn_state.state
-	print(state)
-	if state == "extra turn": return
+	GameEvent.change_turn.emit(turn)
+	if state != "extra turn": 
+		turn = get_other_player_turn()
 	if "penalty" in state: 
 		GameEvent.penalty_commited.emit()
-	turn = get_other_player_turn()
+	
 	GameEvent.change_turn.emit(turn)
+	
 
 func _on_cue_component_ball_strike():
 	cueUsed = true
@@ -72,7 +75,6 @@ func score_balls():
 			calc_first_turn(type)
 		calc_extra_turn(type)
 		if infoTurns[turn]["Type"] == type or "" == type:
-			print("skibidi")
 			GameEvent.on_ball_scored.emit(turn, ball)
 		elif infoTurns[turn]["Type"] == type:
 			GameEvent.on_ball_scored.emit(otherTurn, ball)
@@ -84,10 +86,12 @@ func calc_extra_turn(type : String):
 		
 	
 func calc_penalty():
+	print(ball_array.touchedBall,  ball_array.firstBallTouched)
 	if ball_array.touchedBall == false:
 		turn_state.change_state("miss")
 	elif ball_array.firstBallTouched.ballType != infoTurns[turn]["Type"] and infoTurns[turn]["Type"] != "":
 		turn_state.change_state("hit opponent ball")
+		print("waza")
 
 func calc_first_turn(type : String):
 	var otherTurn = get_other_player_turn()

@@ -29,9 +29,6 @@ func new_game():
 	ball_array.SpawnBalls()
 	
 
-
-
-
 func check_win(turn : int,ball_name : String):
 	if infoPlayer[turn]["Balls"].size() >= 8 and ball_name == "Ball8":
 		print("jugador " + str(turn) +" gana")
