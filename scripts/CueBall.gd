@@ -1,6 +1,6 @@
 extends BallObject
 @export var cameraNode : Camera3D
-
+@export var strikingDistance : float = 0.2
 var isDraggable : bool = false
 var isDragging : bool = false
 var isStriking : bool = false
@@ -26,7 +26,7 @@ func _process(_delta):
 	mousePosition.y = 0
 	var distance = (mousePosition-ball_position).length()
 	
-	if distance >= 0.2: return
+	if distance >= strikingDistance: return
 	if Input.is_action_just_pressed("RightClick") and isDraggable == true and isStriking == false:
 		isDragging = true
 	if Input.is_action_just_pressed("LeftClick") and isDragging == false and isStriking == false:
