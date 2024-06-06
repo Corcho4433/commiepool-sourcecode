@@ -8,6 +8,7 @@ var logs = []
 	
 func _init(valor):
 	state = valor
+	check_state()
 
 func _to_string():
 	return state
@@ -21,7 +22,6 @@ func change_state(newState : String) :
 		"first turn":
 			state = "normal"
 		"miss":
-			print("a")
 			state = "penalty ob"
 		"hit opponent ball":
 			state = "penalty ov"

@@ -78,7 +78,7 @@ func DeleteBall(ball : BallObject):
 	CurrentArray.pop_at(pos)
 	
 func checkMovement():
-	const MOVEMENT_THRESHOLD = 0.01
+	const MOVEMENT_THRESHOLD = 0.005
 	var allBalls = get_tree().get_nodes_in_group("allBalls")
 	for ballRigidBody : RigidBody3D in allBalls:
 		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD:
@@ -96,6 +96,5 @@ func _ball_scored(body):
 
 func turn_changed(_turn):
 	ballsScored = []
-	print("lol")
 	touchedBall = false
 

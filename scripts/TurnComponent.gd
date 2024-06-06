@@ -28,8 +28,7 @@ var cueUsed : bool = false
 
 func _ready():
 	GameEvent.ball_strike.connect(_on_cue_component_ball_strike)
-
-
+	
 
 func _process(_delta):
 	var stillBall : bool = ball_array.checkMovement()
@@ -56,8 +55,6 @@ func changeTurn():
 		turn = get_other_player_turn()
 	if "penalty" in state: 
 		GameEvent.penalty_commited.emit()
-	
-	GameEvent.change_turn.emit(turn)
 	
 
 func _on_cue_component_ball_strike():
@@ -91,7 +88,6 @@ func calc_penalty():
 		turn_state.change_state("miss")
 	elif ball_array.firstBallTouched.ballType != infoTurns[turn]["Type"] and infoTurns[turn]["Type"] != "":
 		turn_state.change_state("hit opponent ball")
-		print("waza")
 
 func calc_first_turn(type : String):
 	var otherTurn = get_other_player_turn()

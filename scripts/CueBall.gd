@@ -53,6 +53,8 @@ func handle_drop():
 			if Interface.NotDroppable in body.implements :
 				return
 	_ballRigidBody.set_collision_layer_value(1,true)
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
 	isDragging = false
 
 func _on_body_entered(body):
@@ -74,6 +76,7 @@ func animate_score():
 	await get_tree().create_timer(0.5).timeout
 	score()
 	await GameEvent.change_turn
+	print("ashe")
 	freeze = false
 	position = Vector3(0,-0.038,0.576)
 	set_collision_mask_value(1,true)
