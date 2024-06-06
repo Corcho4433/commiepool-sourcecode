@@ -50,12 +50,11 @@ func _process(_delta):
 		
 func changeTurn():
 	var state = turn_state.state
-	GameEvent.change_turn.emit(turn)
 	if state != "extra turn": 
 		turn = get_other_player_turn()
 	if "penalty" in state: 
 		GameEvent.penalty_commited.emit()
-	
+	GameEvent.change_turn.emit(turn)
 
 func _on_cue_component_ball_strike():
 	cueUsed = true

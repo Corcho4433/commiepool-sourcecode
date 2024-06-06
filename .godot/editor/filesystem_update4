@@ -1,6 +1,3 @@
 res://scenes/GameScene.tscn
+res://resources/enviroment/enviroment.tres
 res://scenes/objects/ball.tscn
-res://scripts/ballArrays.gd
-res://scripts/TurnComponent.gd
-res://scripts/TurnState.gd
-res://scripts/CueBall.gd

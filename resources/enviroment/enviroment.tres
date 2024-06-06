@@ -1,0 +1,9 @@
+[gd_resource type="Environment" format=3 uid="uid://qeph0r1mfa4w"]
+
+[resource]
+tonemap_mode = 1
+tonemap_white = 2.0
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.3
+adjustment_saturation = 0.9
