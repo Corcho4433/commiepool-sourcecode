@@ -82,7 +82,6 @@ func calc_extra_turn(type : String):
 		
 	
 func calc_penalty():
-	print(ball_array.touchedBall,  ball_array.firstBallTouched)
 	if ball_array.touchedBall == false:
 		turn_state.change_state("miss")
 	elif ball_array.firstBallTouched.ballType != infoTurns[turn]["Type"] and infoTurns[turn]["Type"] != "":
