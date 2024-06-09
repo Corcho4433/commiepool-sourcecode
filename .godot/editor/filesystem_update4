@@ -1,5 +1,4 @@
-res://scenes/GameScene.tscn
+res://scenes/mainmenu.tscn
 res://resources/enviroment/enviroment.tres
-res://scenes/objects/ball.tscn
-res://scripts/CueBall.gd
-res://scripts/TurnComponent.gd
+res://scenes/GameScene.tscn
+res://scenes/habitacion_pool.tscn

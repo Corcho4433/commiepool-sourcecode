@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cuj7yrefy826n"]
 
 [ext_resource type="Script" path="res://scripts/mainmenus.gd" id="1_jgc0v"]
-[ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="2_4t082"]
+[ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/habitacion_pool.tscn" id="2_ewgx5"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="3_nlpf0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/themes/botonesmenu.tres" id="4_et0w0"]
 
@@ -28,6 +28,36 @@ spot_range = 4.488
 spot_angle = 75.68
 spot_angle_attenuation = 4.14105
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="fondo"]
+transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, 0.703701, 4.8875, 4.72502)
+light_color = Color(0.960784, 0.956863, 0.956863, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 2.98271
+spot_angle = 62.9331
+spot_angle_attenuation = 4.14105
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="fondo"]
+transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, -1.02154, 4.8875, 4.72502)
+light_color = Color(0.960784, 0.956863, 0.956863, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 2.94839
+spot_angle = 62.9331
+spot_angle_attenuation = 4.14105
+
+[node name="PapuchoSpotLight" type="SpotLight3D" parent="fondo"]
+transform = Transform3D(-0.0854169, 0.584229, 0.807081, -7.08161e-08, -0.810042, 0.586372, 0.996345, 0.0500861, 0.0691913, -0.599738, 5.17607, 1.83096)
+light_color = Color(0.960784, 0.956863, 0.956863, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 3.98164
+spot_angle = 10.3652
+spot_angle_attenuation = 4.14105
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="fondo"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,10 +71,13 @@ handle_input_locally = false
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="fondo/SubViewportContainer/SubViewport"]
-transform = Transform3D(0.414693, 0, -0.909961, 0, 1, 0, 0.909961, 0, 0.414693, -1.67528, 2.93432, 0.67342)
+[node name="Node3D" type="Node3D" parent="fondo/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345, 0)
 
-[node name="habitacion_pool" parent="fondo" instance=ExtResource("2_4t082")]
+[node name="Camera3D" type="Camera3D" parent="fondo/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(0.414693, 0.110896, -0.903179, 0, 0.992546, 0.121869, 0.909961, -0.0505384, 0.411602, -1.8, 2.934, 0.673)
+
+[node name="habitacion_pool" parent="fondo" instance=ExtResource("2_ewgx5")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
