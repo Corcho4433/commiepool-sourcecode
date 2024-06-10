@@ -4,14 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/habitacion_pool.tscn" id="2_ewgx5"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="3_nlpf0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/themes/botonesmenu.tres" id="4_et0w0"]
-
-[sub_resource type="Environment" id="Environment_un2ux"]
-tonemap_mode = 1
-tonemap_white = 2.0
-volumetric_fog_enabled = true
-adjustment_enabled = true
-adjustment_contrast = 1.3
-adjustment_saturation = 0.9
+[ext_resource type="Environment" uid="uid://qeph0r1mfa4w" path="res://resources/enviroment/enviroment.tres" id="5_rbpdv"]
 
 [node name="mainmenu" type="CanvasLayer"]
 script = ExtResource("1_jgc0v")
@@ -19,13 +12,14 @@ script = ExtResource("1_jgc0v")
 [node name="fondo" type="Node3D" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="fondo"]
-transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, -0.000842579, 3.65618, -0.0237166)
-light_color = Color(0.984314, 1, 0.337255, 1)
+transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, -0.000842579, 3.70429, -0.0237166)
+light_color = Color(0.94902, 0.960784, 0.258824, 1)
 light_energy = 16.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
-spot_range = 4.488
-spot_angle = 75.68
+light_specular = 0.1
+spot_range = 2.74656
+spot_angle = 68.2546
 spot_angle_attenuation = 4.14105
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="fondo"]
@@ -76,8 +70,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345, 0)
 
 [node name="Camera3D" type="Camera3D" parent="fondo/SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(0.414693, 0.110896, -0.903179, 0, 0.992546, 0.121869, 0.909961, -0.0505384, 0.411602, -1.8, 2.934, 0.673)
+current = true
 
 [node name="habitacion_pool" parent="fondo" instance=ExtResource("2_ewgx5")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="fondo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.01159, 2.23992)
+light_color = Color(1, 0.996078, 0.741176, 1)
+light_energy = 1.8
+omni_range = 3.32042
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="fondo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98019, -0.508278)
+light_color = Color(1, 0.996078, 0.741176, 1)
+light_energy = 1.8
+omni_range = 3.32042
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -137,7 +144,7 @@ flat = true
 alignment = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_un2ux")
+environment = ExtResource("5_rbpdv")
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/salir" to="." method="_on_salir_pressed"]

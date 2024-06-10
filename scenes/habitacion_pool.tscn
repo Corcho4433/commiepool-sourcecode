@@ -1,12 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://svolrjdjqne0"]
+[gd_scene load_steps=12 format=3 uid="uid://svolrjdjqne0"]
 
 [ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="1_bhybq"]
+[ext_resource type="Shader" path="res://resources/meshes/psx_shader.gdshader" id="2_1usaa"]
+[ext_resource type="Texture2D" uid="uid://re4eo1f06qu4" path="res://resources/textures/woodfloor_planks.jpg" id="3_emmjx"]
+[ext_resource type="Texture2D" uid="uid://dae1tsu60e5g7" path="res://resources/textures/brick_texture.jpg" id="4_xyyw1"]
+[ext_resource type="Texture2D" uid="uid://cjpvpfvfebxxe" path="res://resources/textures/dark_wood.png" id="5_ay03k"]
+[ext_resource type="Texture2D" uid="uid://xiki3hpn72cb" path="res://resources/textures/woodwall_planks.jpg" id="6_v1li0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_egywk"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("3_emmjx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2erha"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_xyyw1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmrfd"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("5_ay03k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cb2un"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("6_v1li0")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t11fd"]
 friction = 0.0
 bounce = 0.11
 
 [node name="habitacion_pool" instance=ExtResource("1_bhybq")]
+
+[node name="habitacion" parent="." index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_egywk")
+surface_material_override/1 = SubResource("ShaderMaterial_2erha")
+surface_material_override/2 = SubResource("ShaderMaterial_rmrfd")
+surface_material_override/3 = SubResource("ShaderMaterial_cb2un")
 
 [node name="colisiones" parent="." index="9"]
 collision_layer = 3
