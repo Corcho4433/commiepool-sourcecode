@@ -1,11 +1,55 @@
-[gd_scene load_steps=12 format=3 uid="uid://svolrjdjqne0"]
+[gd_scene load_steps=31 format=3 uid="uid://svolrjdjqne0"]
 
 [ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="1_bhybq"]
 [ext_resource type="Shader" path="res://resources/meshes/psx_shader.gdshader" id="2_1usaa"]
+[ext_resource type="Texture2D" uid="uid://c2e8wr4yn8xl1" path="res://resources/textures/darkgreenmetal.png" id="3_1ge48"]
 [ext_resource type="Texture2D" uid="uid://re4eo1f06qu4" path="res://resources/textures/woodfloor_planks.jpg" id="3_emmjx"]
 [ext_resource type="Texture2D" uid="uid://dae1tsu60e5g7" path="res://resources/textures/brick_texture.jpg" id="4_xyyw1"]
+[ext_resource type="Texture2D" uid="uid://jo4h5vwq3qnl" path="res://resources/textures/aluminum_texture.png" id="4_ydxt2"]
 [ext_resource type="Texture2D" uid="uid://cjpvpfvfebxxe" path="res://resources/textures/dark_wood.png" id="5_ay03k"]
+[ext_resource type="Texture2D" uid="uid://cbit6frex634g" path="res://resources/textures/greenstainedsteel.png" id="6_pu7h8"]
 [ext_resource type="Texture2D" uid="uid://xiki3hpn72cb" path="res://resources/textures/woodwall_planks.jpg" id="6_v1li0"]
+[ext_resource type="Texture2D" uid="uid://rejoc5rwl53b" path="res://resources/textures/russian_rug.jpg" id="10_8q6p4"]
+[ext_resource type="Texture2D" uid="uid://cspj47pt6gvx5" path="res://resources/textures/table_carpet.jpg" id="10_gye6u"]
+[ext_resource type="Texture2D" uid="uid://c2j7nd74lxh2m" path="res://resources/textures/scratched_aluminum.jpg" id="10_n4ccm"]
+[ext_resource type="Texture2D" uid="uid://co8xw8twwfbir" path="res://resources/textures/soviet_poster_1.jpg" id="11_ecm5i"]
+[ext_resource type="Texture2D" uid="uid://b3usdyfla6ofm" path="res://resources/textures/brown_wood_table.jpg" id="11_p342j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6sfoy"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("3_1ge48")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bh23d"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_ydxt2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ej2sd"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("5_ay03k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6d28p"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("6_pu7h8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_egywk"]
 render_priority = 0
@@ -28,7 +72,7 @@ shader_parameter/albedo = ExtResource("4_xyyw1")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmrfd"]
 render_priority = 0
 shader = ExtResource("2_1usaa")
-shader_parameter/affine_mapping = false
+shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.4
 shader_parameter/jitter = 0.4
 shader_parameter/resolution = Vector2i(320, 240)
@@ -43,11 +87,80 @@ shader_parameter/jitter = 0.4
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("6_v1li0")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3usl"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("10_8q6p4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7sjx"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("11_ecm5i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3liu"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_ydxt2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijaxt"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("10_n4ccm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sud0n"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("10_gye6u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpsw2"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("5_ay03k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjfcq"]
+render_priority = 0
+shader = ExtResource("2_1usaa")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.4
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("11_p342j")
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t11fd"]
 friction = 0.0
 bounce = 0.11
 
 [node name="habitacion_pool" instance=ExtResource("1_bhybq")]
+
+[node name="lampara" parent="." index="0"]
+surface_material_override/1 = SubResource("ShaderMaterial_6sfoy")
+surface_material_override/2 = SubResource("ShaderMaterial_bh23d")
+surface_material_override/3 = SubResource("ShaderMaterial_ej2sd")
+surface_material_override/4 = SubResource("ShaderMaterial_6d28p")
 
 [node name="habitacion" parent="." index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_egywk")
@@ -55,7 +168,23 @@ surface_material_override/1 = SubResource("ShaderMaterial_2erha")
 surface_material_override/2 = SubResource("ShaderMaterial_rmrfd")
 surface_material_override/3 = SubResource("ShaderMaterial_cb2un")
 
+[node name="alfombra" parent="." index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_m3usl")
+
+[node name="poster" parent="." index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_m7sjx")
+surface_material_override/1 = SubResource("ShaderMaterial_t3liu")
+
+[node name="piso_mesa" parent="." index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_ijaxt")
+surface_material_override/1 = SubResource("ShaderMaterial_sud0n")
+surface_material_override/2 = SubResource("ShaderMaterial_kpsw2")
+surface_material_override/3 = SubResource("ShaderMaterial_yjfcq")
+
 [node name="colisiones" parent="." index="9"]
 collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_t11fd")
+
+[node name="Cube" parent="." index="31"]
+transform = Transform3D(0.811707, 0, -0.584064, 0, 1, 0, 0.584064, 0, 0.811707, 2.06236, 2.51441, -2.02614)

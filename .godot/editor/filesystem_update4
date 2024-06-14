@@ -1,14 +1,8 @@
 res://scenes/GameScene.tscn
-res://scripts/GameScene.gdshader
 res://resources/enviroment/enviroment.tres
+res://scripts/shaders/pixelate.gdshader
+res://scripts/shaders/Destruction.gdshader
+res://scripts/shaders/Bayer Dithering.gdshader
 res://scenes/mainmenu.tscn
 res://scenes/habitacion_pool.tscn
 res://scenes/objects/ball.tscn
-res://scripts/shaders/GameScene.gdshader
-res://scenes/GameScene.gdshader
-res://scripts/shaders/Destruction.gdshader
-res://scripts/shaders/Bayer Dithering.gdshader
-res://scripts/shaders/PixelMelt.gdshader
-res://scripts/shaders/pixelate.gdshader
-res://scripts/CueBall.gd
-res://scripts/ballObject.gd
