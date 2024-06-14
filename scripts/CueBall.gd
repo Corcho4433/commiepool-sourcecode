@@ -44,7 +44,9 @@ func _process(_delta):
 # limites de mesa x = 0.5, z = 1 :VV skibidi toilettt
 		newPosition.x = clamp(newPosition.x,-0.44,0.44)
 		newPosition.z =  clamp(newPosition.z,-0.902,0.902)
-		newPosition.y = -0.131
+		newPosition.y = -0.145
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
 		_ballRigidBody.global_position = newPosition
 
 func handle_drop():
@@ -68,6 +70,8 @@ func set_dragging():
 func ball_striked():
 	isDraggable = false
 
+func deleteBall():
+	pass
 
 func animate_score():
 	linear_velocity = linear_velocity * 0.2
@@ -75,6 +79,10 @@ func animate_score():
 	set_collision_mask_value(1,false)
 	await get_tree().create_timer(0.5).timeout
 	score()
+	freeze = true
+	linear_velocity = Vector3(0,0,0)
+	angular_velocity = Vector3(0,0,0)
+	
 	await GameEvent.change_turn
 	freeze = false
 	position = Vector3(0,-0.038,0.576)

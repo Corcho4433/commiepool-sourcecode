@@ -23,8 +23,6 @@ Interface="*res://scripts/interface.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
 window/size/initial_position_type=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

@@ -70,5 +70,5 @@ func animate_score():
 	linear_velocity = linear_velocity * 0.2
 	angular_velocity = angular_velocity * 0.2
 	set_collision_mask_value(1,false)
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(1).timeout
 	score()
