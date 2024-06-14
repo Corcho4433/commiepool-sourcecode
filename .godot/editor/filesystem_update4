@@ -1,4 +1,8 @@
-res://scenes/mainmenu.tscn
-res://resources/enviroment/enviroment.tres
 res://scenes/GameScene.tscn
+res://resources/enviroment/enviroment.tres
+res://scripts/GameScene.gdshader
+res://scenes/mainmenu.tscn
 res://scenes/habitacion_pool.tscn
+res://scripts/ballObject.gd
+res://scenes/ball_class.tscn
+res://scenes/objects/ball.tscn
