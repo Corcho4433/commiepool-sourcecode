@@ -53,9 +53,9 @@ func display():
 
 func toggle_display(value : bool):
 	for container in containersP1:
-		container.visible = value
+		container.set_visible(value)
 	
 	for container in containersP2:
-		container.visible = value
+		container.set_visible(value)
 		
 
