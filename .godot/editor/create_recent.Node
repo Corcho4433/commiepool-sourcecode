@@ -1,6 +1,9 @@
+Sprite3D
+Sprite2D
+CheckBox
+AnimationPlayer
 ColorRect
 Control
-Sprite2D
 OmniLight3D
 AudioStreamPlayer2D
 Node3D

@@ -1,15 +1,283 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuj7yrefy826n"]
+[gd_scene load_steps=12 format=3 uid="uid://cuj7yrefy826n"]
 
 [ext_resource type="Script" path="res://scripts/mainmenus.gd" id="1_jgc0v"]
 [ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/habitacion_pool.tscn" id="2_ewgx5"]
+[ext_resource type="Texture2D" uid="uid://bm5xed7vu4d64" path="res://resources/textures/placeholder.png" id="2_ibbns"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="3_nlpf0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/themes/botonesmenu.tres" id="4_et0w0"]
 [ext_resource type="Environment" uid="uid://qeph0r1mfa4w" path="res://resources/enviroment/enviroment.tres" id="5_rbpdv"]
+
+[sub_resource type="Animation" id="Animation_oci48"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.5),
+"update": 0,
+"values": [Vector3(0, 0.345, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kyvqe"]
+resource_name = "inicial_a_config"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer_inicial:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.8, 1.8),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer_inicial:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1.7, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(0, 1.62183, 0), Vector3(0, 2.31082, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1.7, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(-1.62689, 0.747511, -0.473377), Vector3(-2.50477, 0.964706, -0.728811)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/MarginContainer_config:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(0.8, 1),
+"update": 0,
+"values": [Vector2(-600, 0), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/MarginContainer_config:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_i3ips"]
+resource_name = "inicial_a_creditos"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer_inicial:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.8, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer_inicial:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1.1, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(0, -0.00158831, 0), Vector3(0, -0.6353, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1.1, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(0.965792, 0.451802, -0.373959), Vector3(2.73167, 0.647081, -1.05772)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/MarginContainer_creditos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(0.8, 1.8),
+"update": 0,
+"values": [Vector2(-600, 1), Vector2(0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/MarginContainer_creditos:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("fondo/placeholder!:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.5, 4),
+"transitions": PackedFloat32Array(1.8, 1),
+"update": 0,
+"values": [Vector3(2.80193, 3.11084, -0.924156), Vector3(2.30901, 3.11084, -0.924156)]
+}
+
+[sub_resource type="Animation" id="Animation_6sdt0"]
+resource_name = "inicial_a_juegos"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer_inicial:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.8, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer_inicial:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/MarginContainer_juegos:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(0.8, 1.8),
+"update": 0,
+"values": [Vector2(-600, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MarginContainer_juegos:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 1.1, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(0.0852064, 0.504099, 1.75052), Vector3(0.241, 0.795, 4.95121)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 1.1, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(0, -0.610016, 0), Vector3(0, -2.35619, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ca4v"]
+_data = {
+"RESET": SubResource("Animation_oci48"),
+"inicial_a_config": SubResource("Animation_kyvqe"),
+"inicial_a_creditos": SubResource("Animation_i3ips"),
+"inicial_a_juegos": SubResource("Animation_6sdt0")
+}
 
 [node name="mainmenu" type="CanvasLayer"]
 script = ExtResource("1_jgc0v")
 
 [node name="fondo" type="Node3D" parent="."]
+
+[node name="placeholder!" type="Sprite3D" parent="fondo"]
+transform = Transform3D(-1.42062e-08, 0, -0.325, 0, 0.325, 0, 0.325, 0, -1.42062e-08, 2.80193, 3.11084, -0.924156)
+texture = ExtResource("2_ibbns")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="fondo"]
 transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, -0.000842579, 3.70429, -0.0237166)
@@ -43,7 +311,7 @@ spot_angle = 62.9331
 spot_angle_attenuation = 4.14105
 
 [node name="PapuchoSpotLight" type="SpotLight3D" parent="fondo"]
-transform = Transform3D(-0.0854169, 0.584229, 0.807081, -7.08161e-08, -0.810042, 0.586372, 0.996345, 0.0500861, 0.0691913, -0.599738, 5.17607, 1.83096)
+transform = Transform3D(-0.0854169, 0.584229, 0.807081, -7.08161e-08, -0.810042, 0.586372, 0.996345, 0.050086, 0.0691913, -0.599738, 5.6061, 3.5064)
 light_color = Color(0.960784, 0.956863, 0.956863, 1)
 light_energy = 16.0
 light_indirect_energy = 0.0
@@ -66,10 +334,10 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="fondo/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345, 0)
+transform = Transform3D(0.941075, 0, 0.338197, 0, 1, 0, -0.338197, 0, 0.941075, 0, 0.345, 0)
 
 [node name="Camera3D" type="Camera3D" parent="fondo/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(0.414693, 0.110896, -0.903179, 0, 0.992546, 0.121869, 0.909961, -0.0505384, 0.411602, -1.8, 2.934, 0.673)
+transform = Transform3D(0.414694, 0.110896, -0.903179, 0, 0.992546, 0.121869, 0.909961, -0.0505384, 0.411603, -1.8, 2.934, 0.673)
 current = true
 
 [node name="habitacion_pool" parent="fondo" instance=ExtResource("2_ewgx5")]
@@ -95,7 +363,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00146, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer_inicial" type="MarginContainer" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,12 +376,12 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer_inicial"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="titulo" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="titulo" type="Label" parent="Control/MarginContainer_inicial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -121,7 +390,7 @@ theme_override_fonts/font = ExtResource("3_nlpf0")
 theme_override_font_sizes/font_size = 46
 text = "COMMIE POOL"
 
-[node name="iniciar" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="iniciar" type="Button" parent="Control/MarginContainer_inicial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_et0w0")
@@ -132,7 +401,197 @@ text = "Iniciar"
 flat = true
 alignment = 0
 
-[node name="salir" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="config" type="Button" parent="Control/MarginContainer_inicial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Configuracion"
+flat = true
+alignment = 0
+
+[node name="creditos" type="Button" parent="Control/MarginContainer_inicial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Creditos"
+flat = true
+alignment = 0
+
+[node name="salir" type="Button" parent="Control/MarginContainer_inicial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Salir"
+flat = true
+alignment = 0
+
+[node name="MarginContainer_juegos" type="MarginContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_right = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer_juegos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="titulo" type="Label" parent="Control/MarginContainer_juegos/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 46
+text = "MODOS DE JUEGO"
+
+[node name="clasico" type="Button" parent="Control/MarginContainer_juegos/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Pool clasico"
+flat = true
+alignment = 0
+
+[node name="commie" type="Button" parent="Control/MarginContainer_juegos/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Commie pool"
+flat = true
+alignment = 0
+
+[node name="atras" type="Button" parent="Control/MarginContainer_juegos/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Atras"
+flat = true
+alignment = 0
+
+[node name="MarginContainer_config" type="MarginContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_right = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer_config"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="titulo" type="Label" parent="Control/MarginContainer_config/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 46
+text = "CONFIGURACION"
+
+[node name="lenguaje" type="Button" parent="Control/MarginContainer_config/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Lenguaje"
+flat = true
+alignment = 0
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer_config/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+text = "Skibidi"
+
+[node name="CheckBox2" type="CheckBox" parent="Control/MarginContainer_config/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+text = "Dop dop"
+
+[node name="CheckBox3" type="CheckBox" parent="Control/MarginContainer_config/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+text = "yes yes"
+
+[node name="atras" type="Button" parent="Control/MarginContainer_config/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_et0w0")
+theme_override_fonts/font = ExtResource("3_nlpf0")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "atras
+"
+flat = true
+alignment = 0
+
+[node name="MarginContainer_creditos" type="MarginContainer" parent="Control"]
+visible = false
+layout_mode = 2
+offset_left = -600.0
+offset_top = 1.0
+offset_right = 549.0
+offset_bottom = 649.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer_creditos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="atras" type="Button" parent="Control/MarginContainer_creditos/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_et0w0")
@@ -146,5 +605,20 @@ alignment = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("5_rbpdv")
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ca4v")
+}
+
+[connection signal="pressed" from="Control/MarginContainer_inicial/VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_inicial/VBoxContainer/config" to="." method="_on_config_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_inicial/VBoxContainer/creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_inicial/VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_juegos/VBoxContainer/clasico" to="." method="_on_clasico_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_juegos/VBoxContainer/commie" to="." method="_on_commie_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_juegos/VBoxContainer/atras" to="." method="_on_juegos_atras_pressed"]
+[connection signal="toggled" from="Control/MarginContainer_config/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="Control/MarginContainer_config/VBoxContainer/CheckBox2" to="." method="_on_check_box_2_toggled"]
+[connection signal="toggled" from="Control/MarginContainer_config/VBoxContainer/CheckBox3" to="." method="_on_check_box_3_toggled"]
+[connection signal="pressed" from="Control/MarginContainer_config/VBoxContainer/atras" to="." method="_on_config_atras_pressed"]
+[connection signal="pressed" from="Control/MarginContainer_creditos/VBoxContainer/atras" to="." method="_on_creditos_atras_pressed"]
