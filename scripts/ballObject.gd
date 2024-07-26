@@ -26,15 +26,16 @@ var spawned : bool
 var ballImg : Texture2D
 
 
-
 ## Inicializa ,con informacion previamente almacenada, una instancia de una bola.
-func spawnBall():
-	_ballMesh = instantiateMesh(GameInfo.Balls[ballName].mesh) 
+func spawnBall() -> void:
+	_ballMesh = instantiateMesh(GameInfo.Balls[get_ball_name()].mesh) 
 	add_to_group("allBallObjects")
-	spawned = true
+	set_ball_spawned(true)
 	_ballCollisionShape = get_node("CollisionShape3D")
 	_ballRigidBody = get_node(".")
-	_ballRigidBody.position = ballPosition
+	_ballRigidBody.set_position(get_ball_position())
+	print(get_ball_mass())
+	_ballRigidBody.set_mass(get_ball_mass()) 
 	_addMeshToScene(_ballMesh)
 
 
@@ -67,8 +68,44 @@ func hit():
 	return self
 
 func animate_score():
-	linear_velocity = linear_velocity * 0.2
-	angular_velocity = angular_velocity * 0.2
+	set_linear_velocity(linear_velocity * 0.2)
+	set_angular_velocity(angular_velocity * 0.2)
 	set_collision_mask_value(1,false)
 	await get_tree().create_timer(1).timeout
 	score()
+# Getters and Setters
+func set_ball_name(new_name: String) -> void:
+	ballName = new_name
+
+func get_ball_name() -> String:
+	return ballName
+
+func set_ball_mass(new_mass: float) -> void:
+	ballMass = new_mass
+
+func get_ball_mass() -> float:
+	return ballMass
+
+func set_ball_position(new_position: Vector3) -> void:
+	ballPosition = new_position
+
+func get_ball_position() -> Vector3:
+	return ballPosition
+
+func set_ball_type(new_type: String) -> void:
+	ballType = new_type
+
+func get_ball_type() -> String:
+	return ballType
+
+func set_ball_img(new_img: Texture2D) -> void:
+	ballImg = new_img
+
+func get_ball_img() -> Texture2D:
+	return ballImg
+
+func set_ball_spawned(is_spawned: bool) -> void:
+	spawned = is_spawned
+
+func get_ball_spawned() -> bool:
+	return spawned

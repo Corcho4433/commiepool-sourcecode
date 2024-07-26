@@ -54,23 +54,23 @@ func GenerateBalls():
 			var ballName : String = StartingArray[index]
 			var b = newBallObject.instantiate()
 			add_child(b)
-			b.ballName = ballName
-			b.ballPosition = new_position
-			b.ballType = GameInfo.Balls[ballName]["type"]
-			b.ballImg = load("res://resources/textures/Balls_GUI_sprites/"+ ballName.to_lower() + ".png")
+			b.set_ball_name(ballName) 
+			b.set_ball_mass(1)
+			b.set_ball_position(new_position)
+			b.set_ball_type(GameInfo.Balls[ballName]["type"])
+			b.set_ball_img(load("res://resources/textures/Balls_GUI_sprites/"+ ballName.to_lower() + ".png"))
 			CurrentArray.append(b)
 			index += 1
 
 func SpawnBalls():
 	for ball : BallObject in CurrentArray:
-		if ball.spawned == false:
+		if ball.get_ball_spawned() == false:
 			ball.spawnBall()
 	
 func VisibilityTogle(visibility : bool):
 	for ball : BallObject in CurrentArray:
-		if ball.spawned == true:
-			ball.get_node("pelota").visible = visibility
-	
+		if ball.get_ball_spawned() == true:
+			ball.get_node("pelota").set_visible(visibility) 
 
 func DeleteBall(ball : BallObject):
 	var pos = CurrentArray.find(ball)
@@ -81,7 +81,7 @@ func checkMovement():
 	const MOVEMENT_THRESHOLD = 0.005
 	var allBalls = get_tree().get_nodes_in_group("allBalls")
 	for ballRigidBody : RigidBody3D in allBalls:
-		if ballRigidBody.linear_velocity.length() > MOVEMENT_THRESHOLD:
+		if ballRigidBody.get_linear_velocity().length() > MOVEMENT_THRESHOLD:
 			return false
 	return true
 	
