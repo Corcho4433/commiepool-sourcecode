@@ -1,4 +1,5 @@
 res://scenes/GameScene.tscn
+res://scripts/mainmenus.gd
 res://resources/enviroment/enviroment.tres
 res://scripts/shaders/pixelate.gdshader
 res://scripts/shaders/Destruction.gdshader
@@ -6,3 +7,4 @@ res://scripts/shaders/Bayer Dithering.gdshader
 res://scenes/mainmenu.tscn
 res://scenes/habitacion_pool.tscn
 res://scenes/objects/ball.tscn
+res://scenes/kuwahara_filter.gdshader

@@ -4,9 +4,9 @@ extends CanvasLayer
 @onready var camara_pos = $fondo/SubViewportContainer/SubViewport/Node3D
 @onready var anim_player = $AnimationPlayer
 @onready var WorldE = $WorldEnvironment
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	anim_player.play("inicio")
 	while true:
 		luz.light_energy = 16
 		await get_tree().create_timer(randf_range(0.5,3)).timeout
@@ -23,6 +23,8 @@ func _on_iniciar_pressed():
 
 
 func _on_salir_pressed():
+	anim_player.play("salida")
+func _salir():
 	get_tree().quit()
 
 

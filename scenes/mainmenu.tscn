@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuj7yrefy826n"]
+[gd_scene load_steps=14 format=3 uid="uid://cuj7yrefy826n"]
 
 [ext_resource type="Script" path="res://scripts/mainmenus.gd" id="1_jgc0v"]
 [ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/habitacion_pool.tscn" id="2_ewgx5"]
@@ -261,13 +261,181 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0, 0.345, 0), Vector3(0, -0.610016, 0), Vector3(0, -2.35619, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:script")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_jgc0v"), ExtResource("1_jgc0v")]
+}
+
+[sub_resource type="Animation" id="Animation_fybi5"]
+resource_name = "inicio"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer_inicial:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.3, 3.5),
+"transitions": PackedFloat32Array(0.6, 1),
+"update": 0,
+"values": [Vector2(-600, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer_inicial:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.8, 2.6),
+"transitions": PackedFloat32Array(1.8, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, -2.01062, 0), Vector3(0, -0.87524, 0), Vector3(0, 0.345, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, -1.565), Vector3(0, 0.345, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D/Camera3D:fov")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [60.0, 75.0]
+}
+
+[sub_resource type="Animation" id="Animation_ahhc8"]
+resource_name = "salida"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer_inicial:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.8, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer_inicial:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.8, 1),
+"update": 0,
+"values": [Vector3(0, 0.345575, 0), Vector3(0, 1.11701, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1.5, 0.4, 1),
+"update": 0,
+"values": [Vector3(0, 0.345, 0), Vector3(0, 0.345, -3.66528), Vector3(0, 0.345, -5.20311)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D/Camera3D:fov")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 2.3),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [75.0, 60.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("fondo/SubViewportContainer/SubViewport/Node3D/Camera3D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(0.8, 1),
+"update": 0,
+"values": [Vector3(-0.122173, -1.14319, 0), Vector3(0.523066, -1.14701, -0.0181784)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_salir"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ca4v"]
 _data = {
 "RESET": SubResource("Animation_oci48"),
 "inicial_a_config": SubResource("Animation_kyvqe"),
 "inicial_a_creditos": SubResource("Animation_i3ips"),
-"inicial_a_juegos": SubResource("Animation_6sdt0")
+"inicial_a_juegos": SubResource("Animation_6sdt0"),
+"inicio": SubResource("Animation_fybi5"),
+"salida": SubResource("Animation_ahhc8")
 }
 
 [node name="mainmenu" type="CanvasLayer"]
@@ -337,7 +505,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.941075, 0, 0.338197, 0, 1, 0, -0.338197, 0, 0.941075, 0, 0.345, 0)
 
 [node name="Camera3D" type="Camera3D" parent="fondo/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(0.414694, 0.110896, -0.903179, 0, 0.992546, 0.121869, 0.909961, -0.0505384, 0.411603, -1.8, 2.934, 0.673)
+transform = Transform3D(0.414694, 0.110896, -0.903179, 0, 0.992546, 0.121869, 0.909961, -0.0505384, 0.411603, -1.41924, 2.934, 0.487291)
 current = true
 
 [node name="habitacion_pool" parent="fondo" instance=ExtResource("2_ewgx5")]
@@ -369,6 +537,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64
@@ -441,7 +611,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -600.0
-offset_right = -600.0
+offset_right = 552.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64
@@ -503,7 +674,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -600.0
-offset_right = -600.0
+offset_right = 552.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64

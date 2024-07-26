@@ -65,7 +65,7 @@ shader_parameter/jitter = 0.2
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("3_emmjx")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2erha"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hkcy"]
 render_priority = 0
 shader = ExtResource("2_1usaa")
 shader_parameter/affine_mapping = false
@@ -268,7 +268,7 @@ surface_material_override/4 = SubResource("ShaderMaterial_6d28p")
 
 [node name="habitacion" parent="." index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_egywk")
-surface_material_override/1 = SubResource("ShaderMaterial_2erha")
+surface_material_override/1 = SubResource("ShaderMaterial_4hkcy")
 surface_material_override/2 = SubResource("ShaderMaterial_rmrfd")
 surface_material_override/3 = SubResource("ShaderMaterial_cb2un")
 
