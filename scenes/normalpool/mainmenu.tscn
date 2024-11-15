@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://cuj7yrefy826n"]
 
-[ext_resource type="Script" path="res://scripts/mainmenus.gd" id="1_jgc0v"]
-[ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/habitacion_pool.tscn" id="2_ewgx5"]
+[ext_resource type="Script" path="res://scripts/poolnormal/mainmenus.gd" id="1_jgc0v"]
+[ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/normalpool/habitacion_pool.tscn" id="2_ewgx5"]
 [ext_resource type="Texture2D" uid="uid://bm5xed7vu4d64" path="res://resources/textures/placeholder.png" id="2_ibbns"]
-[ext_resource type="Shader" path="res://scenes/kuwahara_filter.gdshader" id="3_gttbu"]
+[ext_resource type="Shader" path="res://scenes/normalpool/kuwahara_filter.gdshader" id="3_gttbu"]
 [ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="3_nlpf0"]
 [ext_resource type="Theme" uid="uid://b0ths25jbrq2b" path="res://resources/themes/botonesmenu.tres" id="4_et0w0"]
 [ext_resource type="Environment" uid="uid://qeph0r1mfa4w" path="res://resources/enviroment/enviroment.tres" id="5_rbpdv"]

@@ -13,3 +13,5 @@ res://scripts/ballGrid.gd
 res://scripts/ballObject.gd
 res://scripts/TurnState.gd
 res://scripts/game_event.gd
+res://scenes/normalpool/GameScene.tscn
+res://scenes/normalpool/objects/ball.tscn

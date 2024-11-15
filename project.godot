@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="commie-pool"
-run/main_scene="res://scenes/mainmenu.tscn"
+run/main_scene="res://scenes/normalpool/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameEvent="*res://scripts/game_event.gd"
-GameInfo="*res://scripts/game_info.gd"
-Interface="*res://scripts/interface.gd"
+GameEvent="*res://scripts/poolnormal/game_event.gd"
+GameInfo="*res://scripts/poolnormal/game_info.gd"
+Interface="*res://scripts/poolnormal/interface.gd"
 
 [display]
 
