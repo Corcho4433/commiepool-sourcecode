@@ -1,16 +1,19 @@
-[gd_scene load_steps=29 format=3 uid="uid://jmqom6qsejyo"]
+[gd_scene load_steps=33 format=3 uid="uid://jmqom6qsejyo"]
 
 [ext_resource type="Script" path="res://scripts/mains.gd" id="1_1s41a"]
 [ext_resource type="PackedScene" uid="uid://b8q5mqp8nar3h" path="res://scenes/ruleta.tscn" id="3_lnw8k"]
 [ext_resource type="PackedScene" uid="uid://sp1w1csj6psn" path="res://scenes/objects/ball.tscn" id="4_lnexn"]
 [ext_resource type="PackedScene" uid="uid://svolrjdjqne0" path="res://scenes/habitacion_pool.tscn" id="4_nj8dd"]
 [ext_resource type="Script" path="res://scripts/CueBall.gd" id="5_0d3vu"]
+[ext_resource type="FontFile" uid="uid://cb6t2567igbpm" path="res://resources/font.ttf" id="5_nh7c3"]
 [ext_resource type="Script" path="res://scripts/HoleCollision.gd" id="5_rf0n2"]
 [ext_resource type="Script" path="res://scripts/ballArrays.gd" id="5_uar20"]
 [ext_resource type="Script" path="res://scripts/CueComponent.gd" id="6_70yt0"]
 [ext_resource type="PackedScene" uid="uid://cf3nybk3xcitt" path="res://resources/meshes/palo_pool.gltf" id="10_j1a6t"]
 [ext_resource type="Script" path="res://scripts/ballGrid.gd" id="12_cfkuu"]
 [ext_resource type="Script" path="res://scripts/TurnComponent.gd" id="12_wiqqh"]
+[ext_resource type="Shader" path="res://scripts/shaders/changecolor.gdshader" id="19_fak8g"]
+[ext_resource type="Texture2D" uid="uid://bvxxjnrkci160" path="res://resources/textures/blackcircle.png" id="20_njn31"]
 [ext_resource type="Texture2D" uid="uid://cmox8loq56dxs" path="res://resources/textures/Balls_GUI_sprites/ball1.png" id="26_h2d78"]
 [ext_resource type="Texture2D" uid="uid://x1angvhol8o8" path="res://resources/textures/pj1_icon.png" id="28_sll1e"]
 [ext_resource type="Environment" uid="uid://qeph0r1mfa4w" path="res://resources/enviroment/enviroment.tres" id="30_7g1hb"]
@@ -57,6 +60,13 @@ shader_parameter/pixel_size = 1.0
 shader_parameter/num_colors = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nqwy5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ir51"]
+shader = ExtResource("19_fak8g")
+shader_parameter/border_color = Vector4(1, 1, 0, 1)
+shader_parameter/border_threshold = Vector2(0.01, 0.01)
+shader_parameter/border_size = 3.0
+shader_parameter/blend_factor = 0.0
 
 [node name="GameScene" type="Node3D" node_paths=PackedStringArray("ball_array")]
 script = ExtResource("1_1s41a")
@@ -111,6 +121,18 @@ shape = SubResource("ConcavePolygonShape3D_uxdv0")
 
 [node name="habitacion_pool" parent="PoolTable" instance=ExtResource("4_nj8dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.826, 0)
+
+[node name="Label3D" type="Label3D" parent="PoolTable"]
+transform = Transform3D(-0.645, 5.63877e-08, 2.46478e-15, 3.73333e-22, -2.81938e-08, 0.645, 5.63877e-08, 0.645, 2.81938e-08, -0.0307605, -0.106697, 1.02488)
+font = ExtResource("5_nh7c3")
+font_size = 25
+outline_size = 9
+
+[node name="Label3D2" type="Label3D" parent="PoolTable"]
+transform = Transform3D(0.645, -3.55271e-15, -6.35275e-22, 3.73333e-22, -2.81938e-08, 0.645, -3.55271e-15, -0.645, -2.81938e-08, -0.0307605, -0.106697, -1.02448)
+font = ExtResource("5_nh7c3")
+font_size = 25
+outline_size = 9
 
 [node name="Light" type="Node3D" parent="."]
 
@@ -193,7 +215,7 @@ offset_top = 2.0
 offset_right = 1.0
 offset_bottom = -8.0
 
-[node name="Grid" type="Control" parent="GUI" node_paths=PackedStringArray("containersP1", "containersP2")]
+[node name="Grid" type="Control" parent="GUI" node_paths=PackedStringArray("containersP1", "containersP2", "outlineP1", "outlineP2", "falta_text")]
 layout_mode = 3
 anchor_right = 0.998
 anchor_bottom = 1.005
@@ -203,6 +225,9 @@ offset_bottom = -0.23999
 script = ExtResource("12_cfkuu")
 containersP1 = [NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/1"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/2"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/3"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/4"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/5"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/6"), NodePath("P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/p1/7")]
 containersP2 = [NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/1"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/2"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/3"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/4"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/5"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/6"), NodePath("P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Stripped/7")]
+outlineP1 = NodePath("P1/VBoxContainer/HBoxContainer/Control/Sprite2D")
+outlineP2 = NodePath("P2/Sprite2D")
+falta_text = [NodePath("../../PoolTable/Label3D"), NodePath("../../PoolTable/Label3D2")]
 
 [node name="P2" type="MarginContainer" parent="GUI/Grid"]
 layout_mode = 1
@@ -277,10 +302,19 @@ scale = Vector2(0.8, 0.8)
 offset = Vector2(440, -23)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/Grid/P2/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+z_index = 125
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("28_sll1e")
 centered = false
 offset = Vector2(0, -55)
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/Grid/P2"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_7ir51")
+position = Vector2(48.75, 51.25)
+scale = Vector2(0.28125, 0.277777)
+texture = ExtResource("20_njn31")
 
 [node name="P1" type="MarginContainer" parent="GUI/Grid"]
 layout_mode = 1
@@ -372,10 +406,27 @@ centered = false
 offset = Vector2(-474, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/Grid/P1/VBoxContainer/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+z_index = 5
+position = Vector2(-0.725098, -0.562439)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("30_p3b3b")
 centered = false
 offset = Vector2(-112, -110)
+region_rect = Rect2(-4.78249, -1.45344, 124.992, 121.576)
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/Grid/P1/VBoxContainer/HBoxContainer/Control"]
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_7ir51")
+position = Vector2(-49.35, -50.0625)
+scale = Vector2(0.28125, 0.277777)
+texture = ExtResource("20_njn31")
+
+[node name="Label" type="Label" parent="GUI/Grid"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = -7.0
+offset_right = 949.0
+offset_bottom = 102.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("30_7g1hb")

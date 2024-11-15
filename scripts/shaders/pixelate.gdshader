@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode unshaded;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float pixel_size : hint_range(1.0, 16.0, 1.0) = 1.0;
+uniform float pixel_size : hint_range(1.0, 64.0, 1.0) = 1.0;
 uniform int num_colors : hint_range(2, 256) = 16; // New parameter for number of colors
 
 // 4x4 Bayer matrix

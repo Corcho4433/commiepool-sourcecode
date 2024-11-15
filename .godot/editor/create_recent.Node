@@ -1,9 +1,13 @@
-ColorRect
-Sprite3D
+Label3D
+Label
+TextureRect
 Sprite2D
+ColorRect
+Control
+Polygon2D
+Sprite3D
 CheckBox
 AnimationPlayer
-Control
 OmniLight3D
 AudioStreamPlayer2D
 Node3D

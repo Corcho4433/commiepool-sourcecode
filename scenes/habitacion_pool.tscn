@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://svolrjdjqne0"]
+[gd_scene load_steps=44 format=3 uid="uid://svolrjdjqne0"]
 
 [ext_resource type="PackedScene" uid="uid://co1oo31uohjek" path="res://resources/meshes/habitacion_pool.gltf" id="1_bhybq"]
 [ext_resource type="Shader" path="res://resources/meshes/psx_shader.gdshader" id="2_1usaa"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://co8xw8twwfbir" path="res://resources/textures/soviet_poster_1.jpg" id="11_ecm5i"]
 [ext_resource type="Texture2D" uid="uid://b3usdyfla6ofm" path="res://resources/textures/brown_wood_table.jpg" id="11_p342j"]
 [ext_resource type="Texture2D" uid="uid://cso6vwctslk7o" path="res://resources/textures/dartboard.png" id="15_ekphq"]
-[ext_resource type="Texture2D" uid="uid://dw7ev8574bpd3" path="res://resources/textures/man.png" id="15_r0lto"]
 [ext_resource type="Texture2D" uid="uid://bhgb1jl23hlh" path="res://resources/textures/soviet_poster_2.jpg" id="16_rn4wp"]
 [ext_resource type="Texture2D" uid="uid://bt0p53k21ceya" path="res://resources/textures/beam_steel.jpg" id="18_caxfe"]
 [ext_resource type="Texture2D" uid="uid://5xk0xguuuhpj" path="res://resources/textures/caoba_wood.jpg" id="19_pg5es"]
@@ -213,24 +212,6 @@ shader_parameter/jitter = 0.2
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("10_n4ccm")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cj3nm"]
-render_priority = 0
-shader = ExtResource("2_1usaa")
-shader_parameter/affine_mapping = true
-shader_parameter/alpha_scissor = 0.6
-shader_parameter/jitter = 0.2
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/albedo = ExtResource("15_r0lto")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cndiu"]
-render_priority = 0
-shader = ExtResource("2_1usaa")
-shader_parameter/affine_mapping = true
-shader_parameter/alpha_scissor = 0.6
-shader_parameter/jitter = 0.2
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/albedo = ExtResource("15_r0lto")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a8aed"]
 render_priority = 0
 shader = ExtResource("2_1usaa")
@@ -303,123 +284,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_gn707")
 [node name="Cube_001" parent="." index="15"]
 surface_material_override/0 = SubResource("ShaderMaterial_8huog")
 surface_material_override/1 = SubResource("ShaderMaterial_lso43")
-
-[node name="Skeleton3D" parent="bartender_lol" index="1"]
-bones/0/rotation = Quaternion(5.88899e-09, 0.998579, -0.0532955, -5.22283e-08)
-bones/1/rotation = Quaternion(-0.0559945, 3.87301e-12, -8.90816e-09, 0.998431)
-bones/2/rotation = Quaternion(0.0517446, 2.38679e-07, 2.01316e-08, 0.99866)
-bones/3/rotation = Quaternion(-0.0513788, -2.38677e-07, -2.04618e-08, 0.998679)
-bones/4/rotation = Quaternion(-0.0535105, 0.0950145, -0.855208, 0.506683)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.181814, 0.00134147, -0.0405034, 0.982498)
-bones/6/rotation = Quaternion(-0.0250472, -0.00355393, -0.0281851, 0.999283)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.0535101, -0.0950147, 0.855208, 0.506683)
-bones/8/rotation = Quaternion(0.181815, -0.00134148, 0.0405035, 0.982497)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.025048, 0.00355389, 0.028185, 0.999283)
-bones/10/rotation = Quaternion(0.999625, 0.019974, -0.00327581, 0.0184537)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.00162304, 0.00226159, 0.0428647, 0.999077)
-bones/12/rotation = Quaternion(-0.593441, -0.00622398, -0.00305075, 0.804848)
-bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(0.999625, -0.019974, 0.00327515, 0.0184541)
-bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.00162395, -0.00226186, -0.0428647, 0.999077)
-bones/15/rotation = Quaternion(-0.593441, 0.00622399, 0.00305202, 0.804848)
-bones/15/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="bartender_rig_001" index="1"]
-bones/0/rotation = Quaternion(4.0237e-09, 0.998579, -0.0532955, -7.83424e-08)
-bones/1/rotation = Quaternion(-0.0559945, -3.73156e-09, -8.55193e-09, 0.998431)
-bones/2/rotation = Quaternion(0.0517446, 2.31212e-07, 1.96564e-08, 0.99866)
-bones/3/rotation = Quaternion(-0.0513788, -2.34954e-07, -1.94359e-08, 0.998679)
-bones/4/rotation = Quaternion(-0.0535104, 0.0950144, -0.855208, 0.506683)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.181814, 0.00134148, -0.0405034, 0.982498)
-bones/6/rotation = Quaternion(-0.0250472, -0.00355394, -0.0281851, 0.999283)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.0535101, -0.0950147, 0.855208, 0.506683)
-bones/8/rotation = Quaternion(0.181815, -0.00134148, 0.0405035, 0.982497)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.0250481, 0.00355388, 0.028185, 0.999283)
-bones/10/rotation = Quaternion(0.999625, 0.019974, -0.00327582, 0.0184537)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.00162304, 0.00226159, 0.0428647, 0.999077)
-bones/13/rotation = Quaternion(0.999625, -0.019974, 0.00327513, 0.0184541)
-bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.00162395, -0.00226187, -0.0428647, 0.999077)
-bones/15/rotation = Quaternion(-0.593441, 0.00622401, 0.003052, 0.804848)
-
-[node name="Skeleton3D" parent="bartender_rig_002" index="1"]
-bones/0/rotation = Quaternion(4.0237e-09, 0.998579, -0.0532955, -7.53906e-08)
-bones/1/rotation = Quaternion(-0.0559945, 7.36679e-15, -8.45493e-09, 0.998431)
-bones/2/rotation = Quaternion(0.0517446, 2.38099e-07, 2.01501e-08, 0.99866)
-bones/3/rotation = Quaternion(-0.0513788, -2.38104e-07, -2.00076e-08, 0.998679)
-bones/4/rotation = Quaternion(-0.0535104, 0.0950145, -0.855209, 0.506683)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.181814, 0.00134147, -0.0405034, 0.982498)
-bones/6/rotation = Quaternion(-0.0250471, -0.00355394, -0.0281851, 0.999283)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.0535101, -0.0950147, 0.855208, 0.506683)
-bones/8/rotation = Quaternion(0.181815, -0.00134148, 0.0405035, 0.982497)
-bones/9/rotation = Quaternion(-0.0250481, 0.00355388, 0.028185, 0.999283)
-bones/10/rotation = Quaternion(0.999625, 0.019974, -0.00327581, 0.0184537)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.00162303, 0.00226158, 0.0428647, 0.999077)
-bones/12/rotation = Quaternion(-0.593441, -0.00622401, -0.00305074, 0.804848)
-bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(0.999625, -0.019974, 0.00327514, 0.0184541)
-bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.00162395, -0.00226187, -0.0428647, 0.999077)
-bones/15/rotation = Quaternion(-0.593441, 0.00622401, 0.00305201, 0.804848)
-bones/15/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="man" index="0"]
-bones/0/rotation = Quaternion(0.12582, 8.53818e-22, 5.33784e-22, 0.992053)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.101338, 1.18596e-07, -1.20805e-08, 0.994852)
-bones/2/rotation = Quaternion(-0.074354, -1.18879e-07, -8.86368e-09, 0.997232)
-bones/3/rotation = Quaternion(0.278844, -1.14481e-07, -3.32407e-08, 0.960337)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.139751, -1.97336e-14, 3.33192e-08, 0.990187)
-bones/5/rotation = Quaternion(-0.548249, -0.38587, -0.504345, 0.54421)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(-0.395783, 0.625567, -0.398086, 0.541803)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.180519, 0.0979545, -0.0197804, 0.978482)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.0582456, -0.122909, 0.00387653, 0.9907)
-bones/9/rotation = Quaternion(0.201509, 0.906105, 0.346647, -0.13492)
-bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(0.240371, -0.0743286, -0.0269911, 0.967455)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.180722, 0.982129, 0.0155506, -0.0502125)
-bones/11/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(-0.548249, 0.38587, 0.504345, 0.54421)
-bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(-0.395783, -0.625567, 0.398086, 0.541803)
-bones/14/rotation = Quaternion(0.180519, -0.0979546, 0.0197805, 0.978482)
-bones/14/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(-0.0582456, 0.122909, -0.00387656, 0.9907)
-bones/16/rotation = Quaternion(-0.201509, 0.906105, 0.346647, 0.134919)
-bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.240371, 0.0743286, 0.0269911, 0.967455)
-bones/18/rotation = Quaternion(-0.180722, 0.982129, 0.0155506, 0.0502125)
-bones/18/scale = Vector3(1, 1, 1)
-bones/19/rotation = Quaternion(0.994955, 0.0504046, -0.0124343, 0.0858463)
-bones/19/scale = Vector3(1, 1, 0.999999)
-bones/20/rotation = Quaternion(-0.0223584, 0.0077429, 0.0174275, 0.999568)
-bones/22/rotation = Quaternion(0.994955, -0.0504046, 0.0124343, 0.0858463)
-bones/22/scale = Vector3(1, 1, 0.999999)
-bones/23/rotation = Quaternion(-0.0223584, -0.0077429, -0.0174275, 0.999568)
-bones/24/rotation = Quaternion(-0.570644, 0.0217085, -0.0246264, 0.820541)
-
-[node name="male_player" parent="man/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_cj3nm")
-
-[node name="male_player_001" parent="man/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_cndiu")
 
 [node name="Cube_008" parent="." index="24"]
 surface_material_override/0 = SubResource("ShaderMaterial_a8aed")

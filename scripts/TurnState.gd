@@ -34,7 +34,6 @@ func change_state(newState : String) :
 	logs.append(state)
 func reset():
 	state = "normal"
-	print(logs)
 	logs = []
 
 func check_state():

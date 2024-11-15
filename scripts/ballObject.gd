@@ -34,7 +34,6 @@ func spawnBall() -> void:
 	_ballCollisionShape = get_node("CollisionShape3D")
 	_ballRigidBody = get_node(".")
 	_ballRigidBody.set_position(get_ball_position())
-	print(get_ball_mass())
 	_ballRigidBody.set_mass(get_ball_mass()) 
 	_addMeshToScene(_ballMesh)
 
