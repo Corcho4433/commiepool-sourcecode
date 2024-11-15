@@ -1,15 +1,13 @@
 res://scenes/GameScene.tscn
-res://scripts/mainmenus.gd
 res://scripts/shaders/changecolor.gdshader
 res://resources/enviroment/enviroment.tres
 res://scripts/shaders/pixelate.gdshader
+res://scripts/mainmenus.gd
 res://scripts/shaders/Destruction.gdshader
 res://scripts/shaders/Bayer Dithering.gdshader
 res://scripts/shaders/outline.gdshader
-res://scenes/mainmenu.tscn
-res://scenes/habitacion_pool.tscn
+res://scripts/ballArrays.gd
+res://scripts/game_info.gd
+res://scripts/mains.gd
 res://scenes/objects/ball.tscn
 res://scripts/ballGrid.gd
-res://scripts/ballObject.gd
-res://scripts/TurnState.gd
-res://scripts/game_event.gd

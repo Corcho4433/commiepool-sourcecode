@@ -84,4 +84,3 @@ const Balls = {
 		"type": "Stripped"
 	}
 };
-

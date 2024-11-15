@@ -97,4 +97,3 @@ func _ball_scored(body):
 func turn_changed(_turn):
 	ballsScored = []
 	touchedBall = false
-

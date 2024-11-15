@@ -77,7 +77,7 @@ func firstTurn(_turn:int, _ballScored: BallObject):
 	toggle_display(true)
 
 func _process(_delta):
-	if text_frames >= 15:
+	if text_frames >= 5:
 		if deleting_text:
 			if current_text.length() > 0:
 				current_text = current_text.substr(0, current_text.length() - 1)

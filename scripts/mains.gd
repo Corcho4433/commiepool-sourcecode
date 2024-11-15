@@ -39,4 +39,3 @@ func _on_turn_score_ball(turn : int, ball : BallObject):
 	infoPlayer[turn]["Balls"].append(ball)
 	check_win(turn,ball.ballName)
 	
-
