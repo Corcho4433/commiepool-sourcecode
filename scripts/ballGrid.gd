@@ -19,8 +19,8 @@ var penalty : bool = false
 var old_turn : int = -1
 var text_to_show : String = ""
 var current_text : String = ""
-var text_count : int = 0
 var text_frames : int = 0
+var deleting_text : bool = false 
 
 func _ready():
 	GameEvent.on_ball_scored.connect(firstTurn)
@@ -28,13 +28,11 @@ func _ready():
 	GameEvent.penalty_commited.connect(activatePenaltyText)
 
 func activatePenaltyText():
-	text_to_show = "Bola en mano"
+	change_text("Bola en mano")
+	penalty = true
 	reset_typing()
 
 func reset_typing():
-	# Reset text variables to restart the typing effect
-	current_text = ""
-	text_count = 0
 	text_frames = 0
 	update_text()
 
@@ -51,8 +49,11 @@ func activateOutline(turn : int):
 		outlineP2.visible = true
 
 	if turn == old_turn:
-		text_to_show = "Turno Extra"
-	reset_typing()  # Reset text when turn changes
+		change_text("Turno Extra") 
+	elif penalty == false:
+		change_text("Turno Normal")
+	penalty = false
+	reset_typing() 
 	old_turn = turn
 
 func firstTurn(_turn:int, _ballScored: BallObject):
@@ -77,10 +78,19 @@ func firstTurn(_turn:int, _ballScored: BallObject):
 
 func _process(_delta):
 	if text_frames >= 15:
-		if current_text != text_to_show:
-			current_text += text_to_show[text_count]
-			text_count += 1
-			update_text()
+		if deleting_text:
+			if current_text.length() > 0:
+				current_text = current_text.substr(0, current_text.length() - 1)
+				update_text()
+			else:
+				
+				deleting_text = false
+		else:
+			# Typing the text
+			if current_text != text_to_show:
+				current_text += text_to_show[current_text.length()]
+				update_text()
+
 		text_frames = 0
 	text_frames += 1
 
@@ -111,3 +121,10 @@ func toggle_display(value : bool):
 	
 	for container in containersP2:
 		container.set_visible(value)
+
+func change_text(new_text: String):
+	if new_text != text_to_show:
+		text_to_show = new_text
+		deleting_text = true
+		text_frames = 0  
+		reset_typing()
