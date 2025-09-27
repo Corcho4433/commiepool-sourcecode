@@ -44,7 +44,7 @@ func _on_config_atras_pressed():
 
 
 func _on_clasico_pressed():
-	get_tree().change_scene_to_file("res://scenes/GameScene.tscn")
+	get_tree().change_scene_to_file("res://scenes/normalpool/GameScene.tscn")
 
 
 func _on_check_box_toggled(toggled_on):

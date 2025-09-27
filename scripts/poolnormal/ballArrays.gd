@@ -50,7 +50,7 @@ func GenerateBalls():
 		rows -= 1 
 		for row in range(rows): 
 			var new_position : Vector3 = Vector3(ofsetX + (row*dia) + (col * dia / 2), -0.105 , ofsetZ + (col*dia))
-			var newBallObject : PackedScene = load("res://scenes/objects/ball.tscn")
+			var newBallObject : PackedScene = load("res://scenes/normalpool/objects/ball.tscn")
 			var ballName : String = StartingArray[index]
 			var b = newBallObject.instantiate()
 			add_child(b)
@@ -97,4 +97,3 @@ func _ball_scored(body):
 func turn_changed(_turn):
 	ballsScored = []
 	touchedBall = false
-
